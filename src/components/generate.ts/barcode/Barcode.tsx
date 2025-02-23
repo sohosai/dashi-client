@@ -10,13 +10,17 @@ const Barcode: FC<Props> = (props) => {
     <div
       style={{
         display: 'inline-block',
-        margin: '67.90909px 0 0 23.66667px',
-        padding: '5px 10px 5px 10px',
+        margin: '58.6363636px 0 0 15px',
+        padding: '15px 15px 5px 15px',
         //BUG: https://github.com/niklasvh/html2canvas/issues/2739
         // backgroundColor: "white",
         height: '60px',
         width: '158px',
         border: '2px solid rgb(0, 0, 0)',
+        //borderTop: '2px solid rgb(0, 0, 0)',
+        //borderBottom: '2px solid rgb(0, 0, 0)',
+        //borderRight: '2px dashed rgb(107, 107, 107)',
+        //borderLeft: '2px dashed rgb(107, 107, 107)',
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -34,6 +38,7 @@ const Barcode: FC<Props> = (props) => {
 
       <p
         style={{
+          marginTop: '3px',
           margin: '0',
           padding: '0',
           textAlign: 'center',
