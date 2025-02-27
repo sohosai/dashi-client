@@ -19,14 +19,7 @@ const Home: FC = () => {
       <br />
       <Link to="/generate">Generate</Link>
       <br />
-      return{' '}
-      <button
-        onClick={() => {
-          throw new Error('This is your first error!');
-        }}
-      >
-        Break the world
-      </button>
+      <Link to="/trash">Trash History</Link>
       <br />
       <DepreiationCsvButton />
       <ItemCsvButton />

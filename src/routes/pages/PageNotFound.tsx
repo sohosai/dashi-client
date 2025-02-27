@@ -1,11 +1,8 @@
 import { FC } from 'react';
+import { PageNotFoundComponent } from '../../components';
 
 const PageNotFound: FC = () => {
-  return (
-    <div>
-      <h1>404 Page Not Found</h1>
-    </div>
-  );
+  return <PageNotFoundComponent />;
 };
 
 export default PageNotFound;

@@ -14,3 +14,5 @@ export { default as GenerateForm } from './generate.ts/GenerateForm';
 export { default as GenerateResult } from './generate.ts/GenerateResult';
 export { default as DepreiationCsvButton } from './csv/DepreiationCsvButton';
 export { default as ItemCsvButton } from './csv/ItemCsvButton';
+export { default as TrashItemResult } from './trash_item/TrashItemResult';
+export { default as PageNotFoundComponent } from './page_not_found/PageNotFoundComponent';
