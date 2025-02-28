@@ -12,6 +12,7 @@ export const useItemCsvConverter = (itemCsvResponse: ItemCsvResponse): ItemCsvLi
       usage: '',
       duration: '当日',
       required_quantity: 1,
+      note: '',
     };
   });
   return { items };
