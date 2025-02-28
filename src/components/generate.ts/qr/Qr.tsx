@@ -10,15 +10,15 @@ const Qr: FC<Props> = (props) => {
     <div
       style={{
         display: 'inline-block',
-        margin: '45px 0 0 23px',
-        padding: '10px 10px 0 10px',
+        margin: '38.25px 0 0 10px',
+        padding: '17.4285714px 17.4285714px 0 17.4285714px',
         //BUG: https://github.com/niklasvh/html2canvas/issues/2739
         // backgroundColor: "white",
         height: '147px',
         border: '2px solid rgb(0, 0, 0)',
       }}
     >
-      <QRCode size={100} value={props.visible_id} bgColor={'#FFFFFF'} fgColor={'#1EB8CB'} />
+      <QRCode size={100} value={props.visible_id} bgColor={'#FFFFFF'} fgColor={'#ED6D1F'} />
       <p
         style={{
           margin: '0',
