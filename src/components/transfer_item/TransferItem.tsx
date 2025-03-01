@@ -59,10 +59,7 @@ const TransferItemModal: FC<Props> = (props) => {
           <Loading />
         ) : (
           // fetch結果
-          <>
-            <button onClick={handleClose}>Close</button>
-            <TransferItemResult result={transferResult} />
-          </>
+          <TransferItemResult result={transferResult} />
         )}
       </ReactModal>
     </>
