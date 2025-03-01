@@ -1,21 +1,28 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { TrashItemsResponse } from '../../model/trashItemResponse';
 import { ErrorResult } from '..';
 import { ErrorResponse } from '../../model/errorResponse';
+import { useSortTrashItem } from '../../hooks/useSortTrashItem';
 
 type Props = {
   result: TrashItemsResponse | ErrorResponse;
 };
 
 const IndividualItemResult: FC<Props> = (props) => {
+  const [result, useResult] = useState<TrashItemsResponse | ErrorResponse>(props.result);
+  useEffect(() => {
+    if (!('code' in props.result && 'message' in props.result)) {
+      useResult(useSortTrashItem(props.result));
+    }
+  }, [props.result]);
   return (
     <>
-      {'code' in props.result && 'message' in props.result ? (
+      {'code' in result && 'message' in result ? (
         // fetchに失敗
-        <ErrorResult result={props.result} />
+        <ErrorResult result={result} />
       ) : (
         // fetch成功
-        props.result.trash_items.map((item, index) => (
+        result.trash_items.map((item, index) => (
           <div key={index}>
             <p>id: {item.id}</p>
             <p>item_id: {item.item_id}</p>
