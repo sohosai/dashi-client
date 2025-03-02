@@ -4,11 +4,11 @@ type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const RegisterConnectorModalButton: FC<Props> = (props) => {
+const RegisterColorModalButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
     props.setIsOpen(true);
   };
   return <button onClick={handleClick}>Register</button>;
 };
 
-export default RegisterConnectorModalButton;
+export default RegisterColorModalButton;

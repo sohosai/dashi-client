@@ -4,13 +4,13 @@ import ReactModal from 'react-modal';
 import { OkResponse } from '../../../model/okResponse';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { Pending } from '../../../model/pending';
-import RegisterConnectorModalButton from './RegisterConnectorModalButton';
-import RegisterConnectorForm from './RegisterConnectorForm';
-import RegisterConnectorResult from './RegisterConnectorResult';
+import RegisterColorModalButton from './RegisterColorModalButton';
+import RegisterColorForm from './RegisterColorForm';
+import RegisterColorResult from './RegisterColorResult';
 
 ReactModal.setAppElement('#root');
 
-const RegisterConnector: FC = () => {
+const RegisterColor: FC = () => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   // set register result
@@ -25,7 +25,7 @@ const RegisterConnector: FC = () => {
   };
   return (
     <>
-      <RegisterConnectorModalButton setIsOpen={handleOpen} />
+      <RegisterColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="Modal2"
@@ -48,18 +48,18 @@ const RegisterConnector: FC = () => {
           // 初期表示
           <>
             <button onClick={handleClose}>Close</button>
-            <RegisterConnectorForm setResult={setRegisterResult} />
+            <RegisterColorForm setResult={setRegisterResult} />
           </>
         ) : registerResult === 'pending' ? (
           // 処理中
           <Loading />
         ) : (
           // fetch結果
-          <RegisterConnectorResult result={registerResult} />
+          <RegisterColorResult result={registerResult} />
         )}
       </ReactModal>
     </>
   );
 };
 
-export default RegisterConnector;
+export default RegisterColor;

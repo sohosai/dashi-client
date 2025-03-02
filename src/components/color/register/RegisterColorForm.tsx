@@ -5,24 +5,24 @@ import { ErrorMessage } from '@hookform/error-message';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { OkResponse } from '../../../model/okResponse';
 import { Pending } from '../../../model/pending';
-import { registerConnectorSchema, RegisterConnectorSchemaType } from '../../../validation/registerConnector';
-import { useFetchRegisterConnector } from '../../../hooks/useFetchRegisterConnector';
+import { registerColorSchema, RegisterColorSchemaType } from '../../../validation/registerColor';
+import { useFetchRegisterColor } from '../../../hooks/useFetchRegisterColor';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
 
-const RegisterConnectorForm: FC<Props> = (props) => {
+const RegisterColorForm: FC<Props> = (props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterConnectorSchemaType>({
-    resolver: zodResolver(registerConnectorSchema),
+  } = useForm<RegisterColorSchemaType>({
+    resolver: zodResolver(registerColorSchema),
   });
-  const onSubmit: SubmitHandler<RegisterConnectorSchemaType> = async (formData) => {
+  const onSubmit: SubmitHandler<RegisterColorSchemaType> = async (formData) => {
     props.setResult('pending');
-    const result: ErrorResponse | OkResponse = await useFetchRegisterConnector(formData);
+    const result: ErrorResponse | OkResponse = await useFetchRegisterColor(formData);
     props.setResult(result);
   };
   return (
@@ -32,9 +32,14 @@ const RegisterConnectorForm: FC<Props> = (props) => {
       <br />
       <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
       <br />
+      <label htmlFor="hex_color_code">Hex color code: </label>
+      <input id="hex_color_code" type="color" {...register('hex_color_code')} />
+      <br />
+      <ErrorMessage errors={errors} name="hex_color_code" message={errors.name?.message} />
+      <br />
       <input type="submit" value="登録" />
     </form>
   );
 };
 
-export default RegisterConnectorForm;
+export default RegisterColorForm;

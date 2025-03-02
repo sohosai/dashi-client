@@ -4,13 +4,20 @@ import ReactModal from 'react-modal';
 import { OkResponse } from '../../../model/okResponse';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { Pending } from '../../../model/pending';
-import RegisterConnectorModalButton from './RegisterConnectorModalButton';
-import RegisterConnectorForm from './RegisterConnectorForm';
-import RegisterConnectorResult from './RegisterConnectorResult';
+import { Status } from '../../../model/status';
+import StatusColorButton from './StatusColorButton';
+import StatusColorModalButton from './StatusColorModalButton';
+import StatusColorResult from './StatusColorResult';
 
 ReactModal.setAppElement('#root');
 
-const RegisterConnector: FC = () => {
+type Props = {
+  id: number;
+  hex_color_code: string;
+  status: Status;
+};
+
+const StatusColor: FC<Props> = (props) => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   // set register result
@@ -23,9 +30,14 @@ const RegisterConnector: FC = () => {
     setIsOpen(false);
     setRegisterResult(null);
   };
+  const handleRedirect = (): void => {
+    setIsOpen(false);
+    setRegisterResult(null);
+    window.location.reload();
+  };
   return (
     <>
-      <RegisterConnectorModalButton setIsOpen={handleOpen} />
+      <StatusColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="Modal2"
@@ -47,19 +59,28 @@ const RegisterConnector: FC = () => {
         {registerResult === null ? (
           // 初期表示
           <>
-            <button onClick={handleClose}>Close</button>
-            <RegisterConnectorForm setResult={setRegisterResult} />
+            <p>本当にStatusを変更しますか?</p>
+            <button onClick={handleClose}>Cancel</button>
+            <StatusColorButton
+              id={props.id}
+              hex_color_code={props.hex_color_code}
+              status={props.status}
+              setResult={setRegisterResult}
+            />
           </>
         ) : registerResult === 'pending' ? (
           // 処理中
           <Loading />
         ) : (
           // fetch結果
-          <RegisterConnectorResult result={registerResult} />
+          <>
+            <button onClick={handleRedirect}>Close</button>
+            <StatusColorResult result={registerResult} />
+          </>
         )}
       </ReactModal>
     </>
   );
 };
 
-export default RegisterConnector;
+export default StatusColor;

@@ -23,6 +23,8 @@ const Home: FC = () => {
       <br />
       <Link to="/connector">Connector</Link>
       <br />
+      <Link to="/color">Color</Link>
+      <br />
       <DepreiationCsvButton />
       <ItemCsvButton />
       {keywords === '' ? (

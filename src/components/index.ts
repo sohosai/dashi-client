@@ -21,3 +21,9 @@ export { default as SearchConnectorResult } from './connector/search/SearchConne
 export { default as RegisterConnector } from './connector/register/RegisterConnector';
 export { default as AllConnectorsResult } from './connector/init/AllConnectors';
 export { default as StatusConnector } from './connector/status/StatusConnector';
+///
+export { default as SearchColorForm } from './color/search/SearchColorForm';
+export { default as SearchColorResult } from './color/search/SearchColorResult';
+export { default as RegisterColor } from './color/register/RegisterColor';
+export { default as AllColorsResult } from './color/init/AllColors';
+export { default as StatusColor } from './color/status/StatusColor';
