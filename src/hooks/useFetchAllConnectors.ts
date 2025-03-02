@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
+import { AllConnectorsResponse } from '../model/allConnectorsResponse';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
-import { TrashItemsResponse } from '../model/trashItemResponse';
 
-export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pending => {
-  const [result, setResult] = useState<TrashItemsResponse | ErrorResponse | Pending>('pending');
+export const useFetchAllConnectors = () => {
+  const [result, setResult] = useState<AllConnectorsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
-    const fetchData = async () => {
-      const data: TrashItemsResponse | ErrorResponse = await fetch(`http://localhost:5000/api/item/trash`, {
+    const fetchData = async (): Promise<void> => {
+      const data: AllConnectorsResponse | ErrorResponse = await fetch(`http://localhost:5000/api/connector`, {
         method: 'GET',
       })
         .then((res) => {
@@ -20,7 +20,7 @@ export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pendin
             } catch (e) {
               console.error(e);
               return {
-                code: 'trash-item/unknown-error',
+                code: 'all-connectors/unknown-error',
                 message: 'UnknownError: Something went wrong.',
               };
             }
@@ -29,7 +29,7 @@ export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pendin
         .catch((err) => {
           console.error(err);
           return {
-            code: 'itrash-item/unknown-error',
+            code: 'all-connectorsm/unknown-error',
             message: 'UnknownError: Something went wrong.',
           };
         });

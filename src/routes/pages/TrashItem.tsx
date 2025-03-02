@@ -7,11 +7,11 @@ import { useFetchTrashItem } from '../../hooks/useFetchTrashItem';
 
 const TrashItem: FC = () => {
   // get trash item result
-  const result: TrashItemsResponse | ErrorResponse | Pending | null = useFetchTrashItem();
+  const result: TrashItemsResponse | ErrorResponse | Pending = useFetchTrashItem();
   return (
     <>
       <h1>Trash Items</h1>
-      {result === null || result === 'pending' ? (
+      {result === 'pending' ? (
         // 処理中
         <Loading />
       ) : (

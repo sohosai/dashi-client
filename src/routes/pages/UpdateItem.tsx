@@ -12,7 +12,7 @@ const UpdateItem: FC = () => {
   const { id } = useParams<{ id: string }>();
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
   // get individual item result
-  const individualItem: IndividualItemResponse | ErrorResponse | Pending | null = useFetchIndividualItem(id);
+  const individualItem: IndividualItemResponse | ErrorResponse | Pending = useFetchIndividualItem(id);
   return (
     <>
       {typeof id === 'undefined' ? (
@@ -20,7 +20,7 @@ const UpdateItem: FC = () => {
         <h2>Unexpected Error</h2>
       ) : (
         <>
-          {individualItem === null || individualItem === 'pending' ? (
+          {individualItem === 'pending' ? (
             // 処理中
             <Loading />
           ) : 'code' in individualItem && 'message' in individualItem ? (
@@ -41,7 +41,7 @@ const UpdateItem: FC = () => {
                 <Loading />
               ) : (
                 // fetch結果
-                <UpdateItemResult result={result} />
+                <UpdateItemResult id={id} result={result} />
               )}
             </>
           )}

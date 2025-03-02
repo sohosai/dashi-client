@@ -9,7 +9,7 @@ import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 const IndividualItem: FC = () => {
   const { id } = useParams<{ id: string }>();
   // get individual item result
-  const result: IndividualItemResponse | ErrorResponse | Pending | null = useFetchIndividualItem(id);
+  const result: IndividualItemResponse | ErrorResponse | Pending = useFetchIndividualItem(id);
   return (
     <>
       {typeof id === 'undefined' ? (
@@ -17,7 +17,7 @@ const IndividualItem: FC = () => {
         <h2>Unexpected Error</h2>
       ) : (
         <>
-          {result === null || result === 'pending' ? (
+          {result === 'pending' ? (
             // 処理中
             <Loading />
           ) : 'code' in result && 'message' in result ? (

@@ -31,7 +31,7 @@ const TransferSearchItemForm: FC<Props> = (props) => {
   // update url
   const onSubmit: SubmitHandler<SearchItemSchemaType> = async (formData) => {
     setKeywords(formData.keywords);
-    const data: SearchItemsResponse | ErrorResponse | Pending | null = await useFetchSearchItemWithoutUseEffect(
+    const data: SearchItemsResponse | ErrorResponse | Pending = await useFetchSearchItemWithoutUseEffect(
       formData.keywords
     );
     setSearchResult(data);

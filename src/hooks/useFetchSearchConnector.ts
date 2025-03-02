@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
-import { SearchItemsResponse } from '../model/searchItemResponse';
+import { SearchConnectorsResponse } from '../model/searchConnectorResponse';
 
-export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsResponse | ErrorResponse | Pending => {
-  const [result, setResult] = useState<SearchItemsResponse | ErrorResponse | Pending>('pending');
+export const useFetchSearchConnector = (keywords: string): SearchConnectorsResponse | ErrorResponse | Pending => {
+  const [result, setResult] = useState<SearchConnectorsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
-        const data: SearchItemsResponse | ErrorResponse = await fetch(
-          `http://localhost:5000/api/item/search?keywords=${keywords}`,
+        const data: SearchConnectorsResponse | ErrorResponse = await fetch(
+          `http://localhost:5000/api/connector/search?keywords=${keywords}`,
           { method: 'GET' }
         )
           .then((res) => {
@@ -23,7 +23,7 @@ export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsRe
               } catch (e) {
                 console.error(e);
                 return {
-                  code: 'search-item/unknown-error',
+                  code: 'search-connector/unknown-error',
                   message: 'UnknownError: Something went wrong.',
                 };
               }
@@ -32,7 +32,7 @@ export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsRe
           .catch((e) => {
             console.error(e);
             return {
-              code: 'search-item/unknown-error',
+              code: 'search-connector/unknown-error',
               message: 'UnknownError: Something went wrong.',
             };
           });

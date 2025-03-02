@@ -11,7 +11,7 @@ const Home: FC = () => {
   const searchParams = new URLSearchParams(location.search);
   const keywords = searchParams.get('keywords') || '';
   // get search result
-  const result: SearchItemsResponse | ErrorResponse | Pending | null = useFetchSearchItemWithUseEffect(keywords);
+  const result: SearchItemsResponse | ErrorResponse | Pending = useFetchSearchItemWithUseEffect(keywords);
   return (
     <>
       <SearchItemForm keywords={keywords} />
@@ -21,12 +21,14 @@ const Home: FC = () => {
       <br />
       <Link to="/trash">Trash History</Link>
       <br />
+      <Link to="/connector">Connector</Link>
+      <br />
       <DepreiationCsvButton />
       <ItemCsvButton />
       {keywords === '' ? (
         // 検索欄が空
         <></>
-      ) : result === null || result === 'pending' ? (
+      ) : result === 'pending' ? (
         // 処理中
         <Loading />
       ) : (

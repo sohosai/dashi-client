@@ -16,3 +16,8 @@ export { default as DepreiationCsvButton } from './csv/DepreiationCsvButton';
 export { default as ItemCsvButton } from './csv/ItemCsvButton';
 export { default as TrashItemResult } from './trash_item/TrashItemResult';
 export { default as PageNotFoundComponent } from './page_not_found/PageNotFoundComponent';
+export { default as SearchConnectorForm } from './connector/search/SearchConnectorForm';
+export { default as SearchConnectorResult } from './connector/search/SearchConnectorResult';
+export { default as RegisterConnector } from './connector/register/RegisterConnector';
+export { default as AllConnectorsResult } from './connector/init/AllConnectors';
+export { default as StatusConnector } from './connector/status/StatusConnector';

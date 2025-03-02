@@ -3,7 +3,6 @@ import { Record } from './generateRequest';
 export type IndividualItemResponse = {
   id: number;
   visible_id: string;
-  parent_id: number;
   parent_visible_id: string;
   record: Record;
   name: string;

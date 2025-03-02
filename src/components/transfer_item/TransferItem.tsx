@@ -27,9 +27,14 @@ const TransferItemModal: FC<Props> = (props) => {
     setIsOpen(false);
     setTransferResult(null);
   };
+  const handleRedirect = (): void => {
+    setIsOpen(false);
+    setTransferResult(null);
+    window.location.reload();
+  };
   return (
     <>
-      <TransferItemModalButton modalIsOpen={modalIsOpen} setIsOpen={handleOpen} />
+      <TransferItemModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="Modal2"
@@ -59,7 +64,10 @@ const TransferItemModal: FC<Props> = (props) => {
           <Loading />
         ) : (
           // fetch結果
-          <TransferItemResult result={transferResult} />
+          <>
+            <button onClick={handleRedirect}>Close</button>
+            <TransferItemResult result={transferResult} />
+          </>
         )}
       </ReactModal>
     </>

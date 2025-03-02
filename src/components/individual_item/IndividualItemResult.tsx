@@ -11,7 +11,6 @@ const IndividualItemResult: FC<Props> = (props) => {
       <h2>name: {props.result.name}</h2>
       <p>id: {props.result.id}</p>
       <p>visible_id: {props.result.visible_id}</p>
-      <p>parent_id: {props.result.parent_id}</p>
       <p>parent_visible_id: {props.result.parent_visible_id}</p>
       <p>record: {props.result.record}</p>
       <p>product_number: {props.result.product_number}</p>

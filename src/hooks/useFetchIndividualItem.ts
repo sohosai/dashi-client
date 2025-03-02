@@ -3,10 +3,8 @@ import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { IndividualItemResponse } from '../model/individualItemResponse';
 
-export const useFetchIndividualItem = (
-  id: string | undefined
-): IndividualItemResponse | ErrorResponse | Pending | null => {
-  const [result, setResult] = useState<IndividualItemResponse | ErrorResponse | Pending | null>(null);
+export const useFetchIndividualItem = (id: string | undefined): IndividualItemResponse | ErrorResponse | Pending => {
+  const [result, setResult] = useState<IndividualItemResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
       if (id !== undefined && parseInt(id) >= 1) {
@@ -32,7 +30,7 @@ export const useFetchIndividualItem = (
           .catch((err) => {
             console.error(err);
             return {
-              code: 'inidividual-item/unknown-error',
+              code: 'individual-item/unknown-error',
               message: 'UnknownError: Something went wrong.',
             };
           });

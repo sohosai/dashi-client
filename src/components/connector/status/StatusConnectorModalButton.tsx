@@ -4,11 +4,11 @@ type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const TransferItemModalButton: FC<Props> = (props) => {
+const StatusConnectorModalButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
     props.setIsOpen(true);
   };
-  return <button onClick={handleClick}>Move</button>;
+  return <button onClick={handleClick}>Status</button>;
 };
 
-export default TransferItemModalButton;
+export default StatusConnectorModalButton;

@@ -5,3 +5,4 @@ export { default as RegisterItem } from './pages/RegisterItem';
 export { default as UpdateItem } from './pages/UpdateItem';
 export { default as Generate } from './pages/Generate';
 export { default as TrashItem } from './pages/TrashItem';
+export { default as Connector } from './pages/Connector';
