@@ -1,17 +1,17 @@
-import { SubmitHandler, useForm, useFieldArray, Controller } from 'react-hook-form';
+import { SubmitHandler, useForm, useFieldArray } from 'react-hook-form';
 import { registerItemSchema, RegisterItemSchemaType } from '../../validation/registerItem';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { useFetchRegisterItem } from '../../hooks/useFetchRegisterItem';
 import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+// import TextField from '@mui/material/TextField';
+// import Autocomplete from '@mui/material/Autocomplete';
 import { AllConnectorsResponse } from '../../model/allConnectorsResponse';
 import { AllColorsResponse } from '../../model/allColorsResponse';
-import { Status } from '../../model/status';
+// import { Status } from '../../model/status';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
@@ -19,43 +19,43 @@ type Props = {
   colors: AllColorsResponse;
 };
 
-type ConnectorType = {
-  id: number;
-  label: string;
-  status: Status;
-};
+// type ConnectorType = {
+//   id: number;
+//   label: string;
+//   status: Status;
+// };
 
-type ColorType = {
-  id: number;
-  label: string;
-  hex_color_code: string;
-  status: Status;
-};
+// type ColorType = {
+//   id: number;
+//   label: string;
+//   hex_color_code: string;
+//   status: Status;
+// };
 
 const RegisterItemForm: FC<Props> = (props) => {
-  const [connectorList, setConnectorList] = useState<ConnectorType[]>([]);
-  const [colorList, setColorList] = useState<ColorType[]>([]);
-  useEffect(() => {
-    const convertedConnectors = props.connectors.all_connectors.map((connector) => {
-      return {
-        id: connector.id,
-        label: connector.name,
-        status: connector.status,
-      };
-    });
-    const convertedColors = props.colors.all_colors.map((color) => {
-      return {
-        id: color.id,
-        label: color.name,
-        hex_color_code: color.hex_color_code,
-        status: color.status,
-      };
-    });
-    setConnectorList(convertedConnectors);
-    setColorList(convertedColors);
-    console.log('convertedConnectors:', convertedConnectors);
-    console.log('convertedColors:', convertedColors);
-  }, []);
+  // const [connectorList, setConnectorList] = useState<ConnectorType[]>([]);
+  // const [colorList, setColorList] = useState<ColorType[]>([]);
+  // useEffect(() => {
+  //   const convertedConnectors = props.connectors.all_connectors.map((connector) => {
+  //     return {
+  //       id: connector.id,
+  //       label: connector.name,
+  //       status: connector.status,
+  //     };
+  //   });
+  //   const convertedColors = props.colors.all_colors.map((color) => {
+  //     return {
+  //       id: color.id,
+  //       label: color.name,
+  //       hex_color_code: color.hex_color_code,
+  //       status: color.status,
+  //     };
+  //   });
+  //   setConnectorList(convertedConnectors);
+  //   setColorList(convertedColors);
+  //   console.log('convertedConnectors:', convertedConnectors);
+  //   console.log('convertedColors:', convertedColors);
+  // }, []);
   const {
     register,
     handleSubmit,
@@ -66,9 +66,9 @@ const RegisterItemForm: FC<Props> = (props) => {
   });
   const onSubmit: SubmitHandler<RegisterItemSchemaType> = async (formData) => {
     console.table(formData);
-    // props.setResult('pending');
-    // const result: ErrorResponse | OkResponse = await useFetchRegisterItem(formData);
-    // props.setResult(result);
+    props.setResult('pending');
+    const result: ErrorResponse | OkResponse = await useFetchRegisterItem(formData);
+    props.setResult(result);
   };
   const connectorArray = useFieldArray({
     name: 'connector',
@@ -127,32 +127,32 @@ const RegisterItemForm: FC<Props> = (props) => {
       <br />
       <label htmlFor="connector">Connector: </label>
       {connectorArray.fields.map((field, index: number) => (
-        <div key={field.id}>
-          <Controller
-            name="connector"
-            control={control}
-            render={() => (
-              <Autocomplete
-                id="connector"
-                options={connectorList}
-                getOptionLabel={(option) => option.label}
-                style={{ width: 300 }}
-                renderInput={(params) => <TextField {...params} label="Connector" variant="outlined" />}
-              />
-            )}
-          />
-          {index >= 0 && <input type="submit" value="✕" onClick={() => connectorArray.remove(index)} />}
-        </div>
         // <div key={field.id}>
-        //   <label htmlFor="connector">{index}</label>
-        //   <select id="connector" {...register(`connector.${index}.connector` as const)}>
-        //     <option value="USB">USB</option>
-        //     <option value="HDMI">HDMI</option>
-        //     <option value="VGA">VGA</option>
-        //     <option value="DVI">DVI</option>
-        //   </select>
+        //   <Controller
+        //     name="connector"
+        //     control={control}
+        //     render={() => (
+        //       <Autocomplete
+        //         id="connector"
+        //         options={connectorList}
+        //         getOptionLabel={(option) => option.label}
+        //         style={{ width: 300 }}
+        //         renderInput={(params) => <TextField {...params} label="Connector" variant="outlined" />}
+        //       />
+        //     )}
+        //   />
         //   {index >= 0 && <input type="submit" value="✕" onClick={() => connectorArray.remove(index)} />}
         // </div>
+        <div key={field.id}>
+          <label htmlFor="connector">{index}</label>
+          <select id="connector" {...register(`connector.${index}.connector` as const)}>
+            <option value="USB">USB</option>
+            <option value="HDMI">HDMI</option>
+            <option value="VGA">VGA</option>
+            <option value="DVI">DVI</option>
+          </select>
+          {index >= 0 && <input type="submit" value="✕" onClick={() => connectorArray.remove(index)} />}
+        </div>
       ))}
       <br />
       <ErrorMessage errors={errors} name="connector" message={errors.connector?.message} />
@@ -161,32 +161,32 @@ const RegisterItemForm: FC<Props> = (props) => {
       <br />
       <label htmlFor="color">Color: </label>
       {colorArray.fields.map((field, index: number) => (
-        <div key={field.id}>
-          <Autocomplete
-            id="color"
-            options={colorList}
-            getOptionLabel={(option: ColorType) => option.label}
-            style={{ width: 300 }}
-            renderInput={(params) => <TextField {...params} label="Color" variant="outlined" />}
-          />
-          {index >= 0 && <input type="submit" value="✕" onClick={() => connectorArray.remove(index)} />}
-        </div>
         // <div key={field.id}>
-        //   <label htmlFor="color">{index}</label>
-        //   <select id="color" {...register(`color.${index}.color`)}>
-        //     <option value="Red">Red</option>
-        //     <option value="Blue">Blue</option>
-        //     <option value="Green">Green</option>
-        //     <option value="Yellow">Yellow</option>
-        //     <option value="Purple">Purple</option>
-        //     <option value="Black">Black</option>
-        //     <option value="White">White</option>
-        //     <option value="Gray">Gray</option>
-        //     <option value="Brown">Brown</option>
-        //     <option value="Pink">Pink</option>
-        //   </select>
-        //   {index >= 0 && <input type="submit" value="✕" onClick={() => colorArray.remove(index)} />}
+        //   <Autocomplete
+        //     id="color"
+        //     options={colorList}
+        //     getOptionLabel={(option: ColorType) => option.label}
+        //     style={{ width: 300 }}
+        //     renderInput={(params) => <TextField {...params} label="Color" variant="outlined" />}
+        //   />
+        //   {index >= 0 && <input type="submit" value="✕" onClick={() => connectorArray.remove(index)} />}
         // </div>
+        <div key={field.id}>
+          <label htmlFor="color">{index}</label>
+          <select id="color" {...register(`color.${index}.color`)}>
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Purple">Purple</option>
+            <option value="Black">Black</option>
+            <option value="White">White</option>
+            <option value="Gray">Gray</option>
+            <option value="Brown">Brown</option>
+            <option value="Pink">Pink</option>
+          </select>
+          {index >= 0 && <input type="submit" value="✕" onClick={() => colorArray.remove(index)} />}
+        </div>
       ))}
       <br />
       <ErrorMessage errors={errors} name="color" message={errors.color?.message} />
