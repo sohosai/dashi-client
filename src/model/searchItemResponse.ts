@@ -16,6 +16,11 @@ export type SearchItemResponse = {
   color: string;
   created_at: string;
   updated_at: string;
+  recipient: string;
+  rental_description: string;
+  latest_rent_at: string | null;
+  scheduled_replace_at: string | null;
+  latest_replace_at: string | null;
 };
 
 export type SearchItemsResponse = {

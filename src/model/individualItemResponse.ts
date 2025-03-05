@@ -3,6 +3,7 @@ import { Record } from './generateRequest';
 export type IndividualItemResponse = {
   id: number;
   visible_id: string;
+  parent_id: number;
   parent_visible_id: string;
   record: Record;
   name: string;
@@ -17,4 +18,9 @@ export type IndividualItemResponse = {
   color: string;
   created_at: string;
   updated_at: string;
+  recipient: string;
+  rental_description: string;
+  latest_rent_at: string | null;
+  scheduled_replace_at: string | null;
+  latest_replace_at: string | null;
 };
