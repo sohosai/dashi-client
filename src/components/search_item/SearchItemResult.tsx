@@ -15,31 +15,18 @@ const SearchItemResult: FC<Props> = (props) => {
         <ErrorResult result={props.result} />
       ) : (
         <>
-          {props.result.search_items.map((item: SearchItemResponse, index: number) =>
-            item.id === 1 ? (
-              // 筑波大学のレンタルを拒否
-              <div key={index}>
-                <h2>{item.name}</h2>
-                <p>{item.id}</p>
-                <p>{item.visible_id}</p>
-                <p>{item.connector.join(',')}</p>
-                <p>{item.color}</p>
-                <p>レンタル不可</p>
-                <Link to={`/item/${item.id}`}>詳細</Link>
-              </div>
-            ) : (
-              // それ以外
-              <div key={index}>
-                <h2>{item.name}</h2>
-                <p>{item.id}</p>
-                <p>{item.visible_id}</p>
-                <p>{item.connector.join(',')}</p>
-                <p>{item.color}</p>
-                <p>{item.is_rent ? 'レンタル不可' : 'レンタル可'}</p>
-                <Link to={`/item/${item.id}`}>詳細</Link>
-              </div>
-            )
-          )}
+          {props.result.search_items.map((item: SearchItemResponse, index: number) => (
+            // それ以外
+            <div key={index}>
+              <h2>{item.name}</h2>
+              <p>{item.id}</p>
+              <p>{item.visible_id}</p>
+              <p>{item.connector.join(',')}</p>
+              <p>{item.color}</p>
+              <p>{item.is_rent ? 'レンタル不可' : 'レンタル可'}</p>
+              <Link to={`/item/${item.id}`}>詳細</Link>
+            </div>
+          ))}
         </>
       )}
     </>

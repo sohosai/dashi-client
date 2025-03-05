@@ -3,7 +3,7 @@ import { Status } from '../../../model/status';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { OkResponse } from '../../../model/okResponse';
 import { Pending } from '../../../model/pending';
-import { useFetchStatusColor } from '../../../hooks/useFetchStatusColor';
+import { useFetchUpdateColor } from '../../../hooks/useFetchUpdateColor';
 
 type Props = {
   id: number;
@@ -15,7 +15,7 @@ type Props = {
 const StatusColorButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
     props.setResult('pending');
-    const result: OkResponse | ErrorResponse = await useFetchStatusColor(props.id, props.hex_color_code, props.status);
+    const result: OkResponse | ErrorResponse = await useFetchUpdateColor(props.id, props.hex_color_code, props.status);
     props.setResult(result);
   };
 

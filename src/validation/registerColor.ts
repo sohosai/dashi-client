@@ -9,7 +9,7 @@ const registerColorSchema = z.object({
     }),
   hex_color_code: z
     .string()
-    .length(7, { message: 'Hex Color Codeの形式に合っていません。' })
+    .length(9, { message: 'Hex Color Codeの形式に合っていません。' })
     .regex(/^#/, { message: 'Hex Color Codeの形式に合っていません。' }),
 });
 

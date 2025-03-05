@@ -3,7 +3,7 @@ import { OkResponse } from '../model/okResponse';
 import { Status } from '../model/status';
 import { StatusColorRequest } from '../model/statusColorRequest';
 
-export const useFetchStatusColor = async (id: number, hex_color_code: string, status: Status) => {
+export const useFetchUpdateColor = async (id: number, hex_color_code: string, status: Status) => {
   // reverse status
   status = status === 'Active' ? 'Archive' : 'Active';
   const requestData: StatusColorRequest = {

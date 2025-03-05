@@ -23,6 +23,11 @@ const RegisterConnector: FC = () => {
     setIsOpen(false);
     setRegisterResult(null);
   };
+  const handleRedirect = (): void => {
+    setIsOpen(false);
+    setRegisterResult(null);
+    window.location.reload();
+  };
   return (
     <>
       <RegisterConnectorModalButton setIsOpen={handleOpen} />
@@ -55,7 +60,10 @@ const RegisterConnector: FC = () => {
           <Loading />
         ) : (
           // fetch結果
-          <RegisterConnectorResult result={registerResult} />
+          <>
+            <button onClick={handleRedirect}>Close</button>
+            <RegisterConnectorResult result={registerResult} />
+          </>
         )}
       </ReactModal>
     </>

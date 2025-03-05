@@ -4,13 +4,20 @@ import ReactModal from 'react-modal';
 import { OkResponse } from '../../../model/okResponse';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { Pending } from '../../../model/pending';
-import RegisterColorModalButton from './RegisterColorModalButton';
-import RegisterColorForm from './RegisterColorForm';
-import RegisterColorResult from './RegisterColorResult';
+import { Status } from '../../../model/status';
+import HexColorModalButton from './HexColorModalButton';
+import HexColorResult from './HexColorResult';
+import HexColorForm from './HexColorForm';
 
 ReactModal.setAppElement('#root');
 
-const RegisterColor: FC = () => {
+type Props = {
+  id: number;
+  hex_color_code: string;
+  status: Status;
+};
+
+const HexColor: FC<Props> = (props) => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
   // set register result
@@ -30,7 +37,7 @@ const RegisterColor: FC = () => {
   };
   return (
     <>
-      <RegisterColorModalButton setIsOpen={handleOpen} />
+      <HexColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="Modal2"
@@ -53,7 +60,13 @@ const RegisterColor: FC = () => {
           // 初期表示
           <>
             <button onClick={handleClose}>Close</button>
-            <RegisterColorForm setResult={setRegisterResult} />
+
+            <HexColorForm
+              id={props.id}
+              hex_color_code={props.hex_color_code}
+              status={props.status}
+              setResult={setRegisterResult}
+            />
           </>
         ) : registerResult === 'pending' ? (
           // 処理中
@@ -62,7 +75,7 @@ const RegisterColor: FC = () => {
           // fetch結果
           <>
             <button onClick={handleRedirect}>Close</button>
-            <RegisterColorResult result={registerResult} />
+            <HexColorResult result={registerResult} />
           </>
         )}
       </ReactModal>
@@ -70,4 +83,4 @@ const RegisterColor: FC = () => {
   );
 };
 
-export default RegisterColor;
+export default HexColor;

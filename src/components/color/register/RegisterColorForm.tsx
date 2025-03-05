@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
@@ -7,6 +7,7 @@ import { OkResponse } from '../../../model/okResponse';
 import { Pending } from '../../../model/pending';
 import { registerColorSchema, RegisterColorSchemaType } from '../../../validation/registerColor';
 import { useFetchRegisterColor } from '../../../hooks/useFetchRegisterColor';
+import { MuiColorInput } from 'mui-color-input';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
@@ -17,8 +18,13 @@ const RegisterColorForm: FC<Props> = (props) => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm<RegisterColorSchemaType>({
     resolver: zodResolver(registerColorSchema),
+    defaultValues: {
+      name: '',
+      hex_color_code: '',
+    },
   });
   const onSubmit: SubmitHandler<RegisterColorSchemaType> = async (formData) => {
     props.setResult('pending');
@@ -33,9 +39,13 @@ const RegisterColorForm: FC<Props> = (props) => {
       <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
       <br />
       <label htmlFor="hex_color_code">Hex color code: </label>
-      <input id="hex_color_code" type="color" {...register('hex_color_code')} />
+      <Controller
+        name="hex_color_code"
+        control={control}
+        render={({ field }) => <MuiColorInput {...field} style={{}} format="hex8" isAlphaHidden={true} />}
+      />
       <br />
-      <ErrorMessage errors={errors} name="hex_color_code" message={errors.name?.message} />
+      <ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} />
       <br />
       <input type="submit" value="登録" />
     </form>

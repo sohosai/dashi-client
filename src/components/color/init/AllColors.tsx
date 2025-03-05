@@ -5,6 +5,7 @@ import { ErrorResult, Loading } from '../..';
 import { AllColorsResponse } from '../../../model/allColorsResponse';
 import { ColorResponse } from '../../../model/colorResponse';
 import StatusColor from '../status/StatusColor';
+import HexColor from '../hex/HexColor';
 
 type Props = {
   result: AllColorsResponse | ErrorResponse | Pending;
@@ -27,6 +28,7 @@ const AllColors: FC<Props> = (props) => {
               <p>{color.id}</p>
               <p>{color.status}</p>
               <p>{color.hex_color_code}</p>
+              <HexColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
               <StatusColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
             </div>
           ))}

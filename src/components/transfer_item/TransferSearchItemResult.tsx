@@ -28,31 +28,18 @@ const TransferSearchItemResult: FC<Props> = (props) => {
       ) : (
         // fetch成功 (SearchItemについて)
         <>
-          {props.result.search_items.map((item: SearchItemResponse, index: number) =>
-            item.id === 1 ? (
-              // 筑波大学のレンタルを拒否
-              <div key={index}>
-                <h2>{item.name}</h2>
-                <p>{item.id}</p>
-                <p>{item.visible_id}</p>
-                <p>{item.connector.join(',')}</p>
-                <p>{item.color}</p>
-                <p>レンタル不可</p>
-                <TransferItemButton id={props.id} parent_id={item.id} setResult={props.setTransferResult} />
-              </div>
-            ) : (
-              // それ以外
-              <div key={index}>
-                <h2>{item.name}</h2>
-                <p>{item.id}</p>
-                <p>{item.visible_id}</p>
-                <p>{item.connector.join(',')}</p>
-                <p>{item.color}</p>
-                <p>{item.is_rent ? 'レンタル不可' : 'レンタル可'}</p>
-                <TransferItemButton id={props.id} parent_id={item.id} setResult={props.setTransferResult} />
-              </div>
-            )
-          )}
+          {props.result.search_items.map((item: SearchItemResponse, index: number) => (
+            // それ以外
+            <div key={index}>
+              <h2>{item.name}</h2>
+              <p>{item.id}</p>
+              <p>{item.visible_id}</p>
+              <p>{item.connector.join(',')}</p>
+              <p>{item.color}</p>
+              <p>{item.is_rent ? 'レンタル不可' : 'レンタル可'}</p>
+              <TransferItemButton id={props.id} parent_id={item.id} setResult={props.setTransferResult} />
+            </div>
+          ))}
         </>
       )}
     </>
