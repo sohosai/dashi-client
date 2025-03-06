@@ -5,7 +5,7 @@ import { OkResponse } from '../../../model/okResponse';
 import { Pending } from '../../../model/pending';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { hexColorSchema, HexColorSchemaType } from '../../../validation/HexColor';
+import { hexColorSchema, HexColorSchemaType } from '../../../validation/hexColor';
 import { useFetchUpdateColor } from '../../../hooks/useFetchUpdateColor';
 import { MuiColorInput } from 'mui-color-input';
 import { ErrorMessage } from '@hookform/error-message';
