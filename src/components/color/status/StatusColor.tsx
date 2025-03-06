@@ -40,7 +40,7 @@ const StatusColor: FC<Props> = (props) => {
       <StatusColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Modal2"
+        contentLabel="StatusColorModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',

@@ -54,7 +54,7 @@ const DepreiationCsvButton: FC = () => {
       ) : (
         <ReactModal
           isOpen={modalIsOpen}
-          contentLabel="Modal2"
+          contentLabel="DepreiationCsvModal"
           style={{
             overlay: {
               backgroundColor: 'rgba(0, 0, 0, 0.5)',

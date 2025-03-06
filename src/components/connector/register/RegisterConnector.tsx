@@ -33,7 +33,7 @@ const RegisterConnector: FC = () => {
       <RegisterConnectorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Modal2"
+        contentLabel="RegisterConnectorModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',

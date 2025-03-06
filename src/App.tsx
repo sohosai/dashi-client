@@ -8,8 +8,10 @@ import {
   IndividualItem,
   PageNotFound,
   RegisterItem,
+  RentRental,
   TrashItem,
   UpdateItem,
+  UpdateRental,
 } from './routes';
 
 const App: FC = () => {
@@ -24,6 +26,8 @@ const App: FC = () => {
         <Route path="/generate" element={<Generate />} />
         <Route path="/connector" element={<Connector />} />
         <Route path="/color" element={<Color />} />
+        <Route path="/rental/:id/rent" element={<RentRental />} />
+        <Route path="/rental/:id/update" element={<UpdateRental />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

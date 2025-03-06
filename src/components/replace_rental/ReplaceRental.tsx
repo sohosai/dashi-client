@@ -4,8 +4,8 @@ import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
 import { Loading } from '..';
 import ReactModal from 'react-modal';
-import DeleteItemButton from './DeleteItemButton';
-import DeleteItemResult from './DeleteItemResult';
+import ReplaceRentalButton from './ReplaceRentalButton';
+import ReplaceRentalResult from './ReplaceRentalResult';
 
 type Props = {
   id: string;
@@ -13,17 +13,22 @@ type Props = {
 
 ReactModal.setAppElement('#root');
 
-const DeleteItem: FC<Props> = (props) => {
+const ReplaceRental: FC<Props> = (props) => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  // set delete result
+  // set replace result
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
+  const handleRedirect = (): void => {
+    setIsOpen(false);
+    setResult(null);
+    window.location.reload();
+  };
   return (
     <>
-      <DeleteItemButton id={props.id} setIsOpen={setIsOpen} setResult={setResult} />
+      <ReplaceRentalButton id={props.id} setIsOpen={setIsOpen} setResult={setResult} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="DeleteItemModal"
+        contentLabel="ReplaceRentalModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -48,11 +53,14 @@ const DeleteItem: FC<Props> = (props) => {
           <Loading />
         ) : (
           // fetch結果
-          <DeleteItemResult result={result} />
+          <>
+            <button onClick={handleRedirect}>Close</button>
+            <ReplaceRentalResult result={result} />
+          </>
         )}
       </ReactModal>
     </>
   );
 };
 
-export default DeleteItem;
+export default ReplaceRental;

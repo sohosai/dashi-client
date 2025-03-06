@@ -40,7 +40,7 @@ const HexColor: FC<Props> = (props) => {
       <HexColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Modal2"
+        contentLabel="HexColorModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',

@@ -37,7 +37,7 @@ const TransferItemModal: FC<Props> = (props) => {
       <TransferItemModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Modal2"
+        contentLabel="TransferItemModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',

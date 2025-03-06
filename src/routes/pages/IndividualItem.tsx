@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { DeleteItem, ErrorResult, IndividualItemResult, Loading, TransferItem } from '../../components';
+import { DeleteItem, ErrorResult, IndividualItemResult, Loading, ReplaceRental, TransferItem } from '../../components';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { Pending } from '../../model/pending';
 import { ErrorResponse } from '../../model/errorResponse';
@@ -26,11 +26,24 @@ const IndividualItem: FC = () => {
           ) : (
             // fetch成功
             <>
-              <Link to={`/item/${id}/update`}>更新リンク</Link>
               <IndividualItemResult result={result} />
+              {/*Update*/}
+              <Link to={`/item/${id}/update`}>更新リンク</Link>
+              <br />
+              {/*Rental*/}
+              {result.is_rent ? (
+                <>
+                  <Link to={`/rental/${id}/update`}>貸し出し情報の更新</Link>
+                  <ReplaceRental id={id} />
+                </>
+              ) : (
+                <Link to={`/rental/${id}/rent`}>貸し出し</Link>
+              )}
+              <br />
               {/*Transfer*/}
               {/* TODO: root itemの処理を追加 */}
               <TransferItem id={id} />
+              <br />
               {/*Delete*/}
               {/* TODO: root itemの処理を追加 */}
               <DeleteItem id={id} />

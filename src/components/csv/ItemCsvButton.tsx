@@ -57,7 +57,7 @@ const ItemCsvButton: FC = () => {
       ) : (
         <ReactModal
           isOpen={modalIsOpen}
-          contentLabel="Modal2"
+          contentLabel="ItenCsvModal"
           style={{
             overlay: {
               backgroundColor: 'rgba(0, 0, 0, 0.5)',
