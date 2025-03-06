@@ -39,7 +39,7 @@ const StatusConnector: FC<Props> = (props) => {
       <StatusConnectorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        contentLabel="Modal2"
+        contentLabel="StatusConnectorModal"
         style={{
           overlay: {
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
