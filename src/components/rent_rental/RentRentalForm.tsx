@@ -1,12 +1,12 @@
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
 import { rentalSchema, RentalSchemaType } from '../../validation/rental';
-import { LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
+import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { useFetchRentRental } from '../../hooks/useFetchRentRental';
@@ -17,6 +17,17 @@ type Props = {
 };
 
 const RentRentalForm: FC<Props> = (props) => {
+  const [cleared, setCleared] = useState<boolean>(false);
+  useEffect(() => {
+    if (cleared) {
+      const timeout = setTimeout(() => {
+        setCleared(false);
+      }, 10);
+
+      return () => clearTimeout(timeout);
+    }
+    return () => {};
+  }, [cleared]);
   const {
     register,
     handleSubmit,
@@ -49,7 +60,7 @@ const RentRentalForm: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
-            <MobileDatePicker
+            {/* <MobileDatePicker
               label="scheduled_replace_at"
               onChange={(value) =>
                 field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T]HH:mm:ss[Z]'))
@@ -58,6 +69,18 @@ const RentRentalForm: FC<Props> = (props) => {
               slotProps={{
                 calendarHeader: { format: 'YYYY年MM月' },
                 toolbar: { toolbarFormat: 'MM月DD日', toolbarPlaceholder: '' },
+                field: { clearable: true, onClear: () => setCleared(true) },
+              }}
+            /> */}
+            <DesktopDatePicker
+              label="scheduled_replace_at"
+              onChange={(value) =>
+                field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T]HH:mm:ss[Z]'))
+              }
+              format="YYYY/MM/DD"
+              slotProps={{
+                calendarHeader: { format: 'YYYY年MM月' },
+                field: { clearable: true, onClear: () => setCleared(true) },
               }}
             />
           </LocalizationProvider>

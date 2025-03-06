@@ -1,6 +1,6 @@
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Dispatch, FC, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
@@ -8,10 +8,9 @@ import { Pending } from '../../model/pending';
 import { rentalSchema, RentalSchemaType } from '../../validation/rental';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { useFetchUpdateRental } from '../../hooks/useFetchUpdateRental';
-import { LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
+import { DesktopDatePicker, LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { IndividualItem } from '../../routes';
 
 type Props = {
   individualItem: IndividualItemResponse;
@@ -19,6 +18,17 @@ type Props = {
 };
 
 const UpdateRentalForm: FC<Props> = (props) => {
+  const [cleared, setCleared] = useState<boolean>(false);
+  useEffect(() => {
+    if (cleared) {
+      const timeout = setTimeout(() => {
+        setCleared(false);
+      }, 10);
+
+      return () => clearTimeout(timeout);
+    }
+    return () => {};
+  }, [cleared]);
   const {
     register,
     handleSubmit,
@@ -61,7 +71,7 @@ const UpdateRentalForm: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
-            <MobileDatePicker
+            {/* <MobileDatePicker
               label="scheduled_replace_at"
               defaultValue={field.value === '' ? null : dayjs(field.value)}
               onChange={(value) => field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T00:00:00Z]'))}
@@ -69,6 +79,16 @@ const UpdateRentalForm: FC<Props> = (props) => {
               slotProps={{
                 calendarHeader: { format: 'YYYY年MM月' },
                 toolbar: { toolbarFormat: 'MM月DD日', toolbarPlaceholder: '' },
+              }}
+            /> */}
+            <DesktopDatePicker
+              label="scheduled_replace_at"
+              defaultValue={field.value === '' ? null : dayjs(field.value)}
+              onChange={(value) => field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T00:00:00Z]'))}
+              format="YYYY/MM/DD"
+              slotProps={{
+                calendarHeader: { format: 'YYYY年MM月' },
+                field: { clearable: true, onClear: () => setCleared(true) },
               }}
             />
           </LocalizationProvider>
