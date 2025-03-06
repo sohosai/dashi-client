@@ -8,7 +8,7 @@ import { Pending } from '../../model/pending';
 import { rentalSchema, RentalSchemaType } from '../../validation/rental';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { useFetchUpdateRental } from '../../hooks/useFetchUpdateRental';
-import { DesktopDatePicker, LocalizationProvider, MobileDatePicker } from '@mui/x-date-pickers';
+import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
@@ -71,16 +71,6 @@ const UpdateRentalForm: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
-            {/* <MobileDatePicker
-              label="scheduled_replace_at"
-              defaultValue={field.value === '' ? null : dayjs(field.value)}
-              onChange={(value) => field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T00:00:00Z]'))}
-              format="YYYY/MM/DD"
-              slotProps={{
-                calendarHeader: { format: 'YYYY年MM月' },
-                toolbar: { toolbarFormat: 'MM月DD日', toolbarPlaceholder: '' },
-              }}
-            /> */}
             <DesktopDatePicker
               label="scheduled_replace_at"
               defaultValue={field.value === '' ? null : dayjs(field.value)}

@@ -60,18 +60,6 @@ const RentRentalForm: FC<Props> = (props) => {
         control={control}
         render={({ field }) => (
           <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
-            {/* <MobileDatePicker
-              label="scheduled_replace_at"
-              onChange={(value) =>
-                field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T]HH:mm:ss[Z]'))
-              }
-              format="YYYY/MM/DD"
-              slotProps={{
-                calendarHeader: { format: 'YYYY年MM月' },
-                toolbar: { toolbarFormat: 'MM月DD日', toolbarPlaceholder: '' },
-                field: { clearable: true, onClear: () => setCleared(true) },
-              }}
-            /> */}
             <DesktopDatePicker
               label="scheduled_replace_at"
               onChange={(value) =>
