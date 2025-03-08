@@ -38,6 +38,15 @@ importers:
       exceljs:
         specifier: ^4.4.0
         version: 4.4.0
+      filepond:
+        specifier: ^4.32.7
+        version: 4.32.7
+      filepond-plugin-image-exif-orientation:
+        specifier: ^1.0.11
+        version: 1.0.11(filepond@4.32.7)
+      filepond-plugin-image-preview:
+        specifier: ^4.6.12
+        version: 4.6.12(filepond@4.32.7)
       html2canvas:
         specifier: ^1.4.1
         version: 1.4.1
@@ -53,6 +62,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-filepond:
+        specifier: ^7.1.3
+        version: 7.1.3(filepond@4.32.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react-hook-form:
         specifier: ^7.54.2
         version: 7.54.2(react@19.0.0)
@@ -86,7 +98,7 @@ importers:
         version: 19.0.3(@types/react@19.0.8)
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
-        version: 3.7.2(@swc/helpers@0.5.15)(vite@6.1.0)
+        version: 3.7.2(@swc/helpers@0.5.15)(vite@6.1.0(@types/node@22.13.9))
       eslint:
         specifier: ^9.19.0
         version: 9.19.0
@@ -107,7 +119,7 @@ importers:
         version: 8.23.0(eslint@9.19.0)(typescript@5.7.3)
       vite:
         specifier: ^6.1.0
-        version: 6.1.0
+        version: 6.1.0(@types/node@22.13.9)
 
 packages:
 
@@ -825,6 +837,9 @@ packages:
   '@types/node@14.18.63':
     resolution: {integrity: sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==}
 
+  '@types/node@22.13.9':
+    resolution: {integrity: sha512-acBjXdRJ3A6Pb3tqnw9HZmyR3Fiol3aGxRCK1x3d+6CDAMjl7I649wpSd+yNURCjbOUGu9tqtLKnTGxmK6CyGw==}
+
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
 
@@ -1247,6 +1262,19 @@ packages:
   file-entry-cache@8.0.0:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
+
+  filepond-plugin-image-exif-orientation@1.0.11:
+    resolution: {integrity: sha512-hLBc12Fk6Zkj3L8mSAn+elugHOqT5rLUbgVXQQIQjMe0FsGjtpoxqeVR6jt4IWHGat2L9sFAgU2TGmd1mqosCg==}
+    peerDependencies:
+      filepond: '>=3.x <5.x'
+
+  filepond-plugin-image-preview@4.6.12:
+    resolution: {integrity: sha512-Y8ETX5QVV0mbPB0586UH8AUmG9tZg8PuN5bdEAIlZVJFTct5ebViJ7+Am94/VhTPjLqZjBf1zmDq5JU6XRsZKw==}
+    peerDependencies:
+      filepond: '>=4.x <5.x'
+
+  filepond@4.32.7:
+    resolution: {integrity: sha512-L2idUfC31Qb2ZuFn8yAjX+Km6Ouq0kQn6JHcwhqrl5Ee9cB7xctLa0nkbbAeCML2+a1/cUsd0TqBgVcxYW08GA==}
 
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
@@ -1675,6 +1703,13 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
+  react-filepond@7.1.3:
+    resolution: {integrity: sha512-uQOCZt+YXnBfYn6OxK6vsgSoUROkBu/ZahcfIJnK94c1ZeSAS84L/XKDADq/8Adx/Lz88VtVWvUpTXnNpmjHFQ==}
+    peerDependencies:
+      filepond: '>=3.7.x < 5.x'
+      react: 16 - 19
+      react-dom: 16 - 19
+
   react-hook-form@7.54.2:
     resolution: {integrity: sha512-eHpAUgUjWbZocoQYUHposymRb4ZP6d0uwUnooL2uOybA9/3tPUvoAKqEWK1WaSiTxxOfTpffNZP7QwlnM3/gEg==}
     engines: {node: '>=18.0.0'}
@@ -1928,6 +1963,9 @@ packages:
     resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  undici-types@6.20.0:
+    resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
   unicode-properties@1.4.1:
     resolution: {integrity: sha512-CLjCCLQ6UuMxWnbIylkisbRj31qxHPAurvena/0iwSVbQ2G1VY5/HjV0IRabOEbDHlzZlRdCrD4NhB0JtU40Pg==}
@@ -2702,6 +2740,11 @@ snapshots:
 
   '@types/node@14.18.63': {}
 
+  '@types/node@22.13.9':
+    dependencies:
+      undici-types: 6.20.0
+    optional: true
+
   '@types/parse-json@4.0.2': {}
 
   '@types/prop-types@15.7.14': {}
@@ -2807,10 +2850,10 @@ snapshots:
       '@typescript-eslint/types': 8.23.0
       eslint-visitor-keys: 4.2.0
 
-  '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.15)(vite@6.1.0)':
+  '@vitejs/plugin-react-swc@3.7.2(@swc/helpers@0.5.15)(vite@6.1.0(@types/node@22.13.9))':
     dependencies:
       '@swc/core': 1.10.14(@swc/helpers@0.5.15)
-      vite: 6.1.0
+      vite: 6.1.0(@types/node@22.13.9)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -3222,6 +3265,16 @@ snapshots:
     dependencies:
       flat-cache: 4.0.1
 
+  filepond-plugin-image-exif-orientation@1.0.11(filepond@4.32.7):
+    dependencies:
+      filepond: 4.32.7
+
+  filepond-plugin-image-preview@4.6.12(filepond@4.32.7):
+    dependencies:
+      filepond: 4.32.7
+
+  filepond@4.32.7: {}
+
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
@@ -3614,6 +3667,12 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
+  react-filepond@7.1.3(filepond@4.32.7)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      filepond: 4.32.7
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+
   react-hook-form@7.54.2(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -3870,6 +3929,9 @@ snapshots:
 
   typescript@5.7.3: {}
 
+  undici-types@6.20.0:
+    optional: true
+
   unicode-properties@1.4.1:
     dependencies:
       base64-js: 1.5.1
@@ -3911,12 +3973,13 @@ snapshots:
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
 
-  vite@6.1.0:
+  vite@6.1.0(@types/node@22.13.9):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
       rollup: 4.34.5
     optionalDependencies:
+      '@types/node': 22.13.9
       fsevents: 2.3.3
 
   warning@4.0.3:

@@ -8,6 +8,7 @@ export type RegisterItemRequest = {
   purchase_price: number | null;
   durability: number | null;
   is_depreciation: boolean;
-  connector: string[];
+  connector: string;
   color: string;
+  image: FileList;
 };

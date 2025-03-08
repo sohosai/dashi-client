@@ -4,10 +4,17 @@ import { ErrorResponse } from '../../model/errorResponse';
 import { updateItemSchema, UpdateItemSchemaType } from '../../validation/updateItem';
 import { ErrorMessage } from '@hookform/error-message';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
 import { useFetchUpdateItem } from '../../hooks/useFetchUpdateItem';
+import { FilePond, registerPlugin } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type Props = {
   individualItem: IndividualItemResponse;
@@ -119,6 +126,27 @@ const UpdateItemForm: FC<Props> = (props) => {
       <ErrorMessage errors={errors} name="color" message={errors.color?.message} />
       <br />
       <input type="button" value="色の追加" onClick={() => colorArray.append({ color: '' })} />
+      <br />
+      <label htmlFor="imgae">Image: </label>
+      <Controller
+        name="image"
+        control={control}
+        render={({ field: { onChange, name } }) => (
+          <FilePond
+            name={name}
+            storeAsFile={true}
+            credits={false}
+            labelIdle={'<span class="filepond--label-action"> ファイル選択 </span> または ドラッグ&ドロップ'}
+            onupdatefiles={(files) => {
+              const dataTransfer = new DataTransfer();
+              files.forEach((file) => dataTransfer.items.add(file.file as File));
+              onChange(dataTransfer.files);
+            }}
+          />
+        )}
+      />
+      <br />
+      <ErrorMessage errors={errors} name="image" message={errors.image?.message} />
       <br />
       <input type="submit" value="更新" />
     </form>

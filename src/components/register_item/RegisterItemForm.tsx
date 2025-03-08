@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm, useFieldArray } from 'react-hook-form';
+import { SubmitHandler, useForm, useFieldArray, Controller } from 'react-hook-form';
 import { registerItemSchema, RegisterItemSchemaType } from '../../validation/registerItem';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction } from 'react';
@@ -9,9 +9,16 @@ import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
 // import TextField from '@mui/material/TextField';
 // import Autocomplete from '@mui/material/Autocomplete';
+// import { Status } from '../../model/status';
 import { AllConnectorsResponse } from '../../model/allConnectorsResponse';
 import { AllColorsResponse } from '../../model/allColorsResponse';
-// import { Status } from '../../model/status';
+import { FilePond, registerPlugin } from 'react-filepond';
+import 'filepond/dist/filepond.min.css';
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
@@ -192,6 +199,27 @@ const RegisterItemForm: FC<Props> = (props) => {
       <ErrorMessage errors={errors} name="color" message={errors.color?.message} />
       <br />
       <input type="button" value="色の追加" onClick={() => colorArray.append({ color: 'Black' })} />
+      <br />
+      <label htmlFor="imgae">Image: </label>
+      <Controller
+        name="image"
+        control={control}
+        render={({ field: { onChange, name } }) => (
+          <FilePond
+            name={name}
+            storeAsFile={true}
+            credits={false}
+            labelIdle={'<span class="filepond--label-action"> ファイル選択 </span> または ドラッグ&ドロップ'}
+            onupdatefiles={(files) => {
+              const dataTransfer = new DataTransfer();
+              files.forEach((file) => dataTransfer.items.add(file.file as File));
+              onChange(dataTransfer.files);
+            }}
+          />
+        )}
+      />
+      <br />
+      <ErrorMessage errors={errors} name="image" message={errors.image?.message} />
       <br />
       <input type="submit" value="登録" />
     </form>
