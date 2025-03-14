@@ -1,0 +1,15 @@
+/.direnv
+/.github
+/dist
+/node_modules
+.dockerignore
+.envrc
+.gitignore
+.prettierrc
+COPYING
+dev.compose.yaml
+Dockerfile
+flake.lock
+flake.nix
+prod.compose.yaml
+README.md

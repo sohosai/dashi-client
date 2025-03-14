@@ -1,0 +1,44 @@
+import { ErrorResponse } from '../model/errorResponse';
+import { OkResponse } from '../model/okResponse';
+import { RegisterColorRequest } from '../model/registerColorRequest';
+import { RegisterColorSchemaType } from '../validation/registerColor';
+
+export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Promise<OkResponse | ErrorResponse> => {
+  const requestData: RegisterColorRequest = {
+    name: data.name,
+    hex_color_code: data.hex_color_code,
+  };
+  // send
+  const result: OkResponse | ErrorResponse = await fetch('${import.meta.env.VITE_DASHI_SERVER}/api/color', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(requestData),
+  })
+    .then((res) => {
+      if (res.status === 201) {
+        // 201 Created
+        return 'ok';
+      } else {
+        // error
+        try {
+          return res.json();
+        } catch (e) {
+          console.error(e);
+          return {
+            code: 'register-color/unknown-error',
+            message: 'UnknownError: Something went wrong.',
+          };
+        }
+      }
+    })
+    .catch((e) => {
+      console.error(e);
+      return {
+        code: 'register-color/unknown-error',
+        message: 'UnknownError: Something went wrong.',
+      };
+    });
+  return result;
+};
