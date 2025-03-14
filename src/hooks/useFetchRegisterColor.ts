@@ -9,7 +9,7 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
     hex_color_code: data.hex_color_code,
   };
   // send
-  const result: OkResponse | ErrorResponse = await fetch('${import.meta.env.VITE_DASHI_SERVER}/api/color', {
+  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/color`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

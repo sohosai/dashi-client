@@ -45,7 +45,7 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
     requestData.image[0].name
   );
   // send
-  const result: OkResponse | ErrorResponse = await fetch('${import.meta.env.VITE_DASHI_SERVER}/api/item/register', {
+  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/register`, {
     method: 'POST',
     body: formData,
   })

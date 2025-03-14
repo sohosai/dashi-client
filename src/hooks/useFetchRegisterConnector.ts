@@ -10,7 +10,7 @@ export const useFetchRegisterConnector = async (
     name: data.name,
   };
   // send
-  const result: OkResponse | ErrorResponse = await fetch('${import.meta.env.VITE_DASHI_SERVER}/api/connector', {
+  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/connector`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
