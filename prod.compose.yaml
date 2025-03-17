@@ -2,5 +2,7 @@ services:
   dashi-client:
     image: ghcr.io/sohosai/dashi-client/client:main
     container_name: dashi-client
+    environment:
+      - VITE_DASHI_SERVER=${VITE_DASHI_SERVER}
     ports:
       - '3000:80'
