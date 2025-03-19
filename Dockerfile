@@ -30,3 +30,5 @@ RUN \
     fi
 
 ENTRYPOINT ["/app/entrypoint.sh"]
+
+EXPOSE 3000
