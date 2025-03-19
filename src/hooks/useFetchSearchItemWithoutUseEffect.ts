@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { SearchItemsResponse } from '../model/searchItemResponse';
@@ -8,7 +9,7 @@ export const useFetchSearchItemWithoutUseEffect = async (
   let result: SearchItemsResponse | ErrorResponse | Pending = 'pending';
 
   if (keywords !== undefined && keywords !== '') {
-    result = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/search?keywords=${keywords}`, { method: 'GET' })
+    result = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, { method: 'GET' })
       .then((res) => {
         if (res.status === 200) {
           // 200 OK

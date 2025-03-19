@@ -2,6 +2,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { RegisterItemRequest } from '../model/registerItemRequest';
 import { RegisterItemSchemaType } from '../validation/registerItem';
 import { OkResponse } from '../model/okResponse';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promise<OkResponse | ErrorResponse> => {
   // convert from zod schema to api schema
@@ -45,7 +46,7 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
     requestData.image[0].name
   );
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/register`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/register`, {
     method: 'POST',
     body: formData,
   })

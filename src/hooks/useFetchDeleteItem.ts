@@ -1,9 +1,10 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 
 export const useFetchDeleteItem = async (id: number): Promise<OkResponse | ErrorResponse> => {
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/delete/${id}`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/delete/${id}`, {
     method: 'DELETE',
   })
     .then((res) => {

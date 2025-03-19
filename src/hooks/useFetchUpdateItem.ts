@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { UpdateItemRequest } from '../model/updateItemRequest';
@@ -26,7 +27,7 @@ export const useFetchUpdateItem = async (
     color: requestColor,
   };
   // send
-  const result: ErrorResponse | OkResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/update/${id}`, {
+  const result: ErrorResponse | OkResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/update/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

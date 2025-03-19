@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { SearchConnectorsResponse } from '../model/searchConnectorResponse';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchSearchConnector = (keywords: string): SearchConnectorsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<SearchConnectorsResponse | ErrorResponse | Pending>('pending');
@@ -9,7 +10,7 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
         const data: SearchConnectorsResponse | ErrorResponse = await fetch(
-          `${import.meta.env.VITE_DASHI_SERVER}/api/connector/search?keywords=${keywords}`,
+          `${DASHI_SERVER_ENDPOINT}/api/connector/search?keywords=${keywords}`,
           { method: 'GET' }
         )
           .then((res) => {

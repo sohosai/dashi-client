@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { TransferItemRequest } from '../model/transferItemRequest';
@@ -15,7 +16,7 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
     id: id,
     new_parent_id: parent_id,
   };
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/transfer`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/transfer`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

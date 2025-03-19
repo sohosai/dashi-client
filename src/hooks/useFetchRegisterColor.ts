@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RegisterColorRequest } from '../model/registerColorRequest';
@@ -9,7 +10,7 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
     hex_color_code: data.hex_color_code,
   };
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/color`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

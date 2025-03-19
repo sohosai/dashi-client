@@ -2,17 +2,15 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { TrashItemsResponse } from '../model/trashItemResponse';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<TrashItemsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
-      const data: TrashItemsResponse | ErrorResponse = await fetch(
-        `${import.meta.env.VITE_DASHI_SERVER}/api/item/trash`,
-        {
-          method: 'GET',
-        }
-      )
+      const data: TrashItemsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/trash`, {
+        method: 'GET',
+      })
         .then((res) => {
           if (res.status === 200) {
             // 200 OK

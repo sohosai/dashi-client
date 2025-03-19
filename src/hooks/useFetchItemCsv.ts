@@ -1,8 +1,9 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { ItemCsvResponse } from '../model/itemCsvResponse';
 
 export const useFetchItemCsv = async (): Promise<ItemCsvResponse | ErrorResponse> => {
-  const result: ItemCsvResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/csv/item`, {
+  const result: ItemCsvResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/csv/item`, {
     method: 'GET',
   })
     .then((res) => {

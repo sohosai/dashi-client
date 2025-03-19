@@ -2,17 +2,15 @@ import { useEffect, useState } from 'react';
 import { AllConnectorsResponse } from '../model/allConnectorsResponse';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectorsResponse => {
   const [result, setResult] = useState<AllConnectorsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
-      const data: AllConnectorsResponse | ErrorResponse = await fetch(
-        `${import.meta.env.VITE_DASHI_SERVER}/api/connector`,
-        {
-          method: 'GET',
-        }
-      )
+      const data: AllConnectorsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/connector`, {
+        method: 'GET',
+      })
         .then((res) => {
           if (res.status === 200) {
             // 200 OK

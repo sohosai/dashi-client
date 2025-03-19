@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { ImageItemSchemaType } from '../validation/ImageItem';
@@ -7,7 +8,7 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
   const formData = new FormData();
   formData.append('image', new Blob([data.image[0]], { type: data.image[0].type }), data.image[0].name);
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/item/image/${id}`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/image/${id}`, {
     method: 'PUT',
     body: formData,
   })

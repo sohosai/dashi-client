@@ -2,6 +2,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RegisterConnectorSchemaType } from '../validation/registerConnector';
 import { RegisterConnectorRequest } from '../model/registerConnectorRequest';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchRegisterConnector = async (
   data: RegisterConnectorSchemaType
@@ -10,7 +11,7 @@ export const useFetchRegisterConnector = async (
     name: data.name,
   };
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/connector`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/connector`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

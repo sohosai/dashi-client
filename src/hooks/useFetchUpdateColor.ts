@@ -1,3 +1,4 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { Status } from '../model/status';
@@ -12,7 +13,7 @@ export const useFetchUpdateColor = async (id: number, hex_color_code: string, st
     status: status,
   };
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/color/${id}`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

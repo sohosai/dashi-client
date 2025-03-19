@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { AllSelectColorResponse, AllColorsResponse } from '../model/allColorsResponse';
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<AllSelectColorResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
-      const data: AllColorsResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER}/api/color`, {
+      const data: AllColorsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color`, {
         method: 'GET',
       })
         .then((res) => {

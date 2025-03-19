@@ -1,13 +1,11 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { DepreiationCsvResponse } from '../model/depreiationCsvResponse';
 import { ErrorResponse } from '../model/errorResponse';
 
 export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse | ErrorResponse> => {
-  const result: DepreiationCsvResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER}/api/csv/depreiation`,
-    {
-      method: 'GET',
-    }
-  )
+  const result: DepreiationCsvResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/csv/depreiation`, {
+    method: 'GET',
+  })
     .then((res) => {
       if (res.status === 200) {
         // 200 OK

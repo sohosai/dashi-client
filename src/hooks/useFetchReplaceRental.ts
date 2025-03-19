@@ -1,14 +1,12 @@
+import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 
 export const useFetchReplaceRental = async (id: number): Promise<OkResponse | ErrorResponse> => {
   // send
-  const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER}/api/rental/replace/${id}`,
-    {
-      method: 'PATCH',
-    }
-  )
+  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental/replace/${id}`, {
+    method: 'PATCH',
+  })
     .then((res) => {
       if (res.status === 200) {
         // 200 OK
