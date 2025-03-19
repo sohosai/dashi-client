@@ -5,7 +5,11 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
   server: {
     host: true,
-    allowedHosts: ['localhost:5000'],
+  },
+  preview: {
+    port: 3000,
+    strictPort: true,
+    allowedHosts: ['localhost', 'dashi.sohosai.com'],
   },
   plugins: [react()],
   build: {

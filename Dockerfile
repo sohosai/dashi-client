@@ -16,6 +16,7 @@ RUN \
 
 # Rebuild the source code only when needed
 FROM node AS builder
+ENV VITE_DASHI_SERVER=$VITE_DASHI_SERVER
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
@@ -27,10 +28,4 @@ RUN \
     else echo "Lockfile not found." && exit 1; \
     fi
 
-# Production image, copy all the files and run react
-FROM nginx:alpine AS runner
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
-EXPOSE 80
+ENTRYPOINT ["/app/entrypoint.sh"]
