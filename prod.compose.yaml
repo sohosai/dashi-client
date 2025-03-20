@@ -3,4 +3,4 @@ services:
     image: ghcr.io/sohosai/dashi-client/client:main
     container_name: dashi-client
     ports:
-      - '3000:3000'
+      - '3000:80'

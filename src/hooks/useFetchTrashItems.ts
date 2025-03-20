@@ -4,7 +4,7 @@ import { Pending } from '../model/pending';
 import { TrashItemsResponse } from '../model/trashItemResponse';
 import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
-export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pending => {
+export const useFetchTrashItems = (): TrashItemsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<TrashItemsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +30,7 @@ export const useFetchTrashItem = (): TrashItemsResponse | ErrorResponse | Pendin
         .catch((err) => {
           console.error(err);
           return {
-            code: 'itrash-item/unknown-error',
+            code: 'trash-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
           };
         });

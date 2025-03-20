@@ -8,7 +8,7 @@ type Props = {
   result: TrashItemsResponse | ErrorResponse;
 };
 
-const IndividualItemResult: FC<Props> = (props) => {
+const TrashItemsResult: FC<Props> = (props) => {
   const [result, useResult] = useState<TrashItemsResponse | ErrorResponse>(props.result);
   useEffect(() => {
     if (!('code' in props.result && 'message' in props.result)) {
@@ -46,4 +46,4 @@ const IndividualItemResult: FC<Props> = (props) => {
   );
 };
 
-export default IndividualItemResult;
+export default TrashItemsResult;
