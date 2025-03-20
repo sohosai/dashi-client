@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
-import { TrashItemsResponse } from '../model/trashItemResponse';
+import { TrashItemsResponse } from '../model/allTrashItemResponse';
 import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchTrashItems = (): TrashItemsResponse | ErrorResponse | Pending => {

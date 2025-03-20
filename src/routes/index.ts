@@ -4,7 +4,7 @@ export { default as PageNotFound } from './pages/PageNotFound';
 export { default as RegisterItem } from './pages/RegisterItem';
 export { default as UpdateItem } from './pages/UpdateItem';
 export { default as Generate } from './pages/Generate';
-export { default as TrashItem } from './pages/TrashItems';
+export { default as AllTrashItems } from './pages/AllTrashItems';
 export { default as Connector } from './pages/Connector';
 export { default as Color } from './pages/Color';
 export { default as RentRental } from './pages/RentRental';

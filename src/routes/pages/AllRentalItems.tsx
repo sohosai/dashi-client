@@ -11,7 +11,7 @@ const AllRentalItems: FC = () => {
   const result: AllRentalItemsResponse | ErrorResponse | Pending = useFetchAllRentalItems();
   return (
     <>
-      <h1>Trash Items</h1>
+      <h1>Rental Items</h1>
       {result === 'pending' ? (
         // 処理中
         <Loading />

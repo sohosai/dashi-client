@@ -16,6 +16,6 @@ export type TrashItemResponse = {
   updated_at: string;
 };
 
-export type TrashItemsResponse = {
+export type AllTrashItemsResponse = {
   trash_items: TrashItemResponse[];
 };

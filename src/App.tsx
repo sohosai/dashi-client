@@ -10,20 +10,24 @@ import {
   PageNotFound,
   RegisterItem,
   RentRental,
-  TrashItem,
+  AllTrashItems,
   UpdateItem,
   UpdateRental,
 } from './routes';
+import { LoginButton, LogoutButton, Profile } from './components';
 
 const App: FC = () => {
   return (
     <>
+      <LoginButton />
+      <LogoutButton />
+      <Profile />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<IndividualItem />} />
         <Route path="/item/:id/update" element={<UpdateItem />} />
         <Route path="/register" element={<RegisterItem />} />
-        <Route path="/trash" element={<TrashItem />} />
+        <Route path="/trash" element={<AllTrashItems />} />
         <Route path="/generate" element={<Generate />} />
         <Route path="/connector" element={<Connector />} />
         <Route path="/color" element={<Color />} />

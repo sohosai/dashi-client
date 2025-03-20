@@ -1,15 +1,15 @@
 import { FC, useEffect, useState } from 'react';
-import { TrashItemsResponse } from '../../model/trashItemResponse';
+import { AllTrashItemsResponse } from '../../model/allTrashItemResponse';
 import { ErrorResult } from '..';
 import { ErrorResponse } from '../../model/errorResponse';
 import { useSortTrashItem } from '../../hooks/useSortTrashItem';
 
 type Props = {
-  result: TrashItemsResponse | ErrorResponse;
+  result: AllTrashItemsResponse | ErrorResponse;
 };
 
-const TrashItemsResult: FC<Props> = (props) => {
-  const [result, useResult] = useState<TrashItemsResponse | ErrorResponse>(props.result);
+const AllTrashItemsResult: FC<Props> = (props) => {
+  const [result, useResult] = useState<AllTrashItemsResponse | ErrorResponse>(props.result);
   useEffect(() => {
     if (!('code' in props.result && 'message' in props.result)) {
       useResult(useSortTrashItem(props.result));
@@ -46,4 +46,4 @@ const TrashItemsResult: FC<Props> = (props) => {
   );
 };
 
-export default TrashItemsResult;
+export default AllTrashItemsResult;

@@ -15,7 +15,7 @@ export { default as GenerateForm } from './generate/GenerateForm';
 export { default as GenerateResult } from './generate/GenerateResult';
 export { default as DepreiationCsvButton } from './csv/DepreiationCsvButton';
 export { default as ItemCsvButton } from './csv/ItemCsvButton';
-export { default as TrashItemsResult } from './trash_items/TrashItemsResult';
+export { default as AllTrashItemsResult } from './all_trash_items/TrashItemsResult';
 export { default as PageNotFoundComponent } from './page_not_found/PageNotFoundComponent';
 export { default as SearchConnectorForm } from './connector/search/SearchConnectorForm';
 export { default as SearchConnectorResult } from './connector/search/SearchConnectorResult';
@@ -31,3 +31,7 @@ export { default as RentRentalForm } from './rent_rental/RentRentalForm';
 export { default as RentRentalResult } from './rent_rental/RentRentalResult';
 export { default as ReplaceRental } from './replace_rental/ReplaceRental';
 export { default as ImageItem } from './image_item/ImageItem';
+// tets
+export { default as LoginButton } from './login/LoginButton';
+export { default as LogoutButton } from './logout/LogoutButton';
+export { default as Profile } from './profile/Profile';

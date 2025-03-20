@@ -8,7 +8,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
   const [result, setResult] = useState<AllRentalItemsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
-      const data: AllRentalItemsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental`, {
+      const data: AllRentalItemsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental/all`, {
         method: 'GET',
       })
         .then((res) => {
@@ -21,7 +21,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
             } catch (e) {
               console.error(e);
               return {
-                code: 'all-trash-items/unknown-error',
+                code: 'all-rental-items/unknown-error',
                 message: 'UnknownError: Something went wrong.',
               };
             }
@@ -30,7 +30,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
         .catch((err) => {
           console.error(err);
           return {
-            code: 'all-trash-items/unknown-error',
+            code: 'all-rental-items/unknown-error',
             message: 'UnknownError: Something went wrong.',
           };
         });

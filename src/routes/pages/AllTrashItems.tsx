@@ -1,13 +1,13 @@
 import { FC } from 'react';
-import { Loading, TrashItemsResult } from '../../components';
+import { Loading, AllTrashItemsResult } from '../../components';
 import { Pending } from '../../model/pending';
 import { ErrorResponse } from '../../model/errorResponse';
-import { TrashItemsResponse } from '../../model/trashItemResponse';
+import { AllTrashItemsResponse } from '../../model/allTrashItemResponse';
 import { useFetchTrashItems } from '../../hooks/useFetchTrashItems';
 
 const TrashItem: FC = () => {
   // get trash item result
-  const result: TrashItemsResponse | ErrorResponse | Pending = useFetchTrashItems();
+  const result: AllTrashItemsResponse | ErrorResponse | Pending = useFetchTrashItems();
   return (
     <>
       <h1>Trash Items</h1>
@@ -16,7 +16,7 @@ const TrashItem: FC = () => {
         <Loading />
       ) : (
         // fetch結果
-        <TrashItemsResult result={result} />
+        <AllTrashItemsResult result={result} />
       )}
     </>
   );

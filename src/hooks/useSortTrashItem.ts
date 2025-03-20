@@ -1,4 +1,4 @@
-import { TrashItemResponse, TrashItemsResponse } from '../model/trashItemResponse';
+import { TrashItemResponse, TrashItemsResponse } from '../model/allTrashItemResponse';
 
 //compareFunction
 const compare = (a: TrashItemResponse, b: TrashItemResponse) => {
