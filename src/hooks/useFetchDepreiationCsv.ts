@@ -3,8 +3,14 @@ import { DepreiationCsvResponse } from '../model/depreiationCsvResponse';
 import { ErrorResponse } from '../model/errorResponse';
 
 export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse | ErrorResponse> => {
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
+  // send
   const result: DepreiationCsvResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/csv/depreiation`, {
     method: 'GET',
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
   })
     .then((res) => {
       if (res.status === 200) {

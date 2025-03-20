@@ -9,7 +9,15 @@ export const useFetchSearchItemWithoutUseEffect = async (
   let result: SearchItemsResponse | ErrorResponse | Pending = 'pending';
 
   if (keywords !== undefined && keywords !== '') {
-    result = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, { method: 'GET' })
+    // get jwt
+    const jwt = window.localStorage.getItem('jwt');
+    // send
+    result = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    })
       .then((res) => {
         if (res.status === 200) {
           // 200 OK

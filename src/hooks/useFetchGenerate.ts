@@ -8,10 +8,13 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
     quantity: quantity,
     record: record,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: GenerateResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/generate`, {
     method: 'POST',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),

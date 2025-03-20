@@ -26,10 +26,13 @@ export const useFetchUpdateItem = async (
     connector: requestConnector,
     color: requestColor,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: ErrorResponse | OkResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/update/${id}`, {
     method: 'PATCH',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),

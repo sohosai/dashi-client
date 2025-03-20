@@ -11,10 +11,13 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
     id: id,
     status: status,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/connector/${id}`, {
     method: 'PATCH',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),

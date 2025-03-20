@@ -9,8 +9,14 @@ export const useFetchIndividualItem = (id: string | undefined): IndividualItemRe
   useEffect(() => {
     const fetchData = async () => {
       if (id !== undefined && parseInt(id) >= 1) {
+        // get jwt
+        const jwt = window.localStorage.getItem('jwt');
+        // send
         const data: IndividualItemResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/${id}`, {
           method: 'GET',
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
         })
           .then((res) => {
             if (res.status === 200) {

@@ -45,9 +45,14 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
     new Blob([requestData.image[0]], { type: requestData.image[0].type }),
     requestData.image[0].name
   );
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/register`, {
     method: 'POST',
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
     body: formData,
   })
     .then((res) => {

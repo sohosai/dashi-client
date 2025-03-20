@@ -12,10 +12,13 @@ export const useFetchUpdateColor = async (id: number, hex_color_code: string, st
     hex_color_code: hex_color_code,
     status: status,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color/${id}`, {
     method: 'PATCH',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),

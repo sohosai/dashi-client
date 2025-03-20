@@ -1,4 +1,4 @@
-import { TrashItemResponse, TrashItemsResponse } from '../model/allTrashItemResponse';
+import { TrashItemResponse, AllTrashItemsResponse } from '../model/allTrashItemResponse';
 
 //compareFunction
 const compare = (a: TrashItemResponse, b: TrashItemResponse) => {
@@ -11,9 +11,9 @@ const compare = (a: TrashItemResponse, b: TrashItemResponse) => {
   return 0;
 };
 
-export const useSortTrashItem = (trash_items_response: TrashItemsResponse): TrashItemsResponse => {
+export const useSortTrashItem = (trash_items_response: AllTrashItemsResponse): AllTrashItemsResponse => {
   trash_items_response.trash_items.sort(compare);
-  const result: TrashItemsResponse = {
+  const result: AllTrashItemsResponse = {
     trash_items: trash_items_response.trash_items,
   };
   return result;

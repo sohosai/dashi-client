@@ -7,17 +7,13 @@ const Profile = () => {
     const fetchClaims = async () => {
       if (isAuthenticated) {
         const claims: IdToken | undefined = await getIdTokenClaims();
-        localStorage.setItem('name', claims?.name || '');
         localStorage.setItem('jwt', claims?.__raw || '');
       }
     };
     fetchClaims();
   }, [isAuthenticated]);
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
-  return isAuthenticated ? <p>name: {user?.name}</p> : <></>;
+  return isLoading ? <div>Loading...</div> : isAuthenticated ? <p>name: {user?.name}</p> : <></>;
 };
 
 export default Profile;

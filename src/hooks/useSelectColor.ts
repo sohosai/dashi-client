@@ -8,8 +8,14 @@ export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pendi
   const [result, setResult] = useState<AllSelectColorResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
+      // get jwt
+      const jwt = window.localStorage.getItem('jwt');
+      // send
       const data: AllColorsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color`, {
         method: 'GET',
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       })
         .then((res) => {
           if (res.status === 200) {

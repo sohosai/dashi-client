@@ -8,8 +8,14 @@ export const useSelectConnector = (): ErrorResponse | Pending | AllSelectConnect
   const [result, setResult] = useState<AllSelectConnectorResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
+      // get jwt
+      const jwt = window.localStorage.getItem('jwt');
+      // send
       const data: AllConnectorsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/connector`, {
         method: 'GET',
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       })
         .then((res) => {
           if (res.status === 200) {

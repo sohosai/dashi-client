@@ -9,10 +9,13 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
     name: data.name,
     hex_color_code: data.hex_color_code,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/color`, {
     method: 'POST',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),

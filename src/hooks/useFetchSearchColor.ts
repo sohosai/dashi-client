@@ -9,9 +9,17 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
   useEffect(() => {
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
+        // get jwt
+        const jwt = window.localStorage.getItem('jwt');
+        // send
         const data: SearchColorsResponse | ErrorResponse = await fetch(
           `${DASHI_SERVER_ENDPOINT}/api/color/search?keywords=${keywords}`,
-          { method: 'GET' }
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          }
         )
           .then((res) => {
             if (res.status === 200) {

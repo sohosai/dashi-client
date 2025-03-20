@@ -8,8 +8,14 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
   const [result, setResult] = useState<AllRentalItemsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
+      // get jwt
+      const jwt = window.localStorage.getItem('jwt');
+      // send
       const data: AllRentalItemsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental/all`, {
         method: 'GET',
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+        },
       })
         .then((res) => {
           if (res.status === 200) {

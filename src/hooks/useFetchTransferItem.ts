@@ -11,14 +11,17 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
       message: 'TransferOwnItemError: Cannot transfer to own item.',
     };
   }
-  // send
   const requestData: TransferItemRequest = {
     id: id,
     new_parent_id: parent_id,
   };
+  // get jwt
+  const jwt = window.localStorage.getItem('jwt');
+  // send
   const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/transfer`, {
     method: 'PATCH',
     headers: {
+      Authorization: `Bearer ${jwt}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(requestData),
