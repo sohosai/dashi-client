@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: client
 
 jobs:
-  container:
+  deploy-container:
     runs-on: ubuntu-latest
     permissions:
       contents: read
