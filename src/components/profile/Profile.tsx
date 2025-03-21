@@ -2,7 +2,7 @@ import { IdToken, useAuth0 } from '@auth0/auth0-react';
 import { useEffect } from 'react';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading, getIdTokenClaims } = useAuth0();
+  const { isAuthenticated, isLoading, getIdTokenClaims } = useAuth0();
   useEffect(() => {
     const fetchClaims = async () => {
       if (isAuthenticated) {
@@ -13,7 +13,7 @@ const Profile = () => {
     fetchClaims();
   }, [isAuthenticated]);
 
-  return isLoading ? <div>Loading...</div> : isAuthenticated ? <p>name: {user?.name}</p> : <></>;
+  return isLoading ? <div>Loading...</div> : isAuthenticated ? <p>認証が完了しました。</p> : <></>;
 };
 
 export default Profile;

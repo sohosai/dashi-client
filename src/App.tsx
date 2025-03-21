@@ -19,6 +19,7 @@ import { LoginButton, LogoutButton, Profile } from './components';
 const App: FC = () => {
   return (
     <>
+      <h1>{import.meta.env.VITE_DASHI_SERVER_ENDPOINT}</h1>
       <LoginButton />
       <LogoutButton />
       <Profile />

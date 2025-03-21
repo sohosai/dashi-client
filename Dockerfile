@@ -16,6 +16,7 @@ RUN \
 
 # Rebuild the source code only when needed
 FROM node AS builder
+ENV VITE_DASHI_SERVER_ENDPOINT=$VITE_DASHI_SERVER_ENDPOINT
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
