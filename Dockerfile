@@ -17,8 +17,8 @@ RUN \
 # Rebuild the source code only when needed
 FROM node AS builder
 ARG VITE_DASHI_SERVER_ENDPOINT
-ARG AUTH0_DOMAIN
-ARG AUTH0_CLIENT_ID
+ARG VITE_AUTH0_DOMAIN
+ARG VITE_AUTH0_CLIENT_ID
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
