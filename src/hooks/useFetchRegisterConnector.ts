@@ -2,7 +2,6 @@ import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RegisterConnectorSchemaType } from '../validation/registerConnector';
 import { RegisterConnectorRequest } from '../model/registerConnectorRequest';
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchRegisterConnector = async (
   data: RegisterConnectorSchemaType
@@ -13,7 +12,7 @@ export const useFetchRegisterConnector = async (
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/connector`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/connector`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${jwt}`,

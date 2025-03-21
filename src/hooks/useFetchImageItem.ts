@@ -1,4 +1,3 @@
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { ImageItemSchemaType } from '../validation/ImageItem';
@@ -10,13 +9,16 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/image/${id}`, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-    },
-    body: formData,
-  })
+  const result: OkResponse | ErrorResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/image/${id}`,
+    {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+      body: formData,
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // 200 OK

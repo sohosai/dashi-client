@@ -1,4 +1,3 @@
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { TransferItemRequest } from '../model/transferItemRequest';
@@ -18,14 +17,17 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/transfer`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(requestData),
-  })
+  const result: OkResponse | ErrorResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/transfer`,
+    {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // 200 OK

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
+
 import { AllRentalItemsResponse } from '../model/allRentalItemsResponse';
 
 export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse | Pending => {
@@ -11,12 +11,15 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
       // get jwt
       const jwt = window.localStorage.getItem('jwt');
       // send
-      const data: AllRentalItemsResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental/all`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      })
+      const data: AllRentalItemsResponse | ErrorResponse = await fetch(
+        `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/rental/all`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+          },
+        }
+      )
         .then((res) => {
           if (res.status === 200) {
             // 200 OK

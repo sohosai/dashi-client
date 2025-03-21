@@ -2,7 +2,6 @@ import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RentalSchemaType } from '../validation/rental';
 import { RentalRequest } from '../model/rentalRequest';
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchRentRental = async (id: number, data: RentalSchemaType): Promise<OkResponse | ErrorResponse> => {
   // conver from zod schema to api schema
@@ -15,14 +14,17 @@ export const useFetchRentRental = async (id: number, data: RentalSchemaType): Pr
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/rental/rent/${id}`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(requestData),
-  })
+  const result: OkResponse | ErrorResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/rental/rent/${id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // 200 OK

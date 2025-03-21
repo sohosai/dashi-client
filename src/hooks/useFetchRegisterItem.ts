@@ -2,7 +2,6 @@ import { ErrorResponse } from '../model/errorResponse';
 import { RegisterItemRequest } from '../model/registerItemRequest';
 import { RegisterItemSchemaType } from '../validation/registerItem';
 import { OkResponse } from '../model/okResponse';
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 
 export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promise<OkResponse | ErrorResponse> => {
   // convert from zod schema to api schema
@@ -48,13 +47,16 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/register`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-    },
-    body: formData,
-  })
+  const result: OkResponse | ErrorResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/register`,
+    {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+      body: formData,
+    }
+  )
     .then((res) => {
       if (res.status === 201) {
         // 201 Created

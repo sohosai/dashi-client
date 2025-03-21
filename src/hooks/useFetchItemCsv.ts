@@ -1,4 +1,3 @@
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { ItemCsvResponse } from '../model/itemCsvResponse';
 
@@ -6,12 +5,15 @@ export const useFetchItemCsv = async (): Promise<ItemCsvResponse | ErrorResponse
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: ItemCsvResponse | ErrorResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/csv/item`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-    },
-  })
+  const result: ItemCsvResponse | ErrorResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/csv/item`,
+    {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // 200 OK

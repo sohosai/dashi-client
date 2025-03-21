@@ -1,4 +1,3 @@
-import { DASHI_SERVER_ENDPOINT } from '../env/env';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { UpdateItemRequest } from '../model/updateItemRequest';
@@ -29,14 +28,17 @@ export const useFetchUpdateItem = async (
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: ErrorResponse | OkResponse = await fetch(`${DASHI_SERVER_ENDPOINT}/api/item/update/${id}`, {
-    method: 'PATCH',
-    headers: {
-      Authorization: `Bearer ${jwt}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(requestData),
-  })
+  const result: ErrorResponse | OkResponse = await fetch(
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/update/${id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    }
+  )
     .then((res) => {
       if (res.status === 200) {
         // 200 OK
