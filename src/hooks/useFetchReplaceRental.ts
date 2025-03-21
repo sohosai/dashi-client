@@ -6,7 +6,7 @@ export const useFetchReplaceRental = async (id: number): Promise<OkResponse | Er
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/rental/replace/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/replace/${id}`,
     {
       method: 'PATCH',
       headers: {

@@ -10,7 +10,7 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/image/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/image/${id}`,
     {
       method: 'PUT',
       headers: {

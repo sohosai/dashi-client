@@ -11,7 +11,7 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: GenerateResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/generate`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/generate`,
     {
       method: 'POST',
       headers: {

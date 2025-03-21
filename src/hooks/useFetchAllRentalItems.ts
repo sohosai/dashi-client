@@ -12,7 +12,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
       const jwt = window.localStorage.getItem('jwt');
       // send
       const data: AllRentalItemsResponse | ErrorResponse = await fetch(
-        `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/rental/all`,
+        `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/all`,
         {
           method: 'GET',
           headers: {

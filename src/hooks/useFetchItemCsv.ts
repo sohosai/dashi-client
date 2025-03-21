@@ -6,7 +6,7 @@ export const useFetchItemCsv = async (): Promise<ItemCsvResponse | ErrorResponse
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: ItemCsvResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/csv/item`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/csv/item`,
     {
       method: 'GET',
       headers: {

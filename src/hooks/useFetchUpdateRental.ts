@@ -15,7 +15,7 @@ export const useFetchUpdateRental = async (id: number, data: RentalSchemaType): 
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/rental/update/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/update/${id}`,
     {
       method: 'PATCH',
       headers: {

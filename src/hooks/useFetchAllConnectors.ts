@@ -11,7 +11,7 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
       const jwt = window.localStorage.getItem('jwt');
       // send
       const data: AllConnectorsResponse | ErrorResponse = await fetch(
-        `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/connector`,
+        `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
         {
           method: 'GET',
           headers: {

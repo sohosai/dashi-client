@@ -14,7 +14,7 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/connector/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/${id}`,
     {
       method: 'PATCH',
       headers: {

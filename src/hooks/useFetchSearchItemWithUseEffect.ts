@@ -12,7 +12,7 @@ export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsRe
         const jwt = window.localStorage.getItem('jwt');
         // send
         const data: SearchItemsResponse | ErrorResponse = await fetch(
-          `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/search?keywords=${keywords}`,
+          `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`,
           {
             method: 'GET',
             headers: {

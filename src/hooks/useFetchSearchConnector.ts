@@ -12,7 +12,7 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
         const jwt = window.localStorage.getItem('jwt');
         // send
         const data: SearchConnectorsResponse | ErrorResponse = await fetch(
-          `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/connector/search?keywords=${keywords}`,
+          `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/search?keywords=${keywords}`,
           {
             method: 'GET',
             headers: {

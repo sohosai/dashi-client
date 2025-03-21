@@ -11,7 +11,7 @@ export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pendi
       const jwt = window.localStorage.getItem('jwt');
       // send
       const data: AllColorsResponse | ErrorResponse = await fetch(
-        `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/color`,
+        `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color`,
         {
           method: 'GET',
           headers: {

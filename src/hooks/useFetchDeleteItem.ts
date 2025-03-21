@@ -6,7 +6,7 @@ export const useFetchDeleteItem = async (id: number): Promise<OkResponse | Error
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/delete/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/delete/${id}`,
     {
       method: 'DELETE',
       headers: {

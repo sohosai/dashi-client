@@ -11,7 +11,7 @@ export const useFetchSearchItemWithoutUseEffect = async (
     // get jwt
     const jwt = window.localStorage.getItem('jwt');
     // send
-    result = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/search?keywords=${keywords}`, {
+    result = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${jwt}`,

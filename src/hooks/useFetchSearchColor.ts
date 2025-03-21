@@ -12,7 +12,7 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
         const jwt = window.localStorage.getItem('jwt');
         // send
         const data: SearchColorsResponse | ErrorResponse = await fetch(
-          `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/color/search?keywords=${keywords}`,
+          `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color/search?keywords=${keywords}`,
           {
             method: 'GET',
             headers: {

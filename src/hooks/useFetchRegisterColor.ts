@@ -11,7 +11,7 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
   // get jwt
   const jwt = window.localStorage.getItem('jwt');
   // send
-  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/color`, {
+  const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${jwt}`,

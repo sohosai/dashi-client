@@ -48,7 +48,7 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: OkResponse | ErrorResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/register`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/register`,
     {
       method: 'POST',
       headers: {

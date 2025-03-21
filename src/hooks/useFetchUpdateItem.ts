@@ -29,7 +29,7 @@ export const useFetchUpdateItem = async (
   const jwt = window.localStorage.getItem('jwt');
   // send
   const result: ErrorResponse | OkResponse = await fetch(
-    `${import.meta.env.VITE_DASHI_SERVER_ENDPOIN}/api/item/update/${id}`,
+    `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/update/${id}`,
     {
       method: 'PATCH',
       headers: {
