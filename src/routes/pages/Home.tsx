@@ -23,7 +23,7 @@ const Home: FC = () => {
   const [isRent, setIsRent] = useState<boolean>(false);
   return (
     <>
-      <h1>Hello, World!</h1>
+      <h1>Dashi</h1>
       <SearchItemForm keywords={keywords} />
       <br />
       <SearchItemIsRentButton setIsRent={setIsRent} />
