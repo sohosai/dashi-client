@@ -30,8 +30,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          build-args: |
-            VITE_DASHI_SERVER_ENDPOINT=${{ vars.VITE_DASHI_SERVER_ENDPOINT }}
-            AUTH0_DOMAIN=${{ vars.AUTH0_DOMAIN }}
-            AUTH0_CLIENT_ID=${{ vars.AUTH0_CLIENT_ID }}
+          build-args:
+            - VITE_DASHI_SERVER_ENDPOINT=${{ vars.VITE_DASHI_SERVER_ENDPOINT }}
+            - AUTH0_DOMAIN=${{ vars.AUTH0_DOMAIN }}
+            - AUTH0_CLIENT_ID=${{ vars.AUTH0_CLIENT_ID }}
           tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
