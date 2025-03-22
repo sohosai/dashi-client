@@ -10,6 +10,7 @@ import ImageItemModalButton from './ImageItemModalButton';
 
 type Props = {
   id: string;
+  isHidden: boolean;
 };
 
 ReactModal.setAppElement('#root');
@@ -34,7 +35,7 @@ const ImageItemModal: FC<Props> = (props) => {
   };
   return (
     <>
-      <ImageItemModalButton setIsOpen={handleOpen} />
+      <ImageItemModalButton setIsOpen={handleOpen} isHidden={props.isHidden} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="ImageItemModal"

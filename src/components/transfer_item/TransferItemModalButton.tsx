@@ -1,7 +1,7 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 
 type Props = {
-  isRoot: boolean;
+  isHidden: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
@@ -11,7 +11,7 @@ const TransferItemModalButton: FC<Props> = (props) => {
   };
   return (
     <>
-      {props.isRoot ? (
+      {props.isHidden ? (
         <button onClick={handleClick} disabled>
           Move
         </button>

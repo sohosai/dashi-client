@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Loading, RegisterItemForm, RegisterItemResult } from '../../components';
+import { ErrorResult, Loading, RegisterItemForm, RegisterItemResult } from '../../components';
 import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
@@ -29,20 +29,14 @@ const RegisterItem: FC = () => {
               {'all_connectors' in connectors ? (
                 <p>ok</p>
               ) : (
-                <>
-                  <p>error</p>
-                  <p>{connectors.code}</p>
-                  <p>{connectors.message}</p>
-                </>
+                // fetchに失敗
+                <ErrorResult result={connectors} />
               )}
               {'all_colors' in colors ? (
                 <p>ok</p>
               ) : (
-                <>
-                  <p>error</p>
-                  <p>{colors.code}</p>
-                  <p>{colors.message}</p>
-                </>
+                // fetchに失敗
+                <ErrorResult result={colors} />
               )}
             </>
           )}

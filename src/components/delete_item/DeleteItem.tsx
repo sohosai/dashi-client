@@ -9,7 +9,7 @@ import DeleteItemResult from './DeleteItemResult';
 
 type Props = {
   id: string;
-  isRoot: boolean;
+  isHidden: boolean;
 };
 
 ReactModal.setAppElement('#root');
@@ -21,7 +21,7 @@ const DeleteItem: FC<Props> = (props) => {
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
   return (
     <>
-      <DeleteItemButton id={props.id} isRoot={props.isRoot} setIsOpen={setIsOpen} setResult={setResult} />
+      <DeleteItemButton id={props.id} isHidden={props.isHidden} setIsOpen={setIsOpen} setResult={setResult} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="DeleteItemModal"

@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { ErrorResponse } from '../../model/errorResponse';
 import { Pending } from '../../model/pending';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 import { OkResponse } from '../../model/okResponse';
 import UpdateItemResult from '../../components/update_item/UpdateItemResult';
-import { Loading, UpdateItemForm } from '../../components';
+import { ErrorResult, Loading, UpdateItemForm } from '../../components';
 
 const UpdateItem: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,23 +25,28 @@ const UpdateItem: FC = () => {
             <Loading />
           ) : 'code' in individualItem && 'message' in individualItem ? (
             // fetchに失敗
-            <>
-              <p>{individualItem.code}</p>
-              <p>{individualItem.message}</p>
-              <Link to={`/`}>Home</Link>
-            </>
+            <ErrorResult result={individualItem} />
           ) : (
             // fetch成功 (formを表示)
             <>
-              {result === null ? (
-                // 初期表示
-                <UpdateItemForm individualItem={individualItem} setResult={setResult} />
-              ) : result === 'pending' ? (
-                // 処理中
-                <Loading />
+              {individualItem.is_rent ? (
+                // 貸出中の物品
+                <h1>貸出中の物品は編集できません。</h1>
               ) : (
-                // fetch結果
-                <UpdateItemResult id={id} result={result} />
+                // 貸出中でない物品
+                <>
+                  {/* 更新結果 */}
+                  {result === null ? (
+                    // 初期表示
+                    <UpdateItemForm individualItem={individualItem} setResult={setResult} />
+                  ) : result === 'pending' ? (
+                    // 処理中
+                    <Loading />
+                  ) : (
+                    // fetch結果
+                    <UpdateItemResult id={id} result={result} />
+                  )}
+                </>
               )}
             </>
           )}

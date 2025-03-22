@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { ErrorResponse } from '../../model/errorResponse';
 import { Pending } from '../../model/pending';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 import { OkResponse } from '../../model/okResponse';
-import { Loading } from '../../components';
+import { ErrorResult, Loading } from '../../components';
 import UpdateRentalForm from '../../components/update_rental/UpdateRentalForm';
 import UpdateRentalResult from '../../components/update_rental/UpdateRentalResult';
 
@@ -26,11 +26,7 @@ const UpdateRental: FC = () => {
             <Loading />
           ) : 'code' in individualItem && 'message' in individualItem ? (
             // fetchに失敗
-            <>
-              <p>{individualItem.code}</p>
-              <p>{individualItem.message}</p>
-              <Link to={`/`}>Home</Link>
-            </>
+            <ErrorResult result={individualItem} />
           ) : (
             // fetch成功 (formを表示)
             <>

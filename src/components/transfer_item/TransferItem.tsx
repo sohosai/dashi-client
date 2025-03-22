@@ -10,7 +10,7 @@ import TransferItemResult from './TransferItemResult';
 
 type Props = {
   id: string;
-  isRoot: boolean;
+  isHidden: boolean;
 };
 
 ReactModal.setAppElement('#root');
@@ -35,7 +35,7 @@ const TransferItemModal: FC<Props> = (props) => {
   };
   return (
     <>
-      <TransferItemModalButton setIsOpen={handleOpen} isRoot={props.isRoot} />
+      <TransferItemModalButton setIsOpen={handleOpen} isHidden={props.isHidden} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="TransferItemModal"

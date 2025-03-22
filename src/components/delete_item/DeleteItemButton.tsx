@@ -6,7 +6,7 @@ import { useFetchDeleteItem } from '../../hooks/useFetchDeleteItem';
 
 type Props = {
   id: string;
-  isRoot: boolean;
+  isHidden: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
@@ -20,7 +20,7 @@ const DeleteItemButton: FC<Props> = (props) => {
   };
   return (
     <>
-      {props.isRoot ? (
+      {props.isHidden ? (
         <button onClick={handleClick} disabled>
           Delete
         </button>

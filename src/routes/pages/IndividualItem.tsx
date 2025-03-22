@@ -36,10 +36,14 @@ const IndividualItem: FC = () => {
             <>
               <IndividualItemResult result={result} />
               {/*Update*/}
-              <Link to={`/item/${id}/update`}>更新リンク</Link>
+              {result.is_rent ? (
+                <Link to={``}>貸出中の物品は編集できません。</Link>
+              ) : (
+                <Link to={`/item/${id}/update`}>更新リンク</Link>
+              )}
               <br />
               {/*Image*/}
-              <ImageItem id={id} />
+              <ImageItem id={id} isHidden={result.is_rent ? true : false} />
               {/*Rental*/}
               {result.is_rent ? (
                 <>
@@ -51,12 +55,10 @@ const IndividualItem: FC = () => {
               )}
               <br />
               {/*Transfer*/}
-              {/* TODO: root itemの処理を追加 */}
-              <TransferItem id={id} isRoot={result.id === 1 ? true : false} />
+              <TransferItem id={id} isHidden={result.id === 1 || result.is_rent ? true : false} />
               <br />
               {/*Delete*/}
-              {/* TODO: root itemの処理を追加 */}
-              <DeleteItem id={id} isRoot={result.id === 1 ? true : false} />
+              <DeleteItem id={id} isHidden={result.id === 1 || result.is_rent ? true : false} />
             </>
           )}
         </>
