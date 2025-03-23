@@ -2,6 +2,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RegisterConnectorSchemaType } from '../validation/registerConnector';
 import { RegisterConnectorRequest } from '../model/registerConnectorRequest';
+import { captureException } from '@sentry/react';
 
 export const useFetchRegisterConnector = async (
   data: RegisterConnectorSchemaType
@@ -31,8 +32,8 @@ export const useFetchRegisterConnector = async (
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'register-connector/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -40,8 +41,8 @@ export const useFetchRegisterConnector = async (
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'register-connector/unknown-error',
         message: 'UnknownError: Something went wrong.',

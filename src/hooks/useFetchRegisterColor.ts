@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RegisterColorRequest } from '../model/registerColorRequest';
@@ -27,8 +28,8 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'register-color/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -36,8 +37,8 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'register-color/unknown-error',
         message: 'UnknownError: Something went wrong.',

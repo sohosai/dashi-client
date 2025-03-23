@@ -2,6 +2,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { RentalSchemaType } from '../validation/rental';
 import { RentalRequest } from '../model/rentalRequest';
+import { captureException } from '@sentry/react';
 
 export const useFetchUpdateRental = async (id: number, data: RentalSchemaType): Promise<OkResponse | ErrorResponse> => {
   // conver from zod schema to api schema
@@ -33,8 +34,8 @@ export const useFetchUpdateRental = async (id: number, data: RentalSchemaType): 
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'rent-rental/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -42,8 +43,8 @@ export const useFetchUpdateRental = async (id: number, data: RentalSchemaType): 
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'rent-rental/unknown-error',
         message: 'UnknownError: Something went wrong.',

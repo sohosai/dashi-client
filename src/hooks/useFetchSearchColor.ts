@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { SearchColorsResponse } from '../model/searchColorResponse';
+import { captureException } from '@sentry/react';
 
 export const useFetchSearchColor = (keywords: string): SearchColorsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<SearchColorsResponse | ErrorResponse | Pending>('pending');
@@ -28,8 +29,8 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
               // error
               try {
                 return res.json();
-              } catch (e) {
-                console.error(e);
+              } catch (error) {
+                captureException(error);
                 return {
                   code: 'search-color/unknown-error',
                   message: 'UnknownError: Something went wrong.',
@@ -37,8 +38,8 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
               }
             }
           })
-          .catch((e) => {
-            console.error(e);
+          .catch((error) => {
+            captureException(error);
             return {
               code: 'search-color/unknown-error',
               message: 'UnknownError: Something went wrong.',

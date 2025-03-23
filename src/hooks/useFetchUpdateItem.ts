@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { UpdateItemRequest } from '../model/updateItemRequest';
@@ -47,8 +48,8 @@ export const useFetchUpdateItem = async (
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'update-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -56,8 +57,8 @@ export const useFetchUpdateItem = async (
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'update-item/unknown-error',
         message: 'UnknownError: Something went wrong.',

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { AllConnectorsResponse } from '../model/allConnectorsResponse';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
+import { captureException } from '@sentry/react';
 
 export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectorsResponse => {
   const [result, setResult] = useState<AllConnectorsResponse | ErrorResponse | Pending>('pending');
@@ -26,8 +27,8 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
           } else {
             try {
               return res.json();
-            } catch (e) {
-              console.error(e);
+            } catch (error) {
+              captureException(error);
               return {
                 code: 'all-connectors/unknown-error',
                 message: 'UnknownError: Something went wrong.',
@@ -35,8 +36,8 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
             }
           }
         })
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          captureException(error);
           return {
             code: 'all-connectorsm/unknown-error',
             message: 'UnknownError: Something went wrong.',

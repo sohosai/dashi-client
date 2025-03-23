@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { ImageItemSchemaType } from '../validation/ImageItem';
@@ -27,8 +28,8 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'image-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -36,8 +37,8 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'image-item/unknown-error',
         message: 'UnknownError: Something went wrong.',

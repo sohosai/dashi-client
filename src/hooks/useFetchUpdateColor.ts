@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { Status } from '../model/status';
@@ -33,8 +34,8 @@ export const useFetchUpdateColor = async (id: number, hex_color_code: string, st
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'status-color/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -42,8 +43,8 @@ export const useFetchUpdateColor = async (id: number, hex_color_code: string, st
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'status-color/unknown-error',
         message: 'UnknownError: Something went wrong.',

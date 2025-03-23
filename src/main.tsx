@@ -9,6 +9,7 @@ import './global.css';
 Sentry.init({
   dsn: `${import.meta.env.VITE_SENTRY_DSN}`,
   integrations: [
+    Sentry.browserTracingIntegration(),
     // Use the default strategy, an alias for `feedbackSyncIntegration`
     // https://docs.sentry.io/platforms/javascript/guides/react/user-feedback/configuration/#crash-report-modal
     Sentry.feedbackIntegration({
@@ -36,6 +37,9 @@ Sentry.init({
       successMessageText: 'ご協力していただき、ありがとうございました！',
     }),
   ],
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  tracesSampleRate: 1.0,
 });
 
 createRoot(document.getElementById('root')!).render(

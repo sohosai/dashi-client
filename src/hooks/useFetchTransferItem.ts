@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { TransferItemRequest } from '../model/transferItemRequest';
@@ -36,8 +37,8 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'transfer-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -45,8 +46,8 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'transfer-item/unknown-error',
         message: 'UnknownError: Something went wrong.',

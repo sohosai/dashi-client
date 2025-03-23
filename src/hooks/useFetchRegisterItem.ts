@@ -2,6 +2,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { RegisterItemRequest } from '../model/registerItemRequest';
 import { RegisterItemSchemaType } from '../validation/registerItem';
 import { OkResponse } from '../model/okResponse';
+import { captureException } from '@sentry/react';
 
 export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promise<OkResponse | ErrorResponse> => {
   // convert from zod schema to api schema
@@ -65,8 +66,8 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'register-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -74,8 +75,8 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'register-item/unknown-error',
         message: 'UnknownError: Something went wrong.',

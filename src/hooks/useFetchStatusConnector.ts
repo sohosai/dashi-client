@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 import { Status } from '../model/status';
@@ -32,8 +33,8 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'status-connector/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -41,8 +42,8 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'status-connector/unknown-error',
         message: 'UnknownError: Something went wrong.',

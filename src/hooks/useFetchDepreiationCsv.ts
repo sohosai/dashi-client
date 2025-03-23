@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { DepreiationCsvResponse } from '../model/depreiationCsvResponse';
 import { ErrorResponse } from '../model/errorResponse';
 
@@ -22,8 +23,8 @@ export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse |
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'depreiation-csv/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -31,8 +32,8 @@ export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse |
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'depreiation-csv/unknown-error',
         message: 'UnknownError: Something went wrong.',

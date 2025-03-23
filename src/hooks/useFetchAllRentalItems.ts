@@ -3,6 +3,7 @@ import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 
 import { AllRentalItemsResponse } from '../model/allRentalItemsResponse';
+import { captureException } from '@sentry/react';
 
 export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<AllRentalItemsResponse | ErrorResponse | Pending>('pending');
@@ -27,8 +28,8 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
           } else {
             try {
               return res.json();
-            } catch (e) {
-              console.error(e);
+            } catch (error) {
+              captureException(error);
               return {
                 code: 'all-rental-items/unknown-error',
                 message: 'UnknownError: Something went wrong.',
@@ -36,8 +37,8 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
             }
           }
         })
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          captureException(error);
           return {
             code: 'all-rental-items/unknown-error',
             message: 'UnknownError: Something went wrong.',

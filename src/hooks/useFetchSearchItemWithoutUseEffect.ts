@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { SearchItemsResponse } from '../model/searchItemResponse';
@@ -25,8 +26,8 @@ export const useFetchSearchItemWithoutUseEffect = async (
           // error
           try {
             return res.json();
-          } catch (e) {
-            console.error(e);
+          } catch (error) {
+            captureException(error);
             return {
               code: 'search-item/unknown-error',
               message: 'UnknownError: Something went wrong.',
@@ -34,8 +35,8 @@ export const useFetchSearchItemWithoutUseEffect = async (
           }
         }
       })
-      .catch((e) => {
-        console.error(e);
+      .catch((error) => {
+        captureException(error);
         return {
           code: 'search-item/unknown-error',
           message: 'UnknownError: Something went wrong.',

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { AllSelectColorResponse, AllColorsResponse } from '../model/allColorsResponse';
+import { captureException } from '@sentry/react';
 
 export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<AllSelectColorResponse | ErrorResponse | Pending>('pending');
@@ -26,8 +27,8 @@ export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pendi
           } else {
             try {
               return res.json();
-            } catch (e) {
-              console.error(e);
+            } catch (error) {
+              captureException(error);
               return {
                 code: 'all-colors/unknown-error',
                 message: 'UnknownError: Something went wrong.',
@@ -35,8 +36,8 @@ export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pendi
             }
           }
         })
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          captureException(error);
           return {
             code: 'all-colors/unknown-error',
             message: 'UnknownError: Something went wrong.',

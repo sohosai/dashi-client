@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { AllTrashItemsResponse } from '../model/allTrashItemResponse';
+import { captureException } from '@sentry/react';
 
 export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<AllTrashItemsResponse | ErrorResponse | Pending>('pending');
@@ -26,8 +27,8 @@ export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pe
           } else {
             try {
               return res.json();
-            } catch (e) {
-              console.error(e);
+            } catch (error) {
+              captureException(error);
               return {
                 code: 'trash-item/unknown-error',
                 message: 'UnknownError: Something went wrong.',
@@ -35,8 +36,8 @@ export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pe
             }
           }
         })
-        .catch((err) => {
-          console.error(err);
+        .catch((error) => {
+          captureException(error);
           return {
             code: 'trash-item/unknown-error',
             message: 'UnknownError: Something went wrong.',

@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { OkResponse } from '../model/okResponse';
 
@@ -22,8 +23,8 @@ export const useFetchDeleteItem = async (id: number): Promise<OkResponse | Error
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'delete-item/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -31,8 +32,8 @@ export const useFetchDeleteItem = async (id: number): Promise<OkResponse | Error
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'delete-item/unknown-error',
         message: 'UnknownError: Something went wrong.',

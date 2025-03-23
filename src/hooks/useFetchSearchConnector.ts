@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ErrorResponse } from '../model/errorResponse';
 import { Pending } from '../model/pending';
 import { SearchConnectorsResponse } from '../model/searchConnectorResponse';
+import { captureException } from '@sentry/react';
 
 export const useFetchSearchConnector = (keywords: string): SearchConnectorsResponse | ErrorResponse | Pending => {
   const [result, setResult] = useState<SearchConnectorsResponse | ErrorResponse | Pending>('pending');
@@ -28,8 +29,8 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
               // error
               try {
                 return res.json();
-              } catch (e) {
-                console.error(e);
+              } catch (error) {
+                captureException(error);
                 return {
                   code: 'search-connector/unknown-error',
                   message: 'UnknownError: Something went wrong.',
@@ -37,8 +38,8 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
               }
             }
           })
-          .catch((e) => {
-            console.error(e);
+          .catch((error) => {
+            captureException(error);
             return {
               code: 'search-connector/unknown-error',
               message: 'UnknownError: Something went wrong.',

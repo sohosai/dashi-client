@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react';
 import { ErrorResponse } from '../model/errorResponse';
 import { GenerateRequest, Record } from '../model/generateRequest';
 import { GenerateResponse } from '../model/generateResponse';
@@ -29,8 +30,8 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
         // error
         try {
           return res.json();
-        } catch (e) {
-          console.error(e);
+        } catch (error) {
+          captureException(error);
           return {
             code: 'generate/unknown-error',
             message: 'UnknownError: Something went wrong.',
@@ -38,8 +39,8 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
         }
       }
     })
-    .catch((e) => {
-      console.error(e);
+    .catch((error) => {
+      captureException(error);
       return {
         code: 'generate/unknown-error',
         message: 'UnknownError: Something went wrong.',
