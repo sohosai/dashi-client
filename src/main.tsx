@@ -2,12 +2,20 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
-import * as Sentry from "@sentry/react";
+import * as Sentry from '@sentry/react';
 import App from './App.tsx';
 import './global.css';
 
 Sentry.init({
-  dsn: 'https://b3424e7bc4ef354cccbbe8f3f0bfdc90@o4507113970466816.ingest.us.sentry.io/4509021627809792',
+  dsn: `${import.meta.env.VITE_SENTRY_DSN}`,
+  integrations: [
+    // Use the default strategy, an alias for `feedbackSyncIntegration`
+    // https://docs.sentry.io/platforms/javascript/guides/react/user-feedback/configuration/#crash-report-modal
+    Sentry.feedbackIntegration({
+      // Additional SDK configuration goes in here, for example:
+      colorScheme: 'system',
+    }),
+  ],
 });
 
 createRoot(document.getElementById('root')!).render(
