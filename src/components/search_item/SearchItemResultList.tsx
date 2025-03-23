@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { SearchItemResponse, SearchItemsResponse } from '../../model/searchItemResponse';
 import { ErrorResponse } from '../../model/errorResponse';
 import { ErrorResult } from '..';
 import SearchItemResult from './SearchItemResult';
+import { useSortSearchItem } from '../../hooks/useSortSearchItem';
 
 type Props = {
   result: SearchItemsResponse | ErrorResponse;
@@ -10,13 +11,19 @@ type Props = {
 };
 
 const SearchItemResultList: FC<Props> = (props) => {
+  const [result, useResult] = useState<SearchItemsResponse | ErrorResponse>(props.result);
+  useEffect(() => {
+    if (!('code' in props.result && 'message' in props.result)) {
+      useResult(useSortSearchItem(props.result));
+    }
+  }, [props.result]);
   return (
     <>
-      {'code' in props.result && 'message' in props.result ? (
-        <ErrorResult result={props.result} />
+      {'code' in result && 'message' in result ? (
+        <ErrorResult result={result} />
       ) : (
         <ul>
-          {props.result.search_items.map((item: SearchItemResponse, index: number) => (
+          {result.search_items.map((item: SearchItemResponse, index: number) => (
             <li key={index}>
               {props.isRent ? (
                 <>

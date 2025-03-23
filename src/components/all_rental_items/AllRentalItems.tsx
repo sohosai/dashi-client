@@ -1,21 +1,28 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { ErrorResult } from '..';
 import { ErrorResponse } from '../../model/errorResponse';
 import { AllRentalItemsResponse } from '../../model/allRentalItemsResponse';
+import { useSortRentalItem } from '../../hooks/useSortRentalItem';
 
 type Props = {
   result: AllRentalItemsResponse | ErrorResponse;
 };
 
 const AllRentalItemsResult: FC<Props> = (props) => {
+  const [result, useResult] = useState<AllRentalItemsResponse | ErrorResponse>(props.result);
+  useEffect(() => {
+    if (!('code' in props.result && 'message' in props.result)) {
+      useResult(useSortRentalItem(props.result));
+    }
+  }, [props.result]);
   return (
     <>
-      {'code' in props.result && 'message' in props.result ? (
+      {'code' in result && 'message' in result ? (
         // fetchに失敗
-        <ErrorResult result={props.result} />
+        <ErrorResult result={result} />
       ) : (
         // fetch成功
-        props.result.rental_items.map((item, index) => (
+        result.rental_items.map((item, index) => (
           <div key={index}>
             <p>id: {item.id}</p>
             <p>visible_id: {item.visible_id}</p>
