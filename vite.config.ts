@@ -10,7 +10,7 @@ export default defineConfig({
   preview: {
     port: 3000,
     strictPort: true,
-    allowedHosts: ['localhost', 'dashi-api.sohosai.com', `${process.env.SENTRY_HOST}`],
+    allowedHosts: ['localhost', 'dashi-api.sohosai.com'],
   },
   plugins: [
     react(),
