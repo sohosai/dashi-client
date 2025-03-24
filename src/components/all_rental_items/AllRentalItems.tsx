@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { ErrorResult } from '..';
+import { ErrorResult, ReplaceRental, UpdateRental } from '..';
 import { ErrorResponse } from '../../model/errorResponse';
 import { AllRentalItemsResponse } from '../../model/allRentalItemsResponse';
 import { useSortRentalItem } from '../../hooks/useSortRentalItem';
@@ -44,6 +44,8 @@ const AllRentalItemsResult: FC<Props> = (props) => {
             <p>latest_rent_at: {item.latest_rent_at ?? ''}</p>
             <p>scheduled_replace_at: {item.scheduled_replace_at ?? ''}</p>
             <p>latest_replace_at: {item.latest_replace_at ?? ''}</p>
+            <UpdateRental id={item.id.toString()} isHidden={item.id === 1 || !item.is_rent ? true : false} />
+            <ReplaceRental id={item.id.toString()} isHidden={item.id === 1 || !item.is_rent ? true : false} />
           </div>
         ))
       )}

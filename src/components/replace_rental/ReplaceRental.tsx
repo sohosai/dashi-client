@@ -9,6 +9,7 @@ import ReplaceRentalResult from './ReplaceRentalResult';
 
 type Props = {
   id: string;
+  isHidden: boolean;
 };
 
 ReactModal.setAppElement('#root');
@@ -25,7 +26,7 @@ const ReplaceRental: FC<Props> = (props) => {
   };
   return (
     <>
-      <ReplaceRentalButton id={props.id} setIsOpen={setIsOpen} setResult={setResult} />
+      <ReplaceRentalButton id={props.id} setIsOpen={setIsOpen} setResult={setResult} isHidden={props.isHidden} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="ReplaceRentalModal"

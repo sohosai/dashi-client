@@ -9,6 +9,7 @@ import {
   RentRental,
   ReplaceRental,
   TransferItem,
+  UpdateRental,
 } from '../../components';
 import { IndividualItemResponse } from '../../model/individualItemResponse';
 import { Pending } from '../../model/pending';
@@ -47,8 +48,8 @@ const IndividualItem: FC = () => {
           <ImageItem id={id} isHidden={result.is_rent ? true : false} />
           {/*Rental*/}
           <>
-            <Link to={`/rental/${id}/update`}>貸し出し情報の更新</Link>
-            <ReplaceRental id={id} />
+            <UpdateRental id={id} isHidden={result.id === 1 || !result.is_rent ? true : false} />
+            <ReplaceRental id={id} isHidden={result.id === 1 || !result.is_rent ? true : false} />
           </>
           <RentRental id={id} isHidden={result.id === 1 || result.is_rent ? true : false} />
           <br />

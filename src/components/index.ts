@@ -29,6 +29,7 @@ export { default as AllColorsResult } from './color/init/AllColors';
 export { default as StatusColor } from './color/status/StatusColor';
 export { default as RentRental } from './rent_rental/RentRental';
 export { default as ReplaceRental } from './replace_rental/ReplaceRental';
+export { default as UpdateRental } from './update_rental/UpdateRental';
 export { default as ImageItem } from './image_item/ImageItem';
 export { default as LoginButton } from './login/LoginButton';
 export { default as LogoutButton } from './logout/LogoutButton';

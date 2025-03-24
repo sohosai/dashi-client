@@ -8,6 +8,7 @@ type Props = {
   id: string;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
+  isHidden: boolean;
 };
 
 const ReplaceRentalButton: FC<Props> = (props) => {
@@ -17,7 +18,13 @@ const ReplaceRentalButton: FC<Props> = (props) => {
     const result: OkResponse | ErrorResponse = await useFetchReplaceRental(parseInt(props.id));
     props.setResult(result);
   };
-  return <button onClick={handleClick}>Replace</button>;
+  return props.isHidden ? (
+    <button onClick={handleClick} disabled>
+      Replace
+    </button>
+  ) : (
+    <button onClick={handleClick}>Replace</button>
+  );
 };
 
 export default ReplaceRentalButton;

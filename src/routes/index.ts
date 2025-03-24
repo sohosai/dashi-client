@@ -7,5 +7,4 @@ export { default as Generate } from './pages/Generate';
 export { default as AllTrashItems } from './pages/AllTrashItems';
 export { default as Connector } from './pages/Connector';
 export { default as Color } from './pages/Color';
-export { default as UpdateRental } from './pages/UpdateRental';
 export { default as AllRentalItems } from './pages/AllRentalItems';

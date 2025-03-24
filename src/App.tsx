@@ -11,7 +11,6 @@ import {
   RegisterItem,
   AllTrashItems,
   UpdateItem,
-  UpdateRental,
 } from './routes';
 import { LoginButton, LogoutButton, Profile } from './components';
 
@@ -38,7 +37,6 @@ const App: FC = () => {
         <Route path="/connector" element={<Connector />} />
         <Route path="/color" element={<Color />} />
         <Route path="/rental/all" element={<AllRentalItems />} />
-        <Route path="/rental/:id/update" element={<UpdateRental />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
