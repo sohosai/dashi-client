@@ -10,28 +10,26 @@ type Props = {
 };
 
 const AllColors: FC<Props> = (props) => {
-  // const [result, useResult] = useState<AllConnectorsResponse | ErrorResponse>(props.result);
-  // useEffect(() => {
-  //   if (!('code' in props.result && 'message' in props.result)) {
-  //     useResult(useSortAllConnector(props.result));
-  //   }
-  // }, [props.result]);
+  const [result, useResult] = useState<AllConnectorsResponse | ErrorResponse>(props.result);
+  useEffect(() => {
+    if (!('code' in props.result && 'message' in props.result)) {
+      useResult(useSortAllConnector(props.result));
+    }
+  }, [props.result]);
   return (
     <>
-      {'code' in props.result && 'message' in props.result ? (
-        <ErrorResult result={props.result} />
+      {'code' in result && 'message' in result ? (
+        <ErrorResult result={result} />
       ) : (
-        <>
-          {props.result.all_connectors.map((connector: ConnectorResponse, index: number) => (
-            // それ以外
-            <div key={index}>
-              <h2>{connector.name}</h2>
-              <p>{connector.id}</p>
-              <p>{connector.status}</p>
-              <StatusConnector id={connector.id} status={connector.status} />
-            </div>
-          ))}
-        </>
+        result.all_connectors.map((connector: ConnectorResponse, index: number) => (
+          // それ以外
+          <div key={index}>
+            <h2>{connector.name}</h2>
+            <p>{connector.id}</p>
+            <p>{connector.status}</p>
+            <StatusConnector id={connector.id} status={connector.status} />
+          </div>
+        ))
       )}
     </>
   );

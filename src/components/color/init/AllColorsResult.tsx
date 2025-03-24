@@ -11,30 +11,27 @@ type Props = {
 };
 
 const AllColors: FC<Props> = (props) => {
-  // const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
-  // useEffect(() => {
-  //   if (!('code' in props.result && 'message' in props.result)) {
-  //     useResult(useSortAllColor(props.result));
-  //   }
-  // }, [props.result]);
+  const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
+  useEffect(() => {
+    if (!('code' in props.result && 'message' in props.result)) {
+      useResult(useSortAllColor(props.result));
+    }
+  }, [props.result]);
   return (
     <>
-      {'code' in props.result && 'message' in props.result ? (
-        <ErrorResult result={props.result} />
+      {'code' in result && 'message' in result ? (
+        <ErrorResult result={result} />
       ) : (
-        <>
-          {props.result.all_colors.map((color: ColorResponse, index: number) => (
-            // それ以外
-            <div key={index}>
-              <h2>{color.name}</h2>
-              <p>{color.id}</p>
-              <p>{color.status}</p>
-              <p>{color.hex_color_code}</p>
-              <HexColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-              <StatusColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-            </div>
-          ))}
-        </>
+        result.all_colors.map((color: ColorResponse, index: number) => (
+          <div key={index}>
+            <h2>{color.name}</h2>
+            <p>{color.id}</p>
+            <p>{color.status}</p>
+            <p>{color.hex_color_code}</p>
+            <HexColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
+            <StatusColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
+          </div>
+        ))
       )}
     </>
   );

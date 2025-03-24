@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { ErrorResponse } from '../../model/errorResponse';
 import { Pending } from '../../model/pending';
 import {
-  AllConnectorsResult,
+  AllConnectors,
   Loading,
   RegisterConnector,
   SearchConnectorForm,
@@ -29,7 +29,7 @@ const Connector: FC = () => {
       <RegisterConnector />
       {keywords === '' ? (
         // 検索欄が空
-        <AllConnectorsResult result={initialResult} />
+        <AllConnectors result={initialResult} />
       ) : result === 'pending' ? (
         // 処理中
         <Loading />
