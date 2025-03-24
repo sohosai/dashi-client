@@ -17,13 +17,6 @@ import { LoginButton, LogoutButton, Profile } from './components';
 const App: FC = () => {
   return (
     <>
-      <button
-        onClick={() => {
-          throw new Error('This is your first error!');
-        }}
-      >
-        Break the world
-      </button>
       <LoginButton />
       <LogoutButton />
       <Profile />
