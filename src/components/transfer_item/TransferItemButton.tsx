@@ -10,7 +10,7 @@ type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
 
-const DeleteItemButton: FC<Props> = (props) => {
+const TransferItemButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
     props.setResult('pending');
     const result: OkResponse | ErrorResponse = await useFetchTransferItem(parseInt(props.id), props.parent_id);
@@ -19,4 +19,4 @@ const DeleteItemButton: FC<Props> = (props) => {
   return <button onClick={handleClick}>Move</button>;
 };
 
-export default DeleteItemButton;
+export default TransferItemButton;

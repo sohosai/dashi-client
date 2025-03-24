@@ -13,40 +13,38 @@ const UpdateItem: FC = () => {
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
   // get individual item result
   const individualItem: IndividualItemResponse | ErrorResponse | Pending = useFetchIndividualItem(id);
+  //早期リターン
+  if (typeof id === 'undefined') {
+    // 発生しないはず
+    return <h2>Unexpected Error</h2>;
+  }
   return (
     <>
-      {typeof id === 'undefined' ? (
-        // 発生しないはず
-        <h2>Unexpected Error</h2>
+      {individualItem === 'pending' ? (
+        // 処理中
+        <Loading />
+      ) : 'code' in individualItem && 'message' in individualItem ? (
+        // fetchに失敗
+        <ErrorResult result={individualItem} />
       ) : (
+        // fetch成功 (formを表示)
         <>
-          {individualItem === 'pending' ? (
-            // 処理中
-            <Loading />
-          ) : 'code' in individualItem && 'message' in individualItem ? (
-            // fetchに失敗
-            <ErrorResult result={individualItem} />
+          {individualItem.is_rent ? (
+            // 貸出中の物品
+            <h1>貸出中の物品は編集できません。</h1>
           ) : (
-            // fetch成功 (formを表示)
+            // 貸出中でない物品
             <>
-              {individualItem.is_rent ? (
-                // 貸出中の物品
-                <h1>貸出中の物品は編集できません。</h1>
+              {/* 更新結果 */}
+              {result === null ? (
+                // 初期表示
+                <UpdateItemForm individualItem={individualItem} setResult={setResult} />
+              ) : result === 'pending' ? (
+                // 処理中
+                <Loading />
               ) : (
-                // 貸出中でない物品
-                <>
-                  {/* 更新結果 */}
-                  {result === null ? (
-                    // 初期表示
-                    <UpdateItemForm individualItem={individualItem} setResult={setResult} />
-                  ) : result === 'pending' ? (
-                    // 処理中
-                    <Loading />
-                  ) : (
-                    // fetch結果
-                    <UpdateItemResult id={id} result={result} />
-                  )}
-                </>
+                // fetch結果
+                <UpdateItemResult id={id} result={result} />
               )}
             </>
           )}

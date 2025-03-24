@@ -20,11 +20,13 @@ const RegisterItem: FC = () => {
         // 初期表示
         <>
           {connectors === 'pending' || colors === 'pending' ? (
+            // 初期表示の処理中
             <Loading />
           ) : 'all_connectors' in connectors && 'all_colors' in colors ? (
+            // 初期表示のfetch成功 (connector color)
             <RegisterItemForm setResult={setResult} />
           ) : (
-            // 初期表示に必要な情報に関するfetchエラー
+            // 初期表示のfetch失敗 (connector color)
             <>
               {'all_connectors' in connectors ? (
                 <p>ok</p>

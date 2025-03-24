@@ -14,33 +14,31 @@ const UpdateRental: FC = () => {
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
   // get individual item result
   const individualItem: IndividualItemResponse | ErrorResponse | Pending = useFetchIndividualItem(id);
+  //早期リターン
+  if (typeof id === 'undefined') {
+    // 発生しないはず
+    return <h2>Unexpected Error</h2>;
+  }
   return (
     <>
-      {typeof id === 'undefined' ? (
-        // 発生しないはず
-        <h2>Unexpected Error</h2>
+      {individualItem === 'pending' ? (
+        // 処理中
+        <Loading />
+      ) : 'code' in individualItem && 'message' in individualItem ? (
+        // fetchに失敗
+        <ErrorResult result={individualItem} />
       ) : (
+        // fetch成功 (formを表示)
         <>
-          {individualItem === 'pending' ? (
+          {result === null ? (
+            // 初期表示
+            <UpdateRentalForm individualItem={individualItem} setResult={setResult} />
+          ) : result === 'pending' ? (
             // 処理中
             <Loading />
-          ) : 'code' in individualItem && 'message' in individualItem ? (
-            // fetchに失敗
-            <ErrorResult result={individualItem} />
           ) : (
-            // fetch成功 (formを表示)
-            <>
-              {result === null ? (
-                // 初期表示
-                <UpdateRentalForm individualItem={individualItem} setResult={setResult} />
-              ) : result === 'pending' ? (
-                // 処理中
-                <Loading />
-              ) : (
-                // fetch結果
-                <UpdateRentalResult id={id} result={result} />
-              )}
-            </>
+            // fetch結果
+            <UpdateRentalResult id={id} result={result} />
           )}
         </>
       )}
