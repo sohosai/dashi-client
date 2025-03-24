@@ -13,7 +13,13 @@ const Profile = () => {
     fetchClaims();
   }, [isAuthenticated]);
 
-  return isLoading ? <div>Loading...</div> : isAuthenticated ? <p>認証が完了しました。</p> : <></>;
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : isAuthenticated ? (
+    <p>認証が完了しました。</p>
+  ) : (
+    <p>認証に失敗しました。</p>
+  );
 };
 
 export default Profile;
