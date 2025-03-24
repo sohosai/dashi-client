@@ -10,7 +10,7 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
         // get jwt
-        const jwt = window.localStorage.getItem('jwt');
+        const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
         // send
         const data: SearchConnectorsResponse | ErrorResponse = await fetch(
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/search?keywords=${keywords}`,

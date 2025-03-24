@@ -9,7 +9,7 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       // get jwt
-      const jwt = window.localStorage.getItem('jwt');
+      const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
       // send
       const data: AllConnectorsResponse | ErrorResponse = await fetch(
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,

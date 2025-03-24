@@ -10,7 +10,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
   useEffect(() => {
     const fetchData = async () => {
       // get jwt
-      const jwt = window.localStorage.getItem('jwt');
+      const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
       // send
       const data: AllRentalItemsResponse | ErrorResponse = await fetch(
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/all`,

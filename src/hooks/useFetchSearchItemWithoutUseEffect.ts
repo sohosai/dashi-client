@@ -10,7 +10,7 @@ export const useFetchSearchItemWithoutUseEffect = async (
 
   if (keywords !== undefined && keywords !== '') {
     // get jwt
-    const jwt = window.localStorage.getItem('jwt');
+    const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
     // send
     result = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, {
       method: 'GET',

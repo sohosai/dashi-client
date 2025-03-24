@@ -16,7 +16,7 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
     new_parent_id: parent_id,
   };
   // get jwt
-  const jwt = window.localStorage.getItem('jwt');
+  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/transfer`,

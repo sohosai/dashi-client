@@ -13,7 +13,7 @@ export const useFetchUpdateColor = async (id: number, hex_color_code: string, st
     status: status,
   };
   // get jwt
-  const jwt = window.localStorage.getItem('jwt');
+  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color/${id}`,

@@ -11,19 +11,19 @@ type Props = {
 };
 
 const AllColors: FC<Props> = (props) => {
-  const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
-  useEffect(() => {
-    if (!('code' in props.result && 'message' in props.result)) {
-      useResult(useSortAllColor(props.result));
-    }
-  }, [props.result]);
+  // const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
+  // useEffect(() => {
+  //   if (!('code' in props.result && 'message' in props.result)) {
+  //     useResult(useSortAllColor(props.result));
+  //   }
+  // }, [props.result]);
   return (
     <>
-      {'code' in result && 'message' in result ? (
-        <ErrorResult result={result} />
+      {'code' in props.result && 'message' in props.result ? (
+        <ErrorResult result={props.result} />
       ) : (
         <>
-          {result.all_colors.map((color: ColorResponse, index: number) => (
+          {props.result.all_colors.map((color: ColorResponse, index: number) => (
             // それ以外
             <div key={index}>
               <h2>{color.name}</h2>

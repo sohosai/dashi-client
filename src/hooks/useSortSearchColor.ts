@@ -3,10 +3,10 @@ import { SearchColorsResponse } from '../model/searchColorResponse';
 
 //compareFunction
 const compare = (a: ColorResponse, b: ColorResponse) => {
-  if (a.id < b.id) {
+  if (a.id > b.id) {
     return 1;
   }
-  if (a.id > b.id) {
+  if (a.id < b.id) {
     return -1;
   }
   return 0;
