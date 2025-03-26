@@ -1,8 +1,19 @@
 /*!
+* "Noto Serif Japanese" is licenced under the SIL OPEN FONT LICENSE Version 1.1
+* by https://fonts.google.com/noto/specimen/Noto+Serif+JP/license
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
+
+/*!
  * "0xProto" is lisenced under the SIL Open Font License 1.1
  * by https://github.com/0xType/0xProto
  */
 @font-face {
   font-family: 'ZeroXProto';
   src: url('/assets/fonts/0xProto-Regular.woff2') format('woff2');
+}
+
+* {
+  font-family: 'Noto Serif JP', serif;
+  font-optical-sizing: auto;
 }
