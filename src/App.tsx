@@ -12,14 +12,13 @@ import {
   AllTrashItems,
   UpdateItem,
 } from './routes';
-import { LoginButton, LogoutButton, Profile } from './components';
+import { LoginButton, LogoutButton } from './components';
 
 const App: FC = () => {
   return (
     <>
       <LoginButton />
       <LogoutButton />
-      <Profile />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<IndividualItem />} />

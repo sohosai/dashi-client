@@ -6,7 +6,7 @@ const LogoutButton = () => {
     window.localStorage.clear();
     logout({ logoutParams: { returnTo: window.location.origin } });
   };
-  return <button onClick={handleClick}>Log Out</button>;
+  return <button onClick={handleClick}>ログアウト</button>;
 };
 
 export default LogoutButton;
