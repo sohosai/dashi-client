@@ -9,7 +9,7 @@ const IndividualItemResult: FC<Props> = (props) => {
   return (
     <>
       <h2>name: {props.result.name}</h2>
-      <img src={`https://pub-2b28bcd8ca714b71aba146eb473c2580.r2.dev/${props.result.id}.webp`} alt="物品の画像" />
+      <img src={`${import.meta.env.VITE_CLOUDFLARE_R2_IMAGE_URI}/${props.result.id}.webp`} alt="物品の画像" />
       <p>id: {props.result.id}</p>
       <p>visible_id: {props.result.visible_id}</p>
       <p>parent_id: {props.result.parent_id}</p>
