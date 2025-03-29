@@ -8,16 +8,11 @@ export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pe
   const [result, setResult] = useState<AllTrashItemsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async () => {
-      // get jwt
-      const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
       // send
       const data: AllTrashItemsResponse | ErrorResponse = await fetch(
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/trash`,
         {
           method: 'GET',
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
         }
       )
         .then((res) => {

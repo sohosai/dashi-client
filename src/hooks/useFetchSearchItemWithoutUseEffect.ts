@@ -9,14 +9,9 @@ export const useFetchSearchItemWithoutUseEffect = async (
   let result: SearchItemsResponse | ErrorResponse | Pending = 'pending';
 
   if (keywords !== undefined && keywords !== '') {
-    // get jwt
-    const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
     // send
     result = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
     })
       .then((res) => {
         if (res.status === 200) {

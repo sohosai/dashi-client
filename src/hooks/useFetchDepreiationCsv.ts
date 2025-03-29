@@ -3,16 +3,11 @@ import { DepreiationCsvResponse } from '../model/depreiationCsvResponse';
 import { ErrorResponse } from '../model/errorResponse';
 
 export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse | ErrorResponse> => {
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: DepreiationCsvResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/csv/depreiation`,
     {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${jwt}`,
-      },
     }
   )
     .then((res) => {

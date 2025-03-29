@@ -11,15 +11,12 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
     id: id,
     status: status,
   };
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/${id}`,
     {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),

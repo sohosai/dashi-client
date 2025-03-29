@@ -9,16 +9,11 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
   useEffect(() => {
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
-        // get jwt
-        const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
         // send
         const data: SearchColorsResponse | ErrorResponse = await fetch(
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color/search?keywords=${keywords}`,
           {
             method: 'GET',
-            headers: {
-              Authorization: `Bearer ${jwt}`,
-            },
           }
         )
           .then((res) => {

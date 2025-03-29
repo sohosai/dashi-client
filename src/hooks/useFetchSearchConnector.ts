@@ -9,16 +9,11 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
   useEffect(() => {
     const fetchData = async () => {
       if (keywords !== undefined && keywords !== '') {
-        // get jwt
-        const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
         // send
         const data: SearchConnectorsResponse | ErrorResponse = await fetch(
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/search?keywords=${keywords}`,
           {
             method: 'GET',
-            headers: {
-              Authorization: `Bearer ${jwt}`,
-            },
           }
         )
           .then((res) => {

@@ -15,15 +15,12 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
     id: id,
     new_parent_id: parent_id,
   };
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/transfer`,
     {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),

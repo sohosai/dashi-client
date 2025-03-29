@@ -10,15 +10,12 @@ export const useFetchRegisterConnector = async (
   const requestData: RegisterConnectorRequest = {
     name: data.name,
   };
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),

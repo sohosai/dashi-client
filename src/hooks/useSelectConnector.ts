@@ -8,16 +8,11 @@ export const useSelectConnector = (): ErrorResponse | Pending | AllSelectConnect
   const [result, setResult] = useState<AllSelectConnectorResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
-      // get jwt
-      const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
       // send
       const data: AllConnectorsResponse | ErrorResponse = await fetch(
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
         {
           method: 'GET',
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
         }
       )
         .then((res) => {

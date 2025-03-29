@@ -8,15 +8,12 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
     quantity: quantity,
     record: record,
   };
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: GenerateResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/generate`,
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),

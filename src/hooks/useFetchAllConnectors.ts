@@ -8,16 +8,11 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
   const [result, setResult] = useState<AllConnectorsResponse | ErrorResponse | Pending>('pending');
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
-      // get jwt
-      const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
       // send
       const data: AllConnectorsResponse | ErrorResponse = await fetch(
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
         {
           method: 'GET',
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
         }
       )
         .then((res) => {

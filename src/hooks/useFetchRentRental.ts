@@ -12,15 +12,12 @@ export const useFetchRentRental = async (id: number, data: RentalSchemaType): Pr
     rental_description: data.rental_description,
     scheduled_replace_at: data.scheduled_replace_at,
   };
-  // get jwt
-  const jwt: string | null = window.localStorage.getItem('jwt') ?? '';
   // send
   const result: OkResponse | ErrorResponse = await fetch(
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/rent/${id}`,
     {
       method: 'PATCH',
       headers: {
-        Authorization: `Bearer ${jwt}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(requestData),
