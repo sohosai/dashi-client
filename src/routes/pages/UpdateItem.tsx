@@ -6,7 +6,7 @@ import { Pending } from '../../model/pending';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 import { OkResponse } from '../../model/okResponse';
 import UpdateItemResult from '../../components/update_item/UpdateItemResult';
-import { ErrorResult, Loading, UpdateItemForm } from '../../components';
+import { ErrorResult, Loading, Title, UpdateItemForm } from '../../components';
 
 const UpdateItem: FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -20,6 +20,7 @@ const UpdateItem: FC = () => {
   }
   return (
     <>
+      <Title title="物品情報の更新" />
       {individualItem === 'pending' ? (
         // 処理中
         <Loading />

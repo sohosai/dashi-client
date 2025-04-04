@@ -8,6 +8,7 @@ import {
   RegisterConnector,
   SearchConnectorForm,
   SearchConnectorResult,
+  Title,
 } from '../../components';
 import { useFetchSearchConnector } from '../../hooks/useFetchSearchConnector';
 import { SearchConnectorsResponse } from '../../model/searchConnectorResponse';
@@ -24,6 +25,7 @@ const Connector: FC = () => {
   const result: SearchConnectorsResponse | ErrorResponse | Pending = useFetchSearchConnector(keywords);
   return (
     <>
+      <Title title="端子名管理" />
       <SearchConnectorForm keywords={keywords} />
       <br />
       <RegisterConnector />

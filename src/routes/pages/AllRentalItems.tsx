@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Loading } from '../../components';
+import { Loading, Title } from '../../components';
 import { Pending } from '../../model/pending';
 import { ErrorResponse } from '../../model/errorResponse';
 import { useFetchAllRentalItems } from '../../hooks/useFetchAllRentalItems';
@@ -11,7 +11,7 @@ const AllRentalItems: FC = () => {
   const result: AllRentalItemsResponse | ErrorResponse | Pending = useFetchAllRentalItems();
   return (
     <>
-      <h1>Rental Items</h1>
+      <Title title="貸し出し中物品管理" />
       {result === 'pending' ? (
         // 処理中
         <Loading />

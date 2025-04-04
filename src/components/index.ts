@@ -32,3 +32,4 @@ export { default as ImageItem } from './image_item/ImageItem';
 export { default as Header } from './header/Header';
 export { default as Menu } from './menu/Menu';
 export { default as CsvBox } from './csv/CsvBox';
+export { default as Title } from './title/Title';

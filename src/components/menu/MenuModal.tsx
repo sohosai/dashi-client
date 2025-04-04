@@ -4,6 +4,13 @@ import MenuModalButton from './MenuModalButton';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';
+import { FaCashRegister } from 'react-icons/fa';
+import { BsQrCode } from 'react-icons/bs';
+import { BsTrash3Fill } from 'react-icons/bs';
+import { VscDebugDisconnect } from 'react-icons/vsc';
+import { IoMdColorPalette } from 'react-icons/io';
+import { GrCycle } from 'react-icons/gr';
+import { FaFileCsv } from 'react-icons/fa6';
 
 ReactModal.setAppElement('#root');
 
@@ -37,7 +44,32 @@ const StyledCloseButtonWrapper = styled.div`
 
 const StyledTitle = styled.h1`
   font-size: 3.2rem;
+  font-weight: 400;
   text-align: center;
+`;
+
+const StyledLinkButton = styled.div`
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  background-color: #f6f6f6;
+  border: #b3b3b3 1px solid;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyledLinkButtonLabel = styled.p`
+  font-size: 1.6rem;
+  margin: 10px 0 0 0;
+  padding: 0;
+`;
+
+const StyledLinkButtonBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const MenuModal: FC = () => {
@@ -78,17 +110,60 @@ const MenuModal: FC = () => {
           </StyledCloseButton>
         </StyledCloseButtonWrapper>
         <StyledTitle>メニュー</StyledTitle>
-        <Link to="/register">Register</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/register">
+              <FaCashRegister style={{ width: '35px', height: '35px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>物品情報の登録</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
         <br />
-        <Link to="/generate">Generate</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/generate">
+              <BsQrCode style={{ margin: '0 3px 0 0', width: '27px', height: '27px', color: '#000000' }} />
+              <FaFileCsv style={{ margin: '0 0 0 3px', width: '27px', height: '27px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>ラベル / csv の生成</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
         <br />
-        <Link to="/trash">Trash History</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/trash">
+              <BsTrash3Fill style={{ width: '35px', height: '35px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>削除物品情報の履歴</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
         <br />
-        <Link to="/connector">Connector</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/connector">
+              <VscDebugDisconnect style={{ width: '35px', height: '35px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>端子名管理</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
         <br />
-        <Link to="/color">Color</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/color">
+              <IoMdColorPalette style={{ width: '35px', height: '35px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>ケーブル識別色管理</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
         <br />
-        <Link to="/rental/all">Rental List</Link>
+        <StyledLinkButtonBox>
+          <StyledLinkButton>
+            <Link to="/rental/all">
+              <GrCycle style={{ width: '35px', height: '35px', color: '#000000' }} />
+            </Link>
+          </StyledLinkButton>
+          <StyledLinkButtonLabel>貸し出し中物品管理</StyledLinkButtonLabel>
+        </StyledLinkButtonBox>
       </ReactModal>
     </>
   );

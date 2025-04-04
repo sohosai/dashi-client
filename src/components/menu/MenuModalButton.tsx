@@ -6,8 +6,8 @@ type Props = {
 };
 
 const StyledButton = styled.button`
-  height: 56px;
-  width: 56px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background-color: #f6f6f6;
   border: #b3b3b3 1px solid;

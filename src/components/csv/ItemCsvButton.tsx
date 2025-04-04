@@ -26,8 +26,8 @@ const header = [
 ];
 
 const StyledButton = styled.button`
-  height: 56px;
-  width: 56px;
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background-color: #f6f6f6;
   border: #b3b3b3 1px solid;
@@ -73,7 +73,7 @@ const ItemCsvButton: FC = () => {
     <>
       <StyledBox>
         <StyledButton onClick={(e) => handlerClick(e)}>
-          <SlCloudDownload style={{ width: '35px', height: '35px' }} />
+          <SlCloudDownload style={{ width: '35px', height: '35px', color: '#000000' }} />
         </StyledButton>
         <StyledLabel>物品リストのcsv</StyledLabel>
       </StyledBox>

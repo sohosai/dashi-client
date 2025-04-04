@@ -6,7 +6,7 @@ import { AllColorsResponse } from '../../model/allColorsResponse';
 import { SearchColorsResponse } from '../../model/searchColorResponse';
 import SearchColorForm from '../../components/color/search/SearchColorForm';
 import RegisterColor from '../../components/color/register/RegisterColor';
-import { AllColors, Loading, SearchColorResult } from '../../components';
+import { AllColors, Loading, SearchColorResult, Title } from '../../components';
 import { useFetchAllColors } from '../../hooks/useFetchAllColors';
 import { useFetchSearchColor } from '../../hooks/useFetchSearchColor';
 
@@ -20,6 +20,7 @@ const Color: FC = () => {
   const result: SearchColorsResponse | ErrorResponse | Pending = useFetchSearchColor(keywords);
   return (
     <>
+      <Title title="ケーブル識別色管理" />
       <SearchColorForm keywords={keywords} />
       <br />
       <RegisterColor />

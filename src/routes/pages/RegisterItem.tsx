@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { ErrorResult, Loading, RegisterItemForm, RegisterItemResult } from '../../components';
+import { ErrorResult, Loading, RegisterItemForm, RegisterItemResult, Title } from '../../components';
 import { ErrorResponse } from '../../model/errorResponse';
 import { OkResponse } from '../../model/okResponse';
 import { Pending } from '../../model/pending';
@@ -15,7 +15,7 @@ const RegisterItem: FC = () => {
   const colors: ErrorResponse | Pending | AllColorsResponse = useFetchAllColors();
   return (
     <>
-      <h1>Register</h1>
+      <Title title="物品情報の登録" />
       {result === null ? (
         // 初期表示
         <>
