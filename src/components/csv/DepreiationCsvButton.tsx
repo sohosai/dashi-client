@@ -9,6 +9,8 @@ import { Pending } from '../../model/pending';
 import { Loading } from '..';
 import CsvResult from './CsvResult';
 import ReactModal from 'react-modal';
+import { SlCloudDownload } from 'react-icons/sl';
+import styled from 'styled-components';
 
 const header = [
   { header: '物品名', key: 'name' },
@@ -17,6 +19,25 @@ const header = [
   { header: '購入年度', key: 'purchase_year' },
   { header: '購入金額', key: 'purchase_price' },
 ];
+
+const StyledButton = styled.button`
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  background-color: #f6f6f6;
+  border: #b3b3b3 1px solid;
+  cursor: pointer;
+`;
+
+const StyledLabel = styled.p`
+  font-size: 1.6rem;
+`;
+
+const StyledBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const DepreiationCsvButton: FC = () => {
   // set result
@@ -47,7 +68,12 @@ const DepreiationCsvButton: FC = () => {
   };
   return (
     <>
-      <button onClick={(e) => handlerClick(e)}>減価償却のCSV</button>
+      <StyledBox>
+        <StyledButton onClick={(e) => handlerClick(e)}>
+          <SlCloudDownload style={{ width: '35px', height: '35px' }} />
+        </StyledButton>
+        <StyledLabel>減価償却のcsv</StyledLabel>
+      </StyledBox>
       {result === null ? (
         //初期表示
         <></>

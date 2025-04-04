@@ -12,10 +12,12 @@ import {
   AllTrashItems,
   UpdateItem,
 } from './routes';
+import { Header } from './components';
 
 const App: FC = () => {
   return (
     <>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<IndividualItem />} />

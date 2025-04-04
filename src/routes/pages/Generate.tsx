@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { GenerateResponse } from '../../model/generateResponse';
 import { ErrorResponse } from '../../model/errorResponse';
 import { Pending } from '../../model/pending';
-import { GenerateForm, GenerateResult, Loading } from '../../components';
+import { CsvBox, GenerateForm, GenerateResult, Loading } from '../../components';
 import { Record } from '../../model/generateRequest';
 
 const Generate: FC = () => {
@@ -13,6 +13,7 @@ const Generate: FC = () => {
   return (
     <>
       <h1>Generate</h1>
+      <CsvBox />
       <GenerateForm setResult={setResult} setRecordType={setRecordType} />
       {result === null ? (
         //初期表示

@@ -13,6 +13,14 @@
   src: url('/assets/fonts/0xProto-Regular.woff2') format('woff2');
 }
 
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #fffdf3;
+  font-size: 62.5%; /* -> 10px */
+}
+
 * {
   font-family: 'Noto Serif JP', serif;
   font-optical-sizing: auto;
