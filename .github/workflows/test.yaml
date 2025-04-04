@@ -15,5 +15,5 @@ jobs:
         uses: cachix/install-nix-action@v30
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
-      # - name: Test
-      #   run: nix develop --command bash -c "pnpm i && pnpm run build"
+      - name: Test
+        run: nix develop --command bash -c "pnpm i && pnpm run build"
