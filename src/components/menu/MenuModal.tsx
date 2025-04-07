@@ -70,6 +70,24 @@ const StyledLinkButtonBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 144px;
+`;
+
+const StyledShelf = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const StyledPartition = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 328px;
+  height: 105.5px;
+  gap: 40px;
+  margin: 0 20px 40px 20px;
 `;
 
 const MenuModal: FC = () => {
@@ -110,60 +128,78 @@ const MenuModal: FC = () => {
           </StyledCloseButton>
         </StyledCloseButtonWrapper>
         <StyledTitle>メニュー</StyledTitle>
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/register">
-              <FaCashRegister style={{ width: '35px', height: '35px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>物品情報の登録</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
-        <br />
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/generate">
-              <BsQrCode style={{ margin: '0 3px 0 0', width: '27px', height: '27px', color: '#000000' }} />
-              <FaFileCsv style={{ margin: '0 0 0 3px', width: '27px', height: '27px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>ラベル / csv の生成</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
-        <br />
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/trash">
-              <BsTrash3Fill style={{ width: '35px', height: '35px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>削除物品情報の履歴</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
-        <br />
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/connector">
-              <VscDebugDisconnect style={{ width: '35px', height: '35px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>端子名管理</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
-        <br />
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/color">
-              <IoMdColorPalette style={{ width: '35px', height: '35px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>ケーブル識別色管理</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
-        <br />
-        <StyledLinkButtonBox>
-          <StyledLinkButton>
-            <Link to="/rental/all">
-              <GrCycle style={{ width: '35px', height: '35px', color: '#000000' }} />
-            </Link>
-          </StyledLinkButton>
-          <StyledLinkButtonLabel>貸し出し中物品管理</StyledLinkButtonLabel>
-        </StyledLinkButtonBox>
+
+        {/***********************/}
+        <StyledShelf>
+          <StyledPartition>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/register">
+                  <FaCashRegister style={{ width: '35px', height: '35px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>物品情報の登録</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/generate">
+                  <BsQrCode style={{ margin: '0 3px 0 0', width: '27px', height: '27px', color: '#000000' }} />
+                  <FaFileCsv style={{ margin: '0 0 0 3px', width: '27px', height: '27px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>ラベル / csv の生成</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+          </StyledPartition>
+          <StyledPartition>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/connector">
+                  <VscDebugDisconnect style={{ width: '35px', height: '35px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>端子名管理</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/color">
+                  <IoMdColorPalette style={{ width: '35px', height: '35px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>ケーブル識別色管理</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+          </StyledPartition>
+        </StyledShelf>
+        {/***********************/}
+        {/***********************/}
+        <StyledShelf>
+          <StyledPartition>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/rental/all">
+                  <GrCycle style={{ width: '35px', height: '35px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>貸し出し中物品管理</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+            <StyledLinkButtonBox>
+              <StyledLinkButton>
+                <Link to="/trash">
+                  <BsTrash3Fill style={{ width: '35px', height: '35px', color: '#000000' }} />
+                </Link>
+              </StyledLinkButton>
+              <StyledLinkButtonLabel>削除物品情報の履歴</StyledLinkButtonLabel>
+            </StyledLinkButtonBox>
+            {/***********************/}
+          </StyledPartition>
+        </StyledShelf>
       </ReactModal>
     </>
   );

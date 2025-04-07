@@ -7,8 +7,26 @@ import { Pending } from '../../../model/pending';
 import RegisterColorModalButton from './RegisterColorModalButton';
 import RegisterColorForm from './RegisterColorForm';
 import RegisterColorResult from './RegisterColorResult';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 ReactModal.setAppElement('#root');
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const RegisterColor: FC = () => {
   // set modal state
@@ -33,6 +51,7 @@ const RegisterColor: FC = () => {
       <RegisterColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
+        onRequestClose={handleClose}
         contentLabel="RegisterColorModal"
         style={{
           overlay: {
@@ -45,14 +64,18 @@ const RegisterColor: FC = () => {
             width: '90%',
             minWidth: '320px',
             maxWidth: '900px',
-            overflowY: 'scroll',
+            height: '410.833px',
           },
         }}
       >
         {registerResult === null ? (
           // 初期表示
           <>
-            <button onClick={handleClose}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleClose}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <RegisterColorForm setResult={setRegisterResult} />
           </>
         ) : registerResult === 'pending' ? (
@@ -61,7 +84,11 @@ const RegisterColor: FC = () => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <RegisterColorResult result={registerResult} />
           </>
         )}

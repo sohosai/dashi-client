@@ -38,7 +38,7 @@ const StyledLabel = styled.label`
     height: 31px;
     border-radius: 50%;
     box-shadow: 0 0 5px rgb(0 0 0 / 20%);
-    background-color: #fff;
+    background-color: #ffffff;
     content: '';
     transition: left 0.4s;
   }

@@ -26,9 +26,8 @@ const Connector: FC = () => {
   return (
     <>
       <Title title="端子名管理" />
-      <SearchConnectorForm keywords={keywords} />
-      <br />
       <RegisterConnector />
+      <SearchConnectorForm keywords={keywords} />
       {keywords === '' ? (
         // 検索欄が空
         <AllConnectors result={initialResult} />
