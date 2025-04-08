@@ -51,7 +51,6 @@ const RegisterColor: FC = () => {
       <RegisterColorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        onRequestClose={handleClose}
         contentLabel="RegisterColorModal"
         style={{
           overlay: {

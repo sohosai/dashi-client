@@ -8,6 +8,8 @@ import { Status } from '../../../model/status';
 import HexColorModalButton from './HexColorModalButton';
 import HexColorResult from './HexColorResult';
 import HexColorForm from './HexColorForm';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 ReactModal.setAppElement('#root');
 
@@ -16,6 +18,22 @@ type Props = {
   hex_color_code: string;
   status: Status;
 };
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const HexColor: FC<Props> = (props) => {
   // set modal state
@@ -52,15 +70,18 @@ const HexColor: FC<Props> = (props) => {
             width: '90%',
             minWidth: '320px',
             maxWidth: '900px',
-            overflowY: 'scroll',
+            height: '307.833px',
           },
         }}
       >
         {registerResult === null ? (
           // 初期表示
           <>
-            <button onClick={handleClose}>Close</button>
-
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleClose}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <HexColorForm
               id={props.id}
               hex_color_code={props.hex_color_code}

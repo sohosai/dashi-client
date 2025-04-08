@@ -113,7 +113,11 @@ const ColorLi: FC<Props> = (props) => {
             }
           ></StyledColorPalette>
           <StyledHexColorCode
-            style={props.color.status === 'Active' ? { color: 'rgba(0, 0, 0, 1)' } : { color: 'rgba(0, 0, 0, 0.3)' }}
+            style={
+              props.color.status === 'Active'
+                ? { color: 'rgba(0, 0, 0, 1)' }
+                : { color: 'rgba(0, 0, 0, 0.3)', textDecoration: 'line-through' }
+            }
           >
             {props.color.hex_color_code}
           </StyledHexColorCode>
