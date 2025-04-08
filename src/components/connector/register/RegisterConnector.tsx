@@ -51,7 +51,6 @@ const RegisterConnector: FC = () => {
       <RegisterConnectorModalButton setIsOpen={handleOpen} />
       <ReactModal
         isOpen={modalIsOpen}
-        onRequestClose={handleClose}
         contentLabel="RegisterConnectorModal"
         style={{
           overlay: {
