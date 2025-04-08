@@ -13,7 +13,7 @@ export { default as ErrorResult } from './error/ErrorResult';
 export { default as OkResult } from './ok/OkResult';
 export { default as GenerateForm } from './generate/GenerateForm';
 export { default as GenerateResult } from './generate/GenerateResult';
-export { default as AllTrashItemsResult } from './all_trash_items/TrashItemsResult';
+export { default as AllTrashItems } from './all_trash_items/AllTrashItems';
 export { default as PageNotFoundComponent } from './page_not_found/PageNotFoundComponent';
 export { default as SearchConnectorForm } from './connector/search/SearchConnectorForm';
 export { default as SearchConnectorResult } from './connector/search/SearchConnectorResult';
