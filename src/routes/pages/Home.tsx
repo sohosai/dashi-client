@@ -19,8 +19,6 @@ const Home: FC = () => {
       <Menu />
       <SearchItemForm keywords={keywords} />
       <SearchItemIsRentButton setIsRent={setIsRent} />
-      <h3>{isRent ? <div>true</div> : <div>false</div>}</h3>
-      <br />
       {keywords === '' ? (
         // 検索欄が空
         <></>
