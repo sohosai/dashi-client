@@ -4,12 +4,21 @@ import { ErrorResponse } from '../../../model/errorResponse';
 import { OkResponse } from '../../../model/okResponse';
 import { Pending } from '../../../model/pending';
 import { useFetchStatusConnector } from '../../../hooks/useFetchStatusConnector';
+import styled from 'styled-components';
 
 type Props = {
   id: number;
   status: Status;
   setResult: Dispatch<React.SetStateAction<ErrorResponse | OkResponse | Pending | null>>;
 };
+
+const StyledButton = styled.button`
+  padding: 5px 20px;
+  background-color: #caad63;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+`;
 
 const StatusConnectorButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
@@ -18,7 +27,7 @@ const StatusConnectorButton: FC<Props> = (props) => {
     props.setResult(result);
   };
 
-  return <button onClick={handleClick}>変更する</button>;
+  return <StyledButton onClick={handleClick}>変更する</StyledButton>;
 };
 
 export default StatusConnectorButton;

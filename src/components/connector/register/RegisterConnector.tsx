@@ -64,7 +64,7 @@ const RegisterConnector: FC = () => {
             width: '90%',
             minWidth: '320px',
             maxWidth: '900px',
-            height: '302.833px',
+            height: '304.833px',
           },
         }}
       >
