@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Loading, AllTrashItemsResult, Title } from '../../components';
+import { Loading, AllTrashItems, Title } from '../../components';
 import { Pending } from '../../model/pending';
 import { ErrorResponse } from '../../model/errorResponse';
 import { AllTrashItemsResponse } from '../../model/allTrashItemResponse';
@@ -16,7 +16,7 @@ const TrashItem: FC = () => {
         <Loading />
       ) : (
         // fetch結果
-        <AllTrashItemsResult result={result} />
+        <AllTrashItems result={result} />
       )}
     </>
   );

@@ -21,9 +21,8 @@ const Color: FC = () => {
   return (
     <>
       <Title title="ケーブル識別色管理" />
-      <SearchColorForm keywords={keywords} />
-      <br />
       <RegisterColor />
+      <SearchColorForm keywords={keywords} />
       {keywords === '' ? (
         // 検索欄が空
         <AllColors result={initialResult} />
