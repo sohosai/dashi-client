@@ -11,11 +11,125 @@ import { useFetchUpdateRental } from '../../hooks/useFetchUpdateRental';
 import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
+import { styled, createGlobalStyle } from 'styled-components';
 
 type Props = {
   individualItem: IndividualItemResponse;
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
+
+const StyledInput = styled.input`
+  width: 100%;
+  max-width: 369px;
+  font-size: 1.6rem;
+  height: 48px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1.5px solid #6f6f6f;
+  border-radius: 0;
+  &:focus {
+    outline: 2.5px solid #c7d01c;
+  }
+`;
+
+const StyledDesktopDatePicker = styled(DesktopDatePicker)`
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  & .MuiInputBase-input {
+    height: 51px;
+    margin: 0;
+    padding: 0 0 0 14px;
+  }
+  // 参考: https://muhimasri.com/blogs/mui-textfield-colors-styles/
+  // Root class for the input field
+  & .MuiOutlinedInput-root {
+    color: #000000;
+    font-size: 1.6rem;
+    font-family: 'Noto Serif JP', serif;
+    border: 1.5px solid #6f6f6f;
+    border-radius: 0;
+    // Class for the border around the input field
+    & .MuiOutlinedInput-notchedOutline {
+      border-radius: 0;
+      border: none;
+    }
+    // Class for the input field when it is focused
+    & .Mui-focused {
+      outline: 2.5px solid #c7d01c;
+    }
+  }
+
+  & .MuiDayCalendar-root {
+    font-size: 1.6rem !important;
+    font-family: 'Noto Serif JP', serif !important;
+  }
+`;
+
+const GlobalDatePickerStyle = createGlobalStyle`
+  // Class for calender popup
+  .MuiPickersPopper-root {
+    .MuiPickersCalendarHeader-label,
+    .MuiDayCalendar-weekDayLabel,
+    .MuiPickersYear-yearButton,
+    .MuiButtonBase-root {
+      font-size: 1.4rem !important;
+      font-family: 'Noto Serif JP', serif !important;
+    }
+    .MuiSvgIcon-root {
+      width: 2rem !important;
+      height: 2rem !important;
+    }
+  }
+  // Class for calender icon button
+  .MuiInputAdornment-root .MuiSvgIcon-root {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  // Class for calender icon button
+  .MuiIconButton-root .MuiSvgIcon-root {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+`;
+
+const StyledTitle = styled.h1`
+  font-size: 2.6rem;
+  font-weight: 400;
+  text-align: center;
+`;
+
+const StyledBox = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledLabel = styled.label`
+  display: block;
+  font-size: 1.6rem;
+  margin: 20px 0 5px 0;
+  padding: 0;
+`;
+
+const StyledSubmitWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 50px 0 10px 0;
+`;
+
+const StyledSubmitInput = styled.input`
+  padding: 5px 20px;
+  background-color: #caad63;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+`;
 
 const UpdateRentalForm: FC<Props> = (props) => {
   const [cleared, setCleared] = useState<boolean>(false);
@@ -54,41 +168,48 @@ const UpdateRentalForm: FC<Props> = (props) => {
     props.setResult(result);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="recipient">recipient: </label>
-      <input id="recipient" type="text" {...register('recipient')} />
-      <br />
-      <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
-      <br />
-      <label htmlFor="rental_description">rental_description: </label>
-      <input id="rental_description" type="text" {...register('rental_description')} />
-      <br />
-      <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
-      <br />
-      <label htmlFor="scheduled_replace_at">scheduled_replace_at: </label>
-      <Controller
-        name="scheduled_replace_at"
-        control={control}
-        render={({ field }) => (
-          <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
-            <DesktopDatePicker
-              label="scheduled_replace_at"
-              defaultValue={field.value === '' ? null : dayjs(field.value)}
-              onChange={(value) => field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T00:00:00Z]'))}
-              format="YYYY/MM/DD"
-              slotProps={{
-                calendarHeader: { format: 'YYYY年MM月' },
-                field: { clearable: true, onClear: () => setCleared(true) },
-              }}
-            />
-          </LocalizationProvider>
-        )}
-      />
-      <br />
-      <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.rental_description?.message} />
-      <br />
-      <input type="submit" value="更新" />
-    </form>
+    <StyledBox>
+      <StyledTitle>貸し出し情報の更新</StyledTitle>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <StyledLabel htmlFor="recipient">借用者</StyledLabel>
+        <StyledInput id="recipient" type="text" {...register('recipient')} />
+        <br />
+        <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
+        <br />
+        <StyledLabel htmlFor="rental_description">貸し出しに関する備考</StyledLabel>
+        <StyledInput id="rental_description" type="text" {...register('rental_description')} />
+        <br />
+        <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
+        <br />
+        <StyledLabel htmlFor="scheduled_replace_at">返却予定日</StyledLabel>
+        <GlobalDatePickerStyle />
+        <Controller
+          name="scheduled_replace_at"
+          control={control}
+          render={({ field }) => (
+            <LocalizationProvider {...field} dateAdapter={AdapterDayjs}>
+              <StyledDesktopDatePicker
+                defaultValue={field.value === '' ? null : dayjs(field.value)}
+                onChange={(value) =>
+                  field.onChange(value === null ? '' : dayjs(value).format('YYYY-MM-DD[T00:00:00Z]'))
+                }
+                format="YYYY/MM/DD"
+                slotProps={{
+                  calendarHeader: { format: 'YYYY年MM月' },
+                  field: { clearable: true, onClear: () => setCleared(true) },
+                }}
+              />
+            </LocalizationProvider>
+          )}
+        />
+        <br />
+        <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.rental_description?.message} />
+        <br />
+        <StyledSubmitWrapper>
+          <StyledSubmitInput type="submit" value="貸し出し情報の更新" />
+        </StyledSubmitWrapper>
+      </form>
+    </StyledBox>
   );
 };
 

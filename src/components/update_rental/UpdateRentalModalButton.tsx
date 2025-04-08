@@ -1,9 +1,18 @@
 import { Dispatch, FC, SetStateAction } from 'react';
+import styled from 'styled-components';
 
 type Props = {
   isHidden: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
+
+const StyledButton = styled.button`
+  padding: 5px 20px;
+  background-color: #caad63;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+`;
 
 const UpdateRentalModalButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
@@ -12,11 +21,11 @@ const UpdateRentalModalButton: FC<Props> = (props) => {
   return (
     <>
       {props.isHidden ? (
-        <button onClick={handleClick} disabled>
-          Update
-        </button>
+        <StyledButton onClick={handleClick} disabled>
+          貸し出し情報の更新
+        </StyledButton>
       ) : (
-        <button onClick={handleClick}>Update</button>
+        <StyledButton onClick={handleClick}>貸し出し情報の更新</StyledButton>
       )}
     </>
   );
