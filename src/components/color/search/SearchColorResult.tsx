@@ -3,13 +3,24 @@ import { ErrorResult } from '../..';
 import { ErrorResponse } from '../../../model/errorResponse';
 import { ColorResponse } from '../../../model/colorResponse';
 import { SearchColorsResponse } from '../../../model/searchColorResponse';
-import StatusColor from '../status/StatusColor';
-import HexColor from '../hex/HexColor';
 import { useSortSearchColor } from '../../../hooks/useSortSearchColor';
+import ColorLi from '../li/ColorLi';
+import styled from 'styled-components';
 
 type Props = {
   result: SearchColorsResponse | ErrorResponse;
 };
+
+const StyledLi = styled.li`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const StyledUl = styled.ul`
+  margin: 60px 0 100px 0;
+  padding: 0;
+`;
 
 const SearchColorResult: FC<Props> = (props) => {
   const [result, useResult] = useState<SearchColorsResponse | ErrorResponse>(props.result);
@@ -23,19 +34,13 @@ const SearchColorResult: FC<Props> = (props) => {
       {'code' in result && 'message' in result ? (
         <ErrorResult result={result} />
       ) : (
-        <>
+        <StyledUl>
           {result.search_colors.map((color: ColorResponse, index: number) => (
-            // それ以外
-            <div key={index}>
-              <h2>{color.name}</h2>
-              <p>{color.id}</p>
-              <p>{color.hex_color_code}</p>
-              <p>{color.status}</p>
-              <HexColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-              <StatusColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-            </div>
+            <StyledLi key={index}>
+              <ColorLi color={color} />
+            </StyledLi>
           ))}
-        </>
+        </StyledUl>
       )}
     </>
   );

@@ -37,7 +37,7 @@ const HexColor: FC<Props> = (props) => {
   };
   return (
     <>
-      <HexColorModalButton setIsOpen={handleOpen} />
+      <HexColorModalButton setIsOpen={handleOpen} status={props.status} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="HexColorModal"

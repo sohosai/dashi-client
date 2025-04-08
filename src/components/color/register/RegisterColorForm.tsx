@@ -31,7 +31,7 @@ const StyledInput = styled.input`
 const StyledLabel = styled.label`
   display: block;
   font-size: 1.6rem;
-  margin: 20px 0 1px 0;
+  margin: 20px 0 5px 0;
   padding: 0;
 `;
 
@@ -89,8 +89,8 @@ const StyledSubmitWrapper = styled.div`
 
 const StyledSubmitInput = styled.input`
   padding: 5px 20px;
-  background-color: #f6f6f6;
-  border: #b3b3b3 1px solid;
+  background-color: #caad63;
+  border: none;
   font-size: 1.6rem;
   cursor: pointer;
 `;

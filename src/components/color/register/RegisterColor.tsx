@@ -64,7 +64,7 @@ const RegisterColor: FC = () => {
             width: '90%',
             minWidth: '320px',
             maxWidth: '900px',
-            height: '410.833px',
+            height: '416.833px',
           },
         }}
       >

@@ -36,8 +36,8 @@ const StyledSubmitWrapper = styled.div`
 
 const StyledSubmitInput = styled.input`
   padding: 5px 20px;
-  background-color: #f6f6f6;
-  border: #b3b3b3 1px solid;
+  background-color: #caad63;
+  border: none;
   font-size: 1.6rem;
   cursor: pointer;
 `;

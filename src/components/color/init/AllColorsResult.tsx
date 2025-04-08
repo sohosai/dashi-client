@@ -1,14 +1,26 @@
 import { FC, useEffect, useState } from 'react';
 import { AllColorsResponse } from '../../../model/allColorsResponse';
 import { ErrorResponse } from '../../../model/errorResponse';
-import { ErrorResult, StatusColor } from '../..';
+import { ErrorResult } from '../..';
 import { ColorResponse } from '../../../model/colorResponse';
-import HexColor from '../hex/HexColor';
 import { useSortAllColor } from '../../../hooks/useSortAllColor';
+import ColorLi from '../li/ColorLi';
+import styled from 'styled-components';
 
 type Props = {
   result: AllColorsResponse | ErrorResponse;
 };
+
+const StyledLi = styled.li`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const StyledUl = styled.ul`
+  margin: 60px 0 100px 0;
+  padding: 0;
+`;
 
 const AllColors: FC<Props> = (props) => {
   const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
@@ -22,16 +34,13 @@ const AllColors: FC<Props> = (props) => {
       {'code' in result && 'message' in result ? (
         <ErrorResult result={result} />
       ) : (
-        result.all_colors.map((color: ColorResponse, index: number) => (
-          <div key={index}>
-            <h2>{color.name}</h2>
-            <p>{color.id}</p>
-            <p>{color.status}</p>
-            <p>{color.hex_color_code}</p>
-            <HexColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-            <StatusColor id={color.id} hex_color_code={color.hex_color_code} status={color.status} />
-          </div>
-        ))
+        <StyledUl>
+          {result.all_colors.map((color: ColorResponse, index: number) => (
+            <StyledLi key={index}>
+              <ColorLi color={color} />
+            </StyledLi>
+          ))}
+        </StyledUl>
       )}
     </>
   );
