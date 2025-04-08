@@ -4,11 +4,23 @@ import { ErrorResponse } from '../../model/errorResponse';
 import { ErrorResult } from '..';
 import SearchItemResult from './SearchItemResult';
 import { useSortSearchItem } from '../../hooks/useSortSearchItem';
+import styled from 'styled-components';
 
 type Props = {
   result: SearchItemsResponse | ErrorResponse;
   isRent: boolean;
 };
+
+const StyledLi = styled.li`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const StyledUl = styled.ul`
+  margin: 60px 0 100px 0;
+  padding: 0;
+`;
 
 const SearchItemResultList: FC<Props> = (props) => {
   const [result, useResult] = useState<SearchItemsResponse | ErrorResponse>(props.result);
@@ -22,9 +34,9 @@ const SearchItemResultList: FC<Props> = (props) => {
       {'code' in result && 'message' in result ? (
         <ErrorResult result={result} />
       ) : (
-        <ul>
+        <StyledUl>
           {result.search_items.map((item: SearchItemResponse, index: number) => (
-            <li key={index}>
+            <StyledLi key={index}>
               {props.isRent ? (
                 <>
                   {/* props.isRent === true のときだけフィルターする */}
@@ -33,9 +45,9 @@ const SearchItemResultList: FC<Props> = (props) => {
               ) : (
                 <SearchItemResult item={item} />
               )}
-            </li>
+            </StyledLi>
           ))}
-        </ul>
+        </StyledUl>
       )}
     </>
   );

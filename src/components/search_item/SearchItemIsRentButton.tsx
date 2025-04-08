@@ -53,14 +53,14 @@ const StyledInput = styled.input`
 
 const SearchItemIsRentButton = (props: Props) => {
   return (
-    <div>
-      <StyledDescription>貸し出し中物品フィルター</StyledDescription>
+    <>
+      <StyledDescription>貸し出し可能物品フィルター</StyledDescription>
       <StyledLabelWrapper>
         <StyledLabel>
           <StyledInput type="checkbox" onChange={() => props.setIsRent((prev) => !prev)} />
         </StyledLabel>
       </StyledLabelWrapper>
-    </div>
+    </>
   );
 };
 export default SearchItemIsRentButton;
