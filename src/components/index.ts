@@ -19,12 +19,10 @@ export { default as SearchConnectorForm } from './connector/search/SearchConnect
 export { default as SearchConnectorResult } from './connector/search/SearchConnectorResult';
 export { default as RegisterConnector } from './connector/register/RegisterConnector';
 export { default as AllConnectors } from './connector/init/AllConnectors';
-export { default as StatusConnector } from './connector/status/StatusConnector';
 export { default as SearchColorForm } from './color/search/SearchColorForm';
 export { default as SearchColorResult } from './color/search/SearchColorResult';
 export { default as RegisterColor } from './color/register/RegisterColor';
 export { default as AllColors } from './color/init/AllColors';
-export { default as StatusColor } from './color/status/StatusColor';
 export { default as RentRental } from './rent_rental/RentRental';
 export { default as ReplaceRental } from './replace_rental/ReplaceRental';
 export { default as UpdateRental } from './update_rental/UpdateRental';
