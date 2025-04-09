@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4.3463607mm"
+   height="13.397453mm"
+   viewBox="0 0 4.3463607 13.397453"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="connector.svg"
+   inkscape:export-filename="cable.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="8.816229"
+     inkscape:cx="26.938955"
+     inkscape:cy="27.732946"
+     inkscape:window-width="1536"
+     inkscape:window-height="792"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="4.3463607"
+       height="13.397453"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+     d="m 2.1874985,2.2689652 0.0029,11.1282278"
+     id="path3"
+     inkscape:label="ケーブル"
+     inkscape:export-filename="cable.svg"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.498231;stroke-dasharray:none;stroke-opacity:1"
+     d="M 0.52472756,9.239211 3.8526995,9.239115"
+     id="path4"
+     inkscape:label="ジャバラ小" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+     d="m 0.27722156,8.239999 3.82191394,3.3e-4"
+     id="path4-2-6"
+     inkscape:label="ジャバラ中" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-dasharray:none;stroke-opacity:1"
+     d="m 0.03041756,7.239999 4.31592394,3.3e-4"
+     id="path4-2-7"
+     inkscape:label="ジャバラ大" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:4.23;stroke-dasharray:none;stroke-opacity:1"
+     d="M 2.1856038e-4,4.374554 4.3161425,4.375"
+     id="path4-2-7-9-2"
+     inkscape:label="コネクタ" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.43;stroke-dasharray:none;stroke-opacity:1"
+     d="M 0.41348856,2.044554 3.9613805,2.045"
+     id="path4-2-7-9-2-7"
+     inkscape:label="台座"
+     sodipodi:nodetypes="cc" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 0.79737956,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2"
+     inkscape:label="pin8" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 1.1693795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9"
+     inkscape:label="pin7" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 1.5413795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-5"
+     inkscape:label="pin6" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 1.9133795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-4"
+     inkscape:label="pin5" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 2.2843795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-4-7"
+     inkscape:label="pin4" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 2.6563795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-4-6"
+     sodipodi:nodetypes="cc"
+     inkscape:label="pin3" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 3.0283795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-4-6-3"
+     sodipodi:nodetypes="cc"
+     inkscape:label="pin2" />
+  <path
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.83;stroke-dasharray:none;stroke-opacity:1"
+     d="m 3.4003795,0.91500002 h 0.185"
+     id="path4-2-7-9-2-7-2-9-4-6-3-1"
+     sodipodi:nodetypes="cc"
+     inkscape:label="pin1" />
+</svg>
