@@ -25,6 +25,7 @@ const StyledLabel = styled.label`
   height: 35px;
   border-radius: 50px;
   background-color: #f6f6f6;
+  border: 1px solid #b3b3b3;
   cursor: pointer;
   transition: background-color 0.4s;
   &:has(:checked) {
