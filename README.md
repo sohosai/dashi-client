@@ -1,7 +1,7 @@
 # dashi-client
 
 <div align="center">
-  <img src="https://github.com/sohosai/dashi-client/blob/main/assets/dashi.svg" width="50px" height="50px" />
+  <img src="https://github.com/sohosai/dashi-client/blob/main/assets/dashi.svg" width="300px" height="300px" />
 </div>
 
 ## 開発環境
