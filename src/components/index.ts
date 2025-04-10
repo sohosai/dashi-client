@@ -8,7 +8,6 @@ export { default as DeleteItem } from './delete_item/DeleteItem';
 export { default as RegisterItemForm } from './register_item/RegisterItemForm';
 export { default as RegisterItemResult } from './register_item/RegisterItemResult';
 export { default as TransferItem } from './transfer_item/TransferItem';
-export { default as Loading } from './loading/Loading';
 export { default as ErrorResult } from './error/ErrorResult';
 export { default as OkResult } from './ok/OkResult';
 export { default as GenerateForm } from './generate/GenerateForm';
@@ -31,3 +30,6 @@ export { default as Header } from './header/Header';
 export { default as Menu } from './menu/Menu';
 export { default as CsvBox } from './csv/CsvBox';
 export { default as Title } from './title/Title';
+// test
+export { default as SmallLoading } from './loading/SmallLoading';
+export { default as Loading } from './loading/LargeLoading';

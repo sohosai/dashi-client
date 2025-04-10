@@ -2,7 +2,8 @@ import { FC } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const LoadingText = styled.p`
-  margin: 30px 0px 0px;
+  margin: 0;
+  padding: 0;
   font-size: 2rem;
   text-align: center;
 `;
@@ -19,15 +20,15 @@ const Gigantization = keyframes`
 `;
 
 const CircleBox = styled.div`
-  height: 300px;
-  width: 300px;
+  height: 150px;
+  width: 150px;
   margin: 20px auto 20px;
   position: relative;
 `;
 
 const Circle = styled.div`
-  height: 300px;
-  width: 300px;
+  height: 150px;
+  width: 150px;
   border: 3px solid #ffffff;
   border-radius: 50%;
   background-color: #c7d01c;
@@ -51,18 +52,18 @@ const Circle4 = styled(Circle)`
   animation-delay: 6s;
 `;
 
-const Loading: FC = () => {
+const LargeLoading: FC = () => {
   return (
     <>
-      <LoadingText data-testid="waiting-animation">Loading...</LoadingText>
       <CircleBox>
         <Circle1></Circle1>
         <Circle2></Circle2>
         <Circle3></Circle3>
         <Circle4></Circle4>
       </CircleBox>
+      <LoadingText data-testid="waiting-animation">処理を実行中</LoadingText>
     </>
   );
 };
 
-export default Loading;
+export default LargeLoading;
