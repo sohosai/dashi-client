@@ -27,9 +27,7 @@ export default defineConfig({
     sourcemap: true,
   },
   test: {
-    globals: true,
     environment: 'happy-dom',
-    setupFiles: ['./vitest-setup.ts'],
     coverage: {
       reporter: ['text', 'json', 'html'],
     },
