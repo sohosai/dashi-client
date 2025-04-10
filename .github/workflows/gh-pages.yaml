@@ -1,4 +1,4 @@
-name: storybook
+name: gh-pages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-storybook:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,6 +17,11 @@ jobs:
           nix_path: nixpkgs=channel:nixpkgs-unstable
       - name: Build Storybook
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run build-storybook"
+      - name: Build Test Coverage
+        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run coverage"
+      - name: Move Coverage Report
+        run: |
+          mv ./coverrage/ ./storybook-static/coverage 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

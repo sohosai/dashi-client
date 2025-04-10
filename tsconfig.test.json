@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "types": ["vitest/globals"]
+  },
+  "include": [
+    "node_modules/vitest/global.d.ts",
+    "vite.config.ts",
+    "vitest-setup.ts"
+  ]
+}

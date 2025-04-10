@@ -1,4 +1,6 @@
+/// <reference types="vitest" />
 import { sentryVitePlugin } from '@sentry/vite-plugin';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
@@ -10,7 +12,7 @@ export default defineConfig({
   preview: {
     port: 3000,
     strictPort: true,
-    allowedHosts: ['localhost', 'dashi-api.sohosai.com'],
+    allowedHosts: ['localhost', 'dashi.sohosai.com'],
   },
   plugins: [
     react(),
@@ -19,8 +21,17 @@ export default defineConfig({
       project: process.env.SENTRY_PROJECT,
       authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
+    tsconfigPaths(),
   ],
   build: {
     sourcemap: true,
+  },
+  test: {
+    globals: true,
+    environment: 'happy-dom',
+    setupFiles: ['./vitest-setup.ts'],
+    coverage: {
+      reporter: ['text', 'json', 'html'],
+    },
   },
 });
