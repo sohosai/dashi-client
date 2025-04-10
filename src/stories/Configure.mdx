@@ -1,10 +1,7 @@
-import { Meta } from '@storybook/blocks';
 import Logo from './assets/dashi.svg';
 
-<Meta title="dashi storybook" />;
-
+{/* body */}
 <h1 className="title">dashi storybook</h1>
-
 <div className="logo-box">
     <img
         src={Logo}
@@ -14,8 +11,14 @@ import Logo from './assets/dashi.svg';
     />
 </div>
 
+{/* css */}
 <style>
     {`
+    .sbdocs {
+      margin: 0;
+      padding: 0;
+      background-color: #fffdf3;
+    }
     .title {
       text-align: center;
       font-size: 30px;
