@@ -16,15 +16,15 @@ https://dashi.sohosai.com
 
 シークレットな情報のため、詳細はvaultwardenを参照
 
-#### 2. `pnpm i`
+#### 2. `npm i`
 
 以下のコマンドを実行して、依存libraryをinstall
 
 > [!WARNING]
-> package managerに`pnpm`を使用してください。
+> package managerに`npm`を使用してください。
 
 ```sh
-pnpm i
+npm i
 ```
 
 #### 3. playwriteのinstall
@@ -36,18 +36,18 @@ pnpm i
 npx playwright install chromium --with-deps
 ```
 
-#### 4. `pnpm run dev`
+#### 4. `npm run dev`
 
 以下のコマンドを実行して、ローカルサーバの起動
 
 ```sh
-pnpm run dev
+npm run dev
 ```
 
 ### storybookの起動
 
 ```sh
-pnpm run storybook
+npm run storybook
 ```
 
 ## 本番環境

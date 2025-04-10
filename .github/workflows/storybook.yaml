@@ -19,7 +19,7 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
       - name: Build Storybook
-        run: nix develop --command bash -c "npm i"
+        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run build-storybook"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
