@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import OkResult from './OkResult';
+import { BrowserRouter } from 'react-router-dom';
 
 const meta = {
   title: 'COMPONENTS/OkResult',
@@ -7,6 +8,13 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
+    ),
+  ],
 } satisfies Meta<typeof OkResult>;
 
 export default meta;
