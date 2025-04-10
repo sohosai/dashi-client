@@ -26,6 +26,7 @@ const StyledLabel = styled.p`
 `;
 
 const StyledCancelButton = styled.button`
+  width: 120px;
   padding: 5px 20px;
   background-color: #caad63;
   border: none;
@@ -36,7 +37,7 @@ const StyledCancelButton = styled.button`
 const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  gap: 80px;
+  gap: 40px;
 `;
 
 const StatusColor: FC<Props> = (props) => {
@@ -73,7 +74,7 @@ const StatusColor: FC<Props> = (props) => {
             transform: 'translate(-50%, -50%)',
             width: '90%',
             minWidth: '320px',
-            maxWidth: '900px',
+            maxWidth: '500px',
             height: '160px',
           },
         }}

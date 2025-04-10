@@ -13,6 +13,7 @@ type Props = {
 };
 
 const StyledButton = styled.button`
+  width: 120px;
   padding: 5px 20px;
   background-color: #caad63;
   border: none;

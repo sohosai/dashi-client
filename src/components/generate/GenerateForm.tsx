@@ -1,4 +1,4 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
@@ -7,14 +7,72 @@ import { useFetchGenerate } from '../../hooks/useFetchGenerate';
 import { ErrorResponse } from '../../model/errorResponse';
 import { Pending } from '../../model/pending';
 import { GenerateResponse } from '../../model/generateResponse';
-import { Record } from '../../model/generateRequest';
+import { Record } from '../../model/record';
 import styled from 'styled-components';
+import Select, { StylesConfig } from 'react-select';
 
 type Props = {
   setResult: Dispatch<SetStateAction<GenerateResponse | ErrorResponse | Pending | null>>;
   setRecordType: Dispatch<SetStateAction<Record | null>>;
 };
 
+// react-select
+type RecordOption = {
+  label: string;
+  value: Record;
+};
+
+const recordOptions: readonly RecordOption[] = [
+  { label: 'QR', value: 'Qr' },
+  { label: 'バーコード', value: 'Barcode' },
+  { label: 'なし', value: 'Nothing' },
+];
+
+// Class for react-select
+const styleSelect: StylesConfig<RecordOption> = {
+  control: (styles, { isFocused }) => ({
+    ...styles,
+    backgroundColor: 'white',
+    borderRadius: 0,
+    height: 51,
+    fontSize: '1.6rem',
+    border: '1.5px solid #6f6f6f',
+    margin: '20px 0 0 0',
+    '&:hover': {
+      border: '1.5px solid #6f6f6f',
+    },
+    ...(isFocused && {
+      outline: '2.5px solid #c7d01c',
+    }),
+  }),
+  option: (styles) => ({ ...styles, fontSize: '1.6rem' }),
+  input: (styles) => ({
+    ...styles,
+    fontSize: '1.6rem',
+  }),
+  placeholder: (styles) => ({
+    ...styles,
+    fontSize: '1.6rem',
+  }),
+  singleValue: (styles) => ({
+    ...styles,
+    fontSize: '1.6rem',
+  }),
+  noOptionsMessage: (styles) => ({
+    ...styles,
+    fontSize: '1.6rem',
+  }),
+  indicatorSeparator: (styles) => ({
+    ...styles,
+    backgroundColor: '#6f6f6f',
+  }),
+  dropdownIndicator: (styles) => ({
+    ...styles,
+    color: '#6f6f6f',
+  }),
+};
+
+// styled-components
 const StyledBox = styled.div`
   margin: 0;
   padding: 0;
@@ -44,21 +102,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const StyledSelect = styled.select`
-  width: 400px;
-  font-size: 1.6rem;
-  height: 48px;
-  margin: 0;
-  padding: 0 14px;
-  border: 1.5px solid #6f6f6f;
-  border-radius: 0;
-  background-color: #ffffff;
-  cursor: pointer;
-  &:focus {
-    outline: 2.5px solid #c7d01c;
-  }
-`;
-
 const StyledSubmitWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -80,11 +123,12 @@ const GenerateForm: FC<Props> = (props) => {
     register,
     handleSubmit,
     formState: { errors },
+    control,
   } = useForm<GenerateSchemaType>({
     resolver: zodResolver(generateSchema),
     defaultValues: {
       quantity: 49,
-      record: 'Qr',
+      record: recordOptions[0].value,
     },
   });
   // update url
@@ -103,11 +147,25 @@ const GenerateForm: FC<Props> = (props) => {
         <ErrorMessage errors={errors} name="quantity" message={errors.quantity?.message} />
         <br />
         <StyledLabel htmlFor="record">Record</StyledLabel>
-        <StyledSelect id="record" {...register('record')}>
+        <Controller
+          name={'record'}
+          control={control}
+          render={({ field }) => (
+            <Select
+              styles={styleSelect}
+              options={recordOptions}
+              isSearchable={true}
+              noOptionsMessage={() => '存在しないラベルの種類です。'}
+              value={recordOptions.find((element) => element.value === field.value)}
+              onChange={(newValue) => field.onChange((newValue as RecordOption)?.value)}
+            />
+          )}
+        />
+        {/* <StyledSelect id="record" {...register('record')}>
           <option value="Qr">QR</option>
           <option value="Barcode">バーコード</option>
           <option value="Nothing">なし</option>
-        </StyledSelect>
+        </StyledSelect> */}
         <br />
         <ErrorMessage errors={errors} name="record" message={errors.record?.message} />
         <br />
