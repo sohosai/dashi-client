@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { TrashItemResponse } from '../../models/allTrashItemResponse';
 import styled from 'styled-components';
+import { timestampConverter } from '../../utils/timestamp';
 
 type Props = {
   item: TrashItemResponse;
@@ -31,8 +32,8 @@ const AllTrashItemsLi: FC<Props> = (props) => {
       <p>connector: {props.item.connector.join(',')}</p>
       <p>color: {props.item.color}</p>
       <p>is_rent: {props.item.is_rent ? 'レンタル不可' : 'レンタル可'}</p>
-      <p>created_at: {props.item.created_at}</p>
-      <p>updated_at: {props.item.updated_at}</p>
+      <p>created_at: {timestampConverter(props.item.created_at)}</p>
+      <p>updated_at: {timestampConverter(props.item.updated_at)}</p>
     </StyledBox>
   );
 };

@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { RentalItemResponse } from '../../models/allRentalItemsResponse';
 import { ReplaceRental, UpdateRental } from '..';
 import styled from 'styled-components';
+import { timestampConverter } from '../../utils/timestamp';
+import { scheduledReplaceAtConverter } from '../../utils/scheduled_replace_at';
 
 type Props = {
   item: RentalItemResponse;
@@ -63,12 +65,12 @@ const AllRentalItemsLi: FC<Props> = (props) => {
             <StyledTdBody>{props.item.rental_description}</StyledTdBody>
           </tr>
           <tr>
-            <StyledTdLabel>最終貸し出し日時 (UTC)</StyledTdLabel>
-            <StyledTdBody>{props.item.latest_rent_at ?? ''}</StyledTdBody>
+            <StyledTdLabel>最終貸し出し日時 (JST)</StyledTdLabel>
+            <StyledTdBody>{timestampConverter(props.item.latest_rent_at)}</StyledTdBody>
           </tr>
           <tr>
             <StyledTdLabel>返却予定日 (JST)</StyledTdLabel>
-            <StyledTdBody>{props.item.scheduled_replace_at ?? ''}</StyledTdBody>
+            <StyledTdBody>{scheduledReplaceAtConverter(props.item.scheduled_replace_at)}</StyledTdBody>
           </tr>
         </tbody>
       </StyledTable>
