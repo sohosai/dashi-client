@@ -15,7 +15,6 @@ const meta = {
       </BrowserRouter>
     ),
   ],
-  argTypes: {},
 } satisfies Meta<typeof Header>;
 
 export default meta;
