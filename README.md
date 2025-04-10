@@ -8,6 +8,10 @@
 
 https://dashi.sohosai.com
 
+## storybook
+
+https://sohosai.github.io/dashi-client/
+
 ## 開発環境
 
 ### 開発環境の構築
