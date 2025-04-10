@@ -21,7 +21,7 @@ jobs:
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run coverage"
       - name: Move Coverage Report
         run: |
-          mv ./coverrage/ ./storybook-static/coverage 
+          mv ./coverage/ ./storybook-static/coverage 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
