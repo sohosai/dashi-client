@@ -1,6 +1,5 @@
 /// <reference types="vitest" />
 import { sentryVitePlugin } from '@sentry/vite-plugin';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 
@@ -21,7 +20,6 @@ export default defineConfig({
       project: process.env.SENTRY_PROJECT,
       authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
-    tsconfigPaths(),
   ],
   build: {
     sourcemap: true,

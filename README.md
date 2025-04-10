@@ -12,6 +12,10 @@ https://dashi.sohosai.com
 
 https://sohosai.github.io/dashi-client/
 
+## testのcoverage状況
+
+https://sohosai.github.io/dashi-client/coverage/
+
 ## 開発環境
 
 ### 開発環境の構築
