@@ -28,7 +28,7 @@ https://sohosai.github.io/dashi-client/
 > package managerに`npm`を使用してください。
 
 ```sh
-npm i
+npm i --legacy-peer-deps
 ```
 
 #### 3. playwriteのinstall
