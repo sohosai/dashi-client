@@ -27,17 +27,32 @@ https://dashi.sohosai.com
 pnpm i
 ```
 
-#### 3. `pnpm run dev`
+#### 3. playwriteのinstall
+
+> [!WARNING]
+> NixOSユーザは失敗しますが、特に問題はないので無視してください。
+
+```sh
+npx playwright install chromium --with-deps
+```
+
+#### 4. `pnpm run dev`
 
 以下のコマンドを実行して、ローカルサーバの起動
 
 ```sh
-pnpm i
+pnpm run dev
+```
+
+### storybookの起動
+
+```sh
+pnpm run storybook
 ```
 
 ## 本番環境
 
-### 開発環境の構築
+### 本番環境の構築
 
 #### 1. docker-compose up (prod)
 
