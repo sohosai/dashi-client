@@ -1,7 +1,7 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { ImageItemSchemaType } from '../validation/ImageItem';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { ImageItemSchemaType } from '../validations/ImageItem';
 
 export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): Promise<OkResponse | ErrorResponse> => {
   // create form data

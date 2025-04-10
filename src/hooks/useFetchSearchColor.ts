@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { SearchColorsResponse } from '../model/searchColorResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { SearchColorsResponse } from '../models/searchColorResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchSearchColor = (keywords: string): SearchColorsResponse | ErrorResponse | Pending => {

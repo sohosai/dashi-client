@@ -1,8 +1,8 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { Status } from '../model/status';
-import { StatusConnectorRequest } from '../model/statusConnectorRequest';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { Status } from '../models/status';
+import { StatusConnectorRequest } from '../models/statusConnectorRequest';
 
 export const useFetchStatusConnector = async (id: number, status: Status) => {
   // reverse status

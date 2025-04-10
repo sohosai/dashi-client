@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { Loading } from '../..';
 import ReactModal from 'react-modal';
-import { OkResponse } from '../../../model/okResponse';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { Pending } from '../../../model/pending';
-import { Status } from '../../../model/status';
+import { OkResponse } from '../../../models/okResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { Pending } from '../../../models/pending';
+import { Status } from '../../../models/status';
 import StatusColorButton from './StatusColorButton';
 import StatusColorModalButton from './StatusColorModalButton';
 import StatusColorResult from './StatusColorResult';

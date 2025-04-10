@@ -1,6 +1,6 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
 
 export const useFetchDeleteItem = async (id: number): Promise<OkResponse | ErrorResponse> => {
   // send

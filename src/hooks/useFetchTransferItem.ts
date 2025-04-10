@@ -1,7 +1,7 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { TransferItemRequest } from '../model/transferItemRequest';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { TransferItemRequest } from '../models/transferItemRequest';
 
 export const useFetchTransferItem = async (id: number, parent_id: number): Promise<OkResponse | ErrorResponse> => {
   // validation

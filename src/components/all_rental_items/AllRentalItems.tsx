@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { ErrorResult } from '..';
-import { ErrorResponse } from '../../model/errorResponse';
-import { AllRentalItemsResponse, RentalItemResponse } from '../../model/allRentalItemsResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { AllRentalItemsResponse, RentalItemResponse } from '../../models/allRentalItemsResponse';
 import { useSortRentalItem } from '../../hooks/useSortRentalItem';
 import AllRentalItemsLi from './AllRentalItemsLi';
 import styled from 'styled-components';

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { AllTrashItemsResponse } from '../model/allTrashItemResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { AllTrashItemsResponse } from '../models/allTrashItemResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pending => {

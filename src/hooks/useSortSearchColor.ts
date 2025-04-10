@@ -1,5 +1,5 @@
-import { ColorResponse } from '../model/colorResponse';
-import { SearchColorsResponse } from '../model/searchColorResponse';
+import { ColorResponse } from '../models/colorResponse';
+import { SearchColorsResponse } from '../models/searchColorResponse';
 
 //compareFunction
 const compare = (a: ColorResponse, b: ColorResponse) => {

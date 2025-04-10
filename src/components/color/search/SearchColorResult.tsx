@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { ErrorResult } from '../..';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { ColorResponse } from '../../../model/colorResponse';
-import { SearchColorsResponse } from '../../../model/searchColorResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { ColorResponse } from '../../../models/colorResponse';
+import { SearchColorsResponse } from '../../../models/searchColorResponse';
 import { useSortSearchColor } from '../../../hooks/useSortSearchColor';
 import ColorLi from '../li/ColorLi';
 import styled from 'styled-components';

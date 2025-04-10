@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { ErrorResult } from '..';
-import { DepreiationCsvItems, DepreiationCsvResponse } from '../../model/depreiationCsvResponse';
-import { ItemCsvItems, ItemCsvResponse } from '../../model/itemCsvResponse';
+import { DepreiationCsvItems, DepreiationCsvResponse } from '../../models/depreiationCsvResponse';
+import { ItemCsvItems, ItemCsvResponse } from '../../models/itemCsvResponse';
 
 type Props = {
   result: DepreiationCsvResponse | ItemCsvResponse | ErrorResponse;

@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { useDownloadCsv } from '../../hooks/useDownloadCsv';
-import { ItemCsvResponse } from '../../model/itemCsvResponse';
+import { ItemCsvResponse } from '../../models/itemCsvResponse';
 import { useFetchItemCsv } from '../../hooks/useFetchItemCsv';
 import { useItemCsvConverter } from '../../hooks/useItemCsvConverter';
-import { ItemCsvList } from '../../model/itemCsv';
-import { Pending } from '../../model/pending';
+import { ItemCsvList } from '../../models/itemCsv';
+import { Pending } from '../../models/pending';
 import { Loading } from '..';
 import CsvResult from './CsvResult';
 import ReactModal from 'react-modal';

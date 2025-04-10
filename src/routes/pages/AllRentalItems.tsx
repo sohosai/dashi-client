@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Loading, Title } from '../../components';
-import { Pending } from '../../model/pending';
-import { ErrorResponse } from '../../model/errorResponse';
+import { Pending } from '../../models/pending';
+import { ErrorResponse } from '../../models/errorResponse';
 import { useFetchAllRentalItems } from '../../hooks/useFetchAllRentalItems';
-import { AllRentalItemsResponse } from '../../model/allRentalItemsResponse';
+import { AllRentalItemsResponse } from '../../models/allRentalItemsResponse';
 import AllRentalItemsResult from '../../components/all_rental_items/AllRentalItems';
 
 const AllRentalItems: FC = () => {

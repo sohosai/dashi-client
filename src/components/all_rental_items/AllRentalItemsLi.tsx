@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RentalItemResponse } from '../../model/allRentalItemsResponse';
+import { RentalItemResponse } from '../../models/allRentalItemsResponse';
 import { ReplaceRental, UpdateRental } from '..';
 import styled from 'styled-components';
 

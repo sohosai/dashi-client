@@ -1,7 +1,7 @@
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { RegisterConnectorSchemaType } from '../validation/registerConnector';
-import { RegisterConnectorRequest } from '../model/registerConnectorRequest';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { RegisterConnectorSchemaType } from '../validations/registerConnector';
+import { RegisterConnectorRequest } from '../models/registerConnectorRequest';
 import { captureException } from '@sentry/react';
 
 export const useFetchRegisterConnector = async (

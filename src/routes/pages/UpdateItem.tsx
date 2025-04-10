@@ -1,10 +1,10 @@
 import { FC, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IndividualItemResponse } from '../../model/individualItemResponse';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { IndividualItemResponse } from '../../models/individualItemResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
-import { OkResponse } from '../../model/okResponse';
+import { OkResponse } from '../../models/okResponse';
 import UpdateItemResult from '../../components/update_item/UpdateItemResult';
 import { ErrorResult, Loading, Title, UpdateItemForm } from '../../components';
 

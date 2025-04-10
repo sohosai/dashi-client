@@ -1,8 +1,8 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { RegisterColorRequest } from '../model/registerColorRequest';
-import { RegisterColorSchemaType } from '../validation/registerColor';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { RegisterColorRequest } from '../models/registerColorRequest';
+import { RegisterColorSchemaType } from '../validations/registerColor';
 
 export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Promise<OkResponse | ErrorResponse> => {
   const requestData: RegisterColorRequest = {

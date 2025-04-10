@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { OkResponse } from '../../../model/okResponse';
-import { ErrorResponse } from '../../../model/errorResponse';
+import { OkResponse } from '../../../models/okResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
 import { ErrorResult, OkResult } from '../..';
 
 type Props = {

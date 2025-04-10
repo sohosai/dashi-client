@@ -2,12 +2,12 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { generateSchema, GenerateSchemaType } from '../../validation/generate';
+import { generateSchema, GenerateSchemaType } from '../../validations/generate';
 import { useFetchGenerate } from '../../hooks/useFetchGenerate';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
-import { GenerateResponse } from '../../model/generateResponse';
-import { Record } from '../../model/record';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
+import { GenerateResponse } from '../../models/generateResponse';
+import { Record } from '../../models/record';
 import styled from 'styled-components';
 import Select, { StylesConfig } from 'react-select';
 

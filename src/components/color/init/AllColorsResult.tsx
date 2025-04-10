@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
-import { AllColorsResponse } from '../../../model/allColorsResponse';
-import { ErrorResponse } from '../../../model/errorResponse';
+import { AllColorsResponse } from '../../../models/allColorsResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
 import { ErrorResult } from '../..';
-import { ColorResponse } from '../../../model/colorResponse';
+import { ColorResponse } from '../../../models/colorResponse';
 import { useSortAllColor } from '../../../hooks/useSortAllColor';
 import ColorLi from '../li/ColorLi';
 import styled from 'styled-components';

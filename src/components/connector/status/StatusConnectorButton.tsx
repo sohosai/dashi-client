@@ -1,8 +1,8 @@
 import { Dispatch, FC } from 'react';
-import { Status } from '../../../model/status';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { OkResponse } from '../../../model/okResponse';
-import { Pending } from '../../../model/pending';
+import { Status } from '../../../models/status';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { OkResponse } from '../../../models/okResponse';
+import { Pending } from '../../../models/pending';
 import { useFetchStatusConnector } from '../../../hooks/useFetchStatusConnector';
 import styled from 'styled-components';
 

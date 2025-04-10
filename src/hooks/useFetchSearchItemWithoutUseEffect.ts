@@ -1,7 +1,7 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { SearchItemsResponse } from '../model/searchItemResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { SearchItemsResponse } from '../models/searchItemResponse';
 
 export const useFetchSearchItemWithoutUseEffect = async (
   keywords: string

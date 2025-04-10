@@ -1,7 +1,7 @@
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { RentalSchemaType } from '../validation/rental';
-import { RentalRequest } from '../model/rentalRequest';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { RentalSchemaType } from '../validations/rental';
+import { RentalRequest } from '../models/rentalRequest';
 import { captureException } from '@sentry/react';
 
 export const useFetchRentRental = async (id: number, data: RentalSchemaType): Promise<OkResponse | ErrorResponse> => {

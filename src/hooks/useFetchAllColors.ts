@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { AllColorsResponse } from '../model/allColorsResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { AllColorsResponse } from '../models/allColorsResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchAllColors = (): AllColorsResponse | ErrorResponse | Pending => {

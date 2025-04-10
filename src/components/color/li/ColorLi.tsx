@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ColorResponse } from '../../../model/colorResponse';
+import { ColorResponse } from '../../../models/colorResponse';
 import HexColor from '../hex/HexColor';
 import StatusColor from '../status/StatusColor';
 import styled from 'styled-components';

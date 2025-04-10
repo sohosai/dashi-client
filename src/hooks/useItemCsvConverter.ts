@@ -1,5 +1,5 @@
-import { ItemCsv, ItemCsvList } from '../model/itemCsv';
-import { ItemCsvItems, ItemCsvResponse } from '../model/itemCsvResponse';
+import { ItemCsv, ItemCsvList } from '../models/itemCsv';
+import { ItemCsvItems, ItemCsvResponse } from '../models/itemCsvResponse';
 
 export const useItemCsvConverter = (itemCsvResponse: ItemCsvResponse): ItemCsvList => {
   const items: ItemCsv[] = itemCsvResponse.items.map((item: ItemCsvItems) => {

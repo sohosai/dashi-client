@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Loading, AllTrashItems, Title } from '../../components';
-import { Pending } from '../../model/pending';
-import { ErrorResponse } from '../../model/errorResponse';
-import { AllTrashItemsResponse } from '../../model/allTrashItemResponse';
+import { Pending } from '../../models/pending';
+import { ErrorResponse } from '../../models/errorResponse';
+import { AllTrashItemsResponse } from '../../models/allTrashItemResponse';
 import { useFetchTrashItems } from '../../hooks/useFetchTrashItems';
 
 const TrashItem: FC = () => {

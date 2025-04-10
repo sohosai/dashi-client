@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { SearchItemsResponse } from '../model/searchItemResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { SearchItemsResponse } from '../models/searchItemResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsResponse | ErrorResponse | Pending => {

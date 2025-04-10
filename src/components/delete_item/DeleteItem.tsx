@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
-import { Pending } from '../../model/pending';
-import { ErrorResponse } from '../../model/errorResponse';
-import { OkResponse } from '../../model/okResponse';
+import { Pending } from '../../models/pending';
+import { ErrorResponse } from '../../models/errorResponse';
+import { OkResponse } from '../../models/okResponse';
 import { Loading } from '..';
 import ReactModal from 'react-modal';
 import DeleteItemButton from './DeleteItemButton';

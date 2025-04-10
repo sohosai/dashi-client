@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { Link } from 'react-router-dom';
 
 type Props = {

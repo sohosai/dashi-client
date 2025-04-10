@@ -1,5 +1,5 @@
-import { ConnectorResponse } from '../model/connectorResponse';
-import { SearchConnectorsResponse } from '../model/searchConnectorResponse';
+import { ConnectorResponse } from '../models/connectorResponse';
+import { SearchConnectorsResponse } from '../models/searchConnectorResponse';
 
 //compareFunction
 const compare = (a: ConnectorResponse, b: ConnectorResponse) => {

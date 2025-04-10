@@ -1,4 +1,4 @@
-import { AllRentalItemsResponse, RentalItemResponse } from '../model/allRentalItemsResponse';
+import { AllRentalItemsResponse, RentalItemResponse } from '../models/allRentalItemsResponse';
 
 //compareFunction
 const compare = (a: RentalItemResponse, b: RentalItemResponse) => {

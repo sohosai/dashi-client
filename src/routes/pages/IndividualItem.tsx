@@ -11,9 +11,9 @@ import {
   TransferItem,
   UpdateRental,
 } from '../../components';
-import { IndividualItemResponse } from '../../model/individualItemResponse';
-import { Pending } from '../../model/pending';
-import { ErrorResponse } from '../../model/errorResponse';
+import { IndividualItemResponse } from '../../models/individualItemResponse';
+import { Pending } from '../../models/pending';
+import { ErrorResponse } from '../../models/errorResponse';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 
 const IndividualItem: FC = () => {

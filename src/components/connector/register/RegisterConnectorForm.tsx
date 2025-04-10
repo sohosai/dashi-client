@@ -2,10 +2,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { OkResponse } from '../../../model/okResponse';
-import { Pending } from '../../../model/pending';
-import { registerConnectorSchema, RegisterConnectorSchemaType } from '../../../validation/registerConnector';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { OkResponse } from '../../../models/okResponse';
+import { Pending } from '../../../models/pending';
+import { registerConnectorSchema, RegisterConnectorSchemaType } from '../../../validations/registerConnector';
 import { useFetchRegisterConnector } from '../../../hooks/useFetchRegisterConnector';
 import styled from 'styled-components';
 

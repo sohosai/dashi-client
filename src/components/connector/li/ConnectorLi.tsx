@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ConnectorResponse } from '../../../model/connectorResponse';
+import { ConnectorResponse } from '../../../models/connectorResponse';
 import StatusConnector from '../status/StatusConnector';
 import styled from 'styled-components';
 

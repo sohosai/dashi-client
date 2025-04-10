@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { FC } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import {
   AllConnectors,
   Loading,
@@ -11,9 +11,9 @@ import {
   Title,
 } from '../../components';
 import { useFetchSearchConnector } from '../../hooks/useFetchSearchConnector';
-import { SearchConnectorsResponse } from '../../model/searchConnectorResponse';
+import { SearchConnectorsResponse } from '../../models/searchConnectorResponse';
 import { useFetchAllConnectors } from '../../hooks/useFetchAllConnectors';
-import { AllConnectorsResponse } from '../../model/allConnectorsResponse';
+import { AllConnectorsResponse } from '../../models/allConnectorsResponse';
 
 const Connector: FC = () => {
   const location = useLocation();

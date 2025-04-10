@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { TrashItemResponse } from '../../model/allTrashItemResponse';
+import { TrashItemResponse } from '../../models/allTrashItemResponse';
 import styled from 'styled-components';
 
 type Props = {

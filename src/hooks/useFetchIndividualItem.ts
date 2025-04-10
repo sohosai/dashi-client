@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
-import { IndividualItemResponse } from '../model/individualItemResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
+import { IndividualItemResponse } from '../models/individualItemResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchIndividualItem = (id: string | undefined): IndividualItemResponse | ErrorResponse | Pending => {

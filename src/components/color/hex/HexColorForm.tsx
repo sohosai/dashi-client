@@ -1,11 +1,11 @@
 import { Dispatch, FC } from 'react';
-import { Status } from '../../../model/status';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { OkResponse } from '../../../model/okResponse';
-import { Pending } from '../../../model/pending';
+import { Status } from '../../../models/status';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { OkResponse } from '../../../models/okResponse';
+import { Pending } from '../../../models/pending';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { hexColorSchema, HexColorSchemaType } from '../../../validation/hexColor';
+import { hexColorSchema, HexColorSchemaType } from '../../../validations/hexColor';
 import { useFetchUpdateColor } from '../../../hooks/useFetchUpdateColor';
 import { MuiColorInput } from 'mui-color-input';
 import { ErrorMessage } from '@hookform/error-message';

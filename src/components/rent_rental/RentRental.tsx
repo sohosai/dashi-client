@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import ReactModal from 'react-modal';
-import { OkResponse } from '../../model/okResponse';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { OkResponse } from '../../models/okResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import Loading from '../loading/Loading';
 import RentRentalModalButton from './RentRentalModalButton';
 import RentRentalResult from './RentRentalResult';

@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { Loading } from '../..';
 import ReactModal from 'react-modal';
-import { OkResponse } from '../../../model/okResponse';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { Pending } from '../../../model/pending';
+import { OkResponse } from '../../../models/okResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { Pending } from '../../../models/pending';
 import StatusConnectorModalButton from './StatusConnectorModalButton';
-import { Status } from '../../../model/status';
+import { Status } from '../../../models/status';
 import StatusConnectorResult from './StatusConnectorResult';
 import StatusConnectorButton from './StatusConnectorButton';
 import styled from 'styled-components';

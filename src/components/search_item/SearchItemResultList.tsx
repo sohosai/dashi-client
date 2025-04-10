@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
-import { SearchItemResponse, SearchItemsResponse } from '../../model/searchItemResponse';
-import { ErrorResponse } from '../../model/errorResponse';
+import { SearchItemResponse, SearchItemsResponse } from '../../models/searchItemResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { ErrorResult } from '..';
 import SearchItemResult from './SearchItemResult';
 import { useSortSearchItem } from '../../hooks/useSortSearchItem';

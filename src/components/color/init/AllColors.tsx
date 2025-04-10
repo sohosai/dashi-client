@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { Pending } from '../../../model/pending';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { Pending } from '../../../models/pending';
 import { Loading } from '../..';
-import { AllColorsResponse } from '../../../model/allColorsResponse';
+import { AllColorsResponse } from '../../../models/allColorsResponse';
 import AllColorsResult from './AllColorsResult';
 
 type Props = {

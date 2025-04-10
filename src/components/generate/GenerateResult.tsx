@@ -1,8 +1,8 @@
 import { FC, useRef } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import ErrorResult from '../error/ErrorResult';
-import { GenerateResponse } from '../../model/generateResponse';
-import { Record } from '../../model/generateRequest';
+import { GenerateResponse } from '../../models/generateResponse';
+import { Record } from '../../models/generateRequest';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import QrList from './qr/QrList';

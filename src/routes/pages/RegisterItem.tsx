@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { ErrorResult, Loading, RegisterItemForm, RegisterItemResult, Title } from '../../components';
-import { ErrorResponse } from '../../model/errorResponse';
-import { OkResponse } from '../../model/okResponse';
-import { Pending } from '../../model/pending';
-import { AllConnectorsResponse } from '../../model/allConnectorsResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { OkResponse } from '../../models/okResponse';
+import { Pending } from '../../models/pending';
+import { AllConnectorsResponse } from '../../models/allConnectorsResponse';
 import { useFetchAllConnectors } from '../../hooks/useFetchAllConnectors';
-import { AllColorsResponse } from '../../model/allColorsResponse';
+import { AllColorsResponse } from '../../models/allColorsResponse';
 import { useFetchAllColors } from '../../hooks/useFetchAllColors';
 
 const RegisterItem: FC = () => {

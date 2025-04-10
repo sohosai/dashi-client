@@ -1,7 +1,7 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { GenerateRequest, Record } from '../model/generateRequest';
-import { GenerateResponse } from '../model/generateResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { GenerateRequest, Record } from '../models/generateRequest';
+import { GenerateResponse } from '../models/generateResponse';
 
 export const useFetchGenerate = async (quantity: number, record: Record): Promise<GenerateResponse | ErrorResponse> => {
   const requestData: GenerateRequest = {

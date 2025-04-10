@@ -1,8 +1,8 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { UpdateItemRequest } from '../model/updateItemRequest';
-import { UpdateItemSchemaType } from '../validation/updateItem';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { UpdateItemRequest } from '../models/updateItemRequest';
+import { UpdateItemSchemaType } from '../validations/updateItem';
 
 export const useFetchUpdateItem = async (
   data: UpdateItemSchemaType,

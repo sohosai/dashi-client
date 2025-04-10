@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import { AllTrashItemsResponse, TrashItemResponse } from '../../model/allTrashItemResponse';
+import { AllTrashItemsResponse, TrashItemResponse } from '../../models/allTrashItemResponse';
 import { ErrorResult } from '..';
-import { ErrorResponse } from '../../model/errorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { useSortTrashItem } from '../../hooks/useSortTrashItem';
 import AllTrashItemsLi from './AllTrashItemsLi';
 import styled from 'styled-components';

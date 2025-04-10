@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FC } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { searchConnectorSchema, SearchConnectorSchemaType } from '../../../validation/searchConnector';
+import { searchConnectorSchema, SearchConnectorSchemaType } from '../../../validations/searchConnector';
 import styled from 'styled-components';
 
 type Props = {

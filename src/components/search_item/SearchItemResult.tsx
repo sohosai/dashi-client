@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SearchItemResponse } from '../../model/searchItemResponse';
+import { SearchItemResponse } from '../../models/searchItemResponse';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 

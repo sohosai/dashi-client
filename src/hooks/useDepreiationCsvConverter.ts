@@ -1,5 +1,5 @@
-import { DepreiationCsv, DepreiationCsvList } from '../model/depreiationCsv';
-import { DepreiationCsvItems, DepreiationCsvResponse } from '../model/depreiationCsvResponse';
+import { DepreiationCsv, DepreiationCsvList } from '../models/depreiationCsv';
+import { DepreiationCsvItems, DepreiationCsvResponse } from '../models/depreiationCsvResponse';
 
 export const useDepreiationCsvConverter = (depreiationCsvResponse: DepreiationCsvResponse): DepreiationCsvList => {
   const items: DepreiationCsv[] = depreiationCsvResponse.depreciation_items.map((item: DepreiationCsvItems) => {

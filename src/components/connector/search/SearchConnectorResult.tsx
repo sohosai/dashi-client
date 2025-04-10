@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { ErrorResult } from '../..';
-import { ErrorResponse } from '../../../model/errorResponse';
-import { SearchConnectorsResponse } from '../../../model/searchConnectorResponse';
-import { ConnectorResponse } from '../../../model/connectorResponse';
+import { ErrorResponse } from '../../../models/errorResponse';
+import { SearchConnectorsResponse } from '../../../models/searchConnectorResponse';
+import { ConnectorResponse } from '../../../models/connectorResponse';
 import { useSortSearchConnector } from '../../../hooks/useSortSearchConnector';
 import ConnectorLi from '../li/ConnectorLi';
 import styled from 'styled-components';

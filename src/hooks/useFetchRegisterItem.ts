@@ -1,7 +1,7 @@
-import { ErrorResponse } from '../model/errorResponse';
-import { RegisterItemRequest } from '../model/registerItemRequest';
-import { RegisterItemSchemaType } from '../validation/registerItem';
-import { OkResponse } from '../model/okResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { RegisterItemRequest } from '../models/registerItemRequest';
+import { RegisterItemSchemaType } from '../validations/registerItem';
+import { OkResponse } from '../models/okResponse';
 import { captureException } from '@sentry/react';
 
 export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promise<OkResponse | ErrorResponse> => {

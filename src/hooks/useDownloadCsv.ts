@@ -1,7 +1,7 @@
-import { CsvHeader } from '../model/csvHeader';
+import { CsvHeader } from '../models/csvHeader';
 import { Buffer, Workbook, Worksheet } from 'exceljs';
-import { ItemCsvList } from '../model/itemCsv';
-import { DepreiationCsvList } from '../model/depreiationCsv';
+import { ItemCsvList } from '../models/itemCsv';
+import { DepreiationCsvList } from '../models/depreiationCsv';
 
 export const useDownloadCsv = async (
   filename: string,

@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import { GenerateResponse } from '../../model/generateResponse';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { GenerateResponse } from '../../models/generateResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import { CsvBox, GenerateForm, GenerateResult, Loading, Title } from '../../components';
-import { Record } from '../../model/generateRequest';
+import { Record } from '../../models/generateRequest';
 
 const Generate: FC = () => {
   // get generate result

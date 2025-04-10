@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { AllConnectorsResponse } from '../model/allConnectorsResponse';
-import { ErrorResponse } from '../model/errorResponse';
-import { Pending } from '../model/pending';
+import { AllConnectorsResponse } from '../models/allConnectorsResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { Pending } from '../models/pending';
 import { captureException } from '@sentry/react';
 
 export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectorsResponse => {

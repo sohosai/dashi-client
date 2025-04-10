@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
 import ReactModal from 'react-modal';
-import { OkResponse } from '../../model/okResponse';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { OkResponse } from '../../models/okResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import { ErrorResult, Loading } from '..';
 import UpdateRentalResult from './UpdateRentalResult';
 import UpdateRentalModalButton from './UpdateRentalModalButton';
 import UpdateRentalForm from './UpdateRentalForm';
-import { IndividualItemResponse } from '../../model/individualItemResponse';
+import { IndividualItemResponse } from '../../models/individualItemResponse';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 import styled from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';

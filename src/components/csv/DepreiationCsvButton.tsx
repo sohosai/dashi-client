@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { useFetchDepreiationCsv } from '../../hooks/useFetchDepreiationCsv';
-import { DepreiationCsvResponse } from '../../model/depreiationCsvResponse';
-import { ErrorResponse } from '../../model/errorResponse';
+import { DepreiationCsvResponse } from '../../models/depreiationCsvResponse';
+import { ErrorResponse } from '../../models/errorResponse';
 import { useDownloadCsv } from '../../hooks/useDownloadCsv';
 import { useDepreiationCsvConverter } from '../../hooks/useDepreiationCsvConverter';
-import { DepreiationCsvList } from '../../model/depreiationCsv';
-import { Pending } from '../../model/pending';
+import { DepreiationCsvList } from '../../models/depreiationCsv';
+import { Pending } from '../../models/pending';
 import { Loading } from '..';
 import CsvResult from './CsvResult';
 import ReactModal from 'react-modal';

@@ -1,4 +1,4 @@
-import { SearchItemResponse, SearchItemsResponse } from '../model/searchItemResponse';
+import { SearchItemResponse, SearchItemsResponse } from '../models/searchItemResponse';
 
 //compareFunction
 const compare = (a: SearchItemResponse, b: SearchItemResponse) => {

@@ -1,9 +1,9 @@
 import { useLocation } from 'react-router-dom';
 import { FC } from 'react';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
-import { AllColorsResponse } from '../../model/allColorsResponse';
-import { SearchColorsResponse } from '../../model/searchColorResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
+import { AllColorsResponse } from '../../models/allColorsResponse';
+import { SearchColorsResponse } from '../../models/searchColorResponse';
 import SearchColorForm from '../../components/color/search/SearchColorForm';
 import RegisterColor from '../../components/color/register/RegisterColor';
 import { AllColors, Loading, SearchColorResult, Title } from '../../components';

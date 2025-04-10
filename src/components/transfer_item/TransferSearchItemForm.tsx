@@ -1,13 +1,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { searchItemSchema, SearchItemSchemaType } from '../../validation/searchItem';
+import { searchItemSchema, SearchItemSchemaType } from '../../validations/searchItem';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { SearchItemsResponse } from '../../model/searchItemResponse';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { SearchItemsResponse } from '../../models/searchItemResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import { useFetchSearchItemWithoutUseEffect } from '../../hooks/useFetchSearchItemWithoutUseEffect';
-import { OkResponse } from '../../model/okResponse';
+import { OkResponse } from '../../models/okResponse';
 import TransferSearchItemResult from './TransferSearchItemResult';
 
 type Props = {

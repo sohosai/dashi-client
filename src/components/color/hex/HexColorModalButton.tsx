@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { Status } from '../../../model/status';
+import { Status } from '../../../models/status';
 
 type Props = {
   setIsOpen: Dispatch<SetStateAction<boolean>>;

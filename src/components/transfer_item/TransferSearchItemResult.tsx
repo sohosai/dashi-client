@@ -1,9 +1,9 @@
 import { Dispatch, FC, SetStateAction } from 'react';
-import { SearchItemResponse, SearchItemsResponse } from '../../model/searchItemResponse';
+import { SearchItemResponse, SearchItemsResponse } from '../../models/searchItemResponse';
 import { ErrorResult, Loading } from '..';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
-import { OkResponse } from '../../model/okResponse';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
+import { OkResponse } from '../../models/okResponse';
 import TransferItemButton from './TransferItemButton';
 
 type Props = {

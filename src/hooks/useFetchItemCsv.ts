@@ -1,6 +1,6 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { ItemCsvResponse } from '../model/itemCsvResponse';
+import { ErrorResponse } from '../models/errorResponse';
+import { ItemCsvResponse } from '../models/itemCsvResponse';
 
 export const useFetchItemCsv = async (): Promise<ItemCsvResponse | ErrorResponse> => {
   // send

@@ -1,8 +1,8 @@
 import { captureException } from '@sentry/react';
-import { ErrorResponse } from '../model/errorResponse';
-import { OkResponse } from '../model/okResponse';
-import { Status } from '../model/status';
-import { StatusColorRequest } from '../model/statusColorRequest';
+import { ErrorResponse } from '../models/errorResponse';
+import { OkResponse } from '../models/okResponse';
+import { Status } from '../models/status';
+import { StatusColorRequest } from '../models/statusColorRequest';
 
 export const useFetchUpdateColor = async (id: number, hex_color_code: string, status: Status) => {
   // reverse status

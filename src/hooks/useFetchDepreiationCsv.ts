@@ -1,6 +1,6 @@
 import { captureException } from '@sentry/react';
-import { DepreiationCsvResponse } from '../model/depreiationCsvResponse';
-import { ErrorResponse } from '../model/errorResponse';
+import { DepreiationCsvResponse } from '../models/depreiationCsvResponse';
+import { ErrorResponse } from '../models/errorResponse';
 
 export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse | ErrorResponse> => {
   // send

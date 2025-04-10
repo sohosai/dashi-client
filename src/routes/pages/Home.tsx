@@ -1,9 +1,9 @@
 import { useLocation } from 'react-router-dom';
 import { FC, useState } from 'react';
-import { SearchItemsResponse } from '../../model/searchItemResponse';
+import { SearchItemsResponse } from '../../models/searchItemResponse';
 import { useFetchSearchItemWithUseEffect } from '../../hooks/useFetchSearchItemWithUseEffect';
-import { ErrorResponse } from '../../model/errorResponse';
-import { Pending } from '../../model/pending';
+import { ErrorResponse } from '../../models/errorResponse';
+import { Pending } from '../../models/pending';
 import { Loading, Menu, SearchItemForm, SearchItemIsRentButton, SearchItemResultList } from '../../components';
 
 const Home: FC = () => {

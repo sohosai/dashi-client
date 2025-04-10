@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { Record } from '../model/record';
+import { Record } from '../models/record';
 
 const generateSchema = z.object({
   quantity: z.coerce.number().refine((quantity) => quantity <= 49 && quantity >= 1 && Number.isInteger(quantity), {
