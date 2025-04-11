@@ -12,10 +12,11 @@
     "build-storybook": "storybook build",
     "test": "vitest",
     "run-vitest": "vitest run",
-    "report": "vitest run --ui --coverage",
     "coverage": "vitest --coverage",
+    "coverage:static": "vitest run --coverage",
     "ui": "vitest --ui",
-    "ui-preview": "npx vite preview --outDir html"
+    "ui:static": "vitest run --ui",
+    "ui:preview": "npx vite preview --outDir html"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

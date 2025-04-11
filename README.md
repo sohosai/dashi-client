@@ -12,9 +12,11 @@ https://dashi.sohosai.com
 
 https://sohosai.github.io/dashi-client/
 
-## testのcoverage状況
+## test結果
 
-https://sohosai.github.io/dashi-client/coverage/
+https://sohosai.github.io/dashi-client/html/
+
+## testの達成状況
 
 ## 開発環境
 
