@@ -18,6 +18,7 @@ jobs:
       - name: Build Storybook
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run storybook:build"
       - name: Build Vitest UI (@vitest/ui)
+        id: vitest
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run ui:static"
         continue-on-error: true
       - name: Move Vitest UI Reposrt
@@ -33,3 +34,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook-static
+      - name: If Failed Unit Test, exit 1
+        if: steps.vitest.outcome == 'failure'
+        run: exit 1
