@@ -36,3 +36,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./storybook-static
+      - name: If Failed Test, exit 1
+        if: steps.vitest.outcome == 'failure'
+        run: exit 1
