@@ -16,13 +16,13 @@ jobs:
         with:
           nix_path: nixpkgs=channel:nixpkgs-unstable
       - name: Build Storybook
-        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run build-storybook"
-      - name: Build Vitest UI
+        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run storybook:build"
+      - name: Build Vitest UI (@vitest/ui)
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run ui:static"
       - name: Move Vitest UI Reposrt
         run: |
           mv ./html/ ./storybook-static/html
-      - name: Build Vitest Coverate
+      - name: Build Vitest Coverate (@vitest/coverage-v8)
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run coverage:static"
       - name: Move Vitest Coverage Reposrt
         run: |
