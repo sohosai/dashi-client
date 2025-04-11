@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/29</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/29</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
@@ -115,11 +115,7 @@
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L53'></a><a href='#L53'>53</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -152,8 +148,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -165,8 +159,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,27 +198,23 @@ type Props = {
 <span class="cstat-no" title="statement not covered" >      useResult(useSortSearchItem(props.result));</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" >  }, [props.result]);</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >      {'code' in result &amp;&amp; 'message' in result ? (</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ErrorResult result={result} /&gt;</span>
-      ) : (
-<span class="cstat-no" title="statement not covered" >        &lt;StyledUl&gt;</span>
-<span class="cstat-no" title="statement not covered" >          {result.search_items.map((item: SearchItemResponse, index: number) =&gt; (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;StyledLi key={index}&gt;</span>
-<span class="cstat-no" title="statement not covered" >              {props.isRent ? (</span>
-<span class="cstat-no" title="statement not covered" >                &lt;&gt;</span>
-                  {/* props.isRent === true のときだけフィルターする */}
-<span class="cstat-no" title="statement not covered" >                  {item.is_rent ? &lt;&gt;&lt;/&gt; : &lt;SearchItemResult item={item} /&gt;}</span>
-                &lt;/&gt;
-              ) : (
-<span class="cstat-no" title="statement not covered" >                &lt;SearchItemResult item={item} /&gt;</span>
-              )}
-            &lt;/StyledLi&gt;
-          ))}
-        &lt;/StyledUl&gt;
-      )}
-    &lt;/&gt;
+<span class="cstat-no" title="statement not covered" >  return 'code' in result &amp;&amp; 'message' in result ? (</span>
+<span class="cstat-no" title="statement not covered" >    &lt;ErrorResult result={result} /&gt;</span>
+  ) : (
+<span class="cstat-no" title="statement not covered" >    &lt;StyledUl&gt;</span>
+<span class="cstat-no" title="statement not covered" >      {result.search_items.map((item: SearchItemResponse, index: number) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >        &lt;StyledLi key={index}&gt;</span>
+<span class="cstat-no" title="statement not covered" >          {props.isRent ? (</span>
+<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
+              {/* props.isRent === true のときだけフィルターする */}
+<span class="cstat-no" title="statement not covered" >              {item.is_rent ? &lt;&gt;&lt;/&gt; : &lt;SearchItemResult item={item} /&gt;}</span>
+            &lt;/&gt;
+          ) : (
+<span class="cstat-no" title="statement not covered" >            &lt;SearchItemResult item={item} /&gt;</span>
+          )}
+        &lt;/StyledLi&gt;
+      ))}
+    &lt;/StyledUl&gt;
   );
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
@@ -238,7 +226,7 @@ type Props = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-04-11T14:39:58.618Z
+                at 2025-04-11T15:51:32.654Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
