@@ -19,12 +19,13 @@ jobs:
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run storybook:build"
       - name: Build Vitest UI (@vitest/ui)
         id: vitest
-        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run ui:static"
         continue-on-error: true
+        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run ui:static"
       - name: Move Vitest UI Reposrt
         run: |
           mv ./html/ ./storybook-static/html
       - name: Build Vitest Coverate (@vitest/coverage-v8)
+        continue-on-error: true  
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run coverage:static"
       - name: Move Vitest Coverage Reposrt
         run: |
