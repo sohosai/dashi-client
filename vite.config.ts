@@ -2,7 +2,6 @@
 import { sentryVitePlugin } from '@sentry/vite-plugin';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import { coverageConfigDefaults } from 'vitest/config';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -33,6 +32,5 @@ export default defineConfig({
     },
     // @vitest/ui
     reporters: ['default', 'html'],
-    // exclude: [...coverageConfigDefaults.exclude, './storybook-static/'],
   },
 });
