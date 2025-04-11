@@ -25,12 +25,11 @@ export default defineConfig({
     sourcemap: true,
   },
   test: {
-    include: ['src/**/*.{tsx,ts}'],
+    include: ['src/**/*.test.{tsx,ts}'],
     environment: 'happy-dom',
     // @vitest/coverage-v8
     coverage: {
       reporter: ['text', 'json', 'html'],
-      reportsDirectory: './coverage',
     },
     // @vitest/ui
     reporters: ['default', 'html'],
