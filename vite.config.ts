@@ -33,6 +33,6 @@ export default defineConfig({
     },
     // @vitest/ui
     reporters: ['default', 'html'],
-    exclude: [...coverageConfigDefaults.exclude, './storybook-static/'],
+    // exclude: [...coverageConfigDefaults.exclude, './storybook-static/'],
   },
 });
