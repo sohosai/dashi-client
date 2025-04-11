@@ -17,11 +17,11 @@ jobs:
           nix_path: nixpkgs=channel:nixpkgs-unstable
       - name: Build Storybook
         run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run build-storybook"
-      - name: Build Test Coverage
-        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run coverage"
-      - name: Move Coverage Report
+      - name: Build Test UI and Coverage
+        run: nix develop --command bash -c "npm i --legacy-peer-deps && npm run report"
+      - name: Move html Report
         run: |
-          mv ./coverage/ ./storybook-static/coverage 
+          mv ./html/ ./storybook-static/html 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:

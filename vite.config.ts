@@ -26,8 +26,11 @@ export default defineConfig({
   },
   test: {
     environment: 'happy-dom',
+    // @vitest/coverage-v8
     coverage: {
       reporter: ['text', 'json', 'html'],
     },
+    // @vitest/ui
+    reporters: ['default', 'html'],
   },
 });
