@@ -56,19 +56,38 @@ npx playwright install chromium --with-deps
 npm run dev
 ```
 
-### storybookの起動
+### storybook
+
+#### storybookの起動
 
 ```sh
 npm run storybook
 ```
 
-### storybookのbuild
+#### storybookのbuild
 
 ```sh
 npm run storybook:build
 ```
 
-### @vitest/coverage-v8の起動
+### test
+
+#### Web UIで確認する場合
+
+```sh
+npm run report
+```
+
+#### コマンドラインで確認する場合
+
+```sh
+npm run test
+```
+
+以下のコマンド群を利用することはないと思われる。
+参考として記載しておく。
+
+#### @vitest/coverage-v8の起動
 
 テストのcoverage状況を確認できる。
 
@@ -76,7 +95,7 @@ npm run storybook:build
 npm run coverage
 ```
 
-### @vitest/coverage-v8のreport出力
+#### @vitest/coverage-v8のreport出力
 
 `coverage`ディレクトリに出力される。
 
@@ -84,7 +103,7 @@ npm run coverage
 npm run coverage:static
 ```
 
-### @vitest/uiの起動
+#### @vitest/uiの起動
 
 テスト結果をWeb UIで確認できる。
 
@@ -92,7 +111,7 @@ npm run coverage:static
 npm run ui
 ```
 
-### @vitest/uiのreport出力
+#### @vitest/uiのreport出力
 
 `html`ディレクトリに出力される。
 
@@ -100,7 +119,7 @@ npm run ui
 npm run ui:static
 ```
 
-### @vitest/uiのreportのpreview
+#### @vitest/uiのreportのpreview
 
 `html`ディレクトリの出力結果を3000ポートで起動する。
 
