@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SmallLoading from './SmallLoading';
 
 const meta = {
-  title: 'COMPONENTS/SmallLoading',
+  title: 'COMPONENTS/loading/SmallLoading',
   component: SmallLoading,
   parameters: {
     layout: 'fullscreen',

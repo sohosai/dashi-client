@@ -6,7 +6,7 @@ import { Record } from '../../models/generateRequest';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import QrList from './qr/QrList';
-import BarcodeList from './barcode/BarcdeList';
+import BarcodeList from './barcode/BarcodeList';
 
 type Props = {
   result: GenerateResponse | ErrorResponse;

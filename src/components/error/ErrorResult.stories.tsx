@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ErrorResult from './ErrorResult';
 
 const meta = {
-  title: 'COMPONENTS/ErrorResult',
+  title: 'COMPONENTS/error/ErrorResult',
   component: ErrorResult,
   parameters: {
     layout: 'fullscreen',

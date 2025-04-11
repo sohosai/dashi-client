@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LargeLoading from './LargeLoading';
 
 const meta = {
-  title: 'COMPONENTS/LargeLoading',
+  title: 'COMPONENTS/loading/LargeLoading',
   component: LargeLoading,
   parameters: {
     layout: 'fullscreen',

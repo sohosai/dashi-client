@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Title from './Title';
 
 const meta = {
-  title: 'COMPONENTS/Title',
+  title: 'COMPONENTS/title/Title',
   component: Title,
   parameters: {
     layout: 'fullscreen',

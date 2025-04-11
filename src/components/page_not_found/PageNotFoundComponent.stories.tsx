@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import PageNotFoundComponent from './PageNotFoundComponent';
 import { BrowserRouter } from 'react-router-dom';
-import Header from './Header';
 
 const meta = {
-  title: 'COMPONENTS/header/Header',
-  component: Header,
+  title: 'COMPONENTS/page_not_found/PageNotFoundComponent',
+  component: PageNotFoundComponent,
   parameters: {
     layout: 'fullscreen',
   },
@@ -15,7 +15,7 @@ const meta = {
       </BrowserRouter>
     ),
   ],
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof PageNotFoundComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -14,5 +14,9 @@ const config: StorybookConfig = {
   },
   //画像等の読み込み
   staticDirs: ['../public'],
+  //autodocsの有効化
+  docs: {
+    autodocs: true,
+  },
 };
 export default config;

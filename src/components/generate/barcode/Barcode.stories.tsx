@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import OkResult from './OkResult';
+import Barcode from './Barcode';
 
 const meta = {
-  title: 'COMPONENTS/ok/OkResult',
-  component: OkResult,
+  title: 'COMPONENTS/generate/barcode/Barcode',
+  component: Barcode,
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof OkResult>;
+} satisfies Meta<typeof Barcode>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    result: 'ok',
+    visible_id: '0000',
   },
 };

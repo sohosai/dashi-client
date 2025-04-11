@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import MenuModal from './MenuModal';
 
-const StyledMenuBox = styled.div``;
-
 const StyledTitle = styled.h1`
   font-size: 4rem;
   text-align: center;
@@ -15,11 +13,11 @@ const StyledDescription = styled.p`
 
 const Menu = () => {
   return (
-    <StyledMenuBox>
+    <div>
       <StyledTitle>だし</StyledTitle>
       <StyledDescription>jsysの物品管理システム。アルファベット表記は「dashi」。</StyledDescription>
       <MenuModal />
-    </StyledMenuBox>
+    </div>
   );
 };
 
