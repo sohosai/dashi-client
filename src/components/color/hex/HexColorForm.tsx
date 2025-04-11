@@ -104,7 +104,8 @@ const StatusColorForm: FC<Props> = (props) => {
     const result: OkResponse | ErrorResponse = await useFetchUpdateColor(
       props.id,
       formData.hex_color_code,
-      props.status
+      props.status,
+      'hexColorCode'
     );
     props.setResult(result);
   };

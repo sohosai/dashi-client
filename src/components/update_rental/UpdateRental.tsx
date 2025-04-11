@@ -11,10 +11,12 @@ import { IndividualItemResponse } from '../../models/individualItemResponse';
 import { useFetchIndividualItem } from '../../hooks/useFetchIndividualItem';
 import styled from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';
+import { RentalPageFlag } from '../../utils/flag';
 
 type Props = {
   id: string;
   isHidden: boolean;
+  rentalPageFlag: RentalPageFlag;
 };
 
 ReactModal.setAppElement('#root');
@@ -57,7 +59,7 @@ const UpdateRentalModal: FC<Props> = (props) => {
   const individualItem: IndividualItemResponse | ErrorResponse | Pending = useFetchIndividualItem(props.id);
   return (
     <>
-      <UpdateRentalModalButton setIsOpen={handleOpen} isHidden={props.isHidden} />
+      <UpdateRentalModalButton setIsOpen={handleOpen} isHidden={props.isHidden} rentalPageFlag={props.rentalPageFlag} />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="UpdateRentalModal"

@@ -10,15 +10,12 @@ type Props = {
 };
 
 const AllColors: FC<Props> = (props) => {
-  return (
-    <>
-      {props.result === 'pending' ? (
-        // 初期状態
-        <Loading />
-      ) : (
-        <AllColorsResult result={props.result} />
-      )}
-    </>
+  return props.result === 'pending' ? (
+    // 初期状態
+    <Loading />
+  ) : (
+    // fetch結果
+    <AllColorsResult result={props.result} />
   );
 };
 

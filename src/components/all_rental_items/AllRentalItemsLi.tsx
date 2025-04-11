@@ -78,10 +78,12 @@ const AllRentalItemsLi: FC<Props> = (props) => {
         <UpdateRental
           id={props.item.id.toString()}
           isHidden={props.item.id === 1 || !props.item.is_rent ? true : false}
+          rentalPageFlag={'allRentalItems'}
         />
         <ReplaceRental
           id={props.item.id.toString()}
           isHidden={props.item.id === 1 || !props.item.is_rent ? true : false}
+          rentalPageFlag={'allRentalItems'}
         />
       </StyledButtonWapper>
     </StyledBox>

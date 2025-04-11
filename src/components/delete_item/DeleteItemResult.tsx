@@ -8,7 +8,7 @@ type Props = {
 };
 
 const DeleteItemResult: FC<Props> = (props) => {
-  return <>{props.result == 'ok' ? <OkResult result={props.result} /> : <ErrorResult result={props.result} />}</>;
+  return props.result == 'ok' ? <OkResult result={props.result} /> : <ErrorResult result={props.result} />;
 };
 
 export default DeleteItemResult;

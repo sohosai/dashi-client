@@ -1,25 +1,13 @@
 import { FC, useEffect, useState } from 'react';
-import { AllTrashItemsResponse, TrashItemResponse } from '../../models/allTrashItemResponse';
+import { AllTrashItemsResponse } from '../../models/allTrashItemResponse';
 import { ErrorResult } from '..';
 import { ErrorResponse } from '../../models/errorResponse';
 import { useSortTrashItem } from '../../hooks/useSortTrashItem';
-import AllTrashItemsLi from './AllTrashItemsLi';
-import styled from 'styled-components';
+import AllTrashItemsUl from './AllTrashItemsUl';
 
 type Props = {
   result: AllTrashItemsResponse | ErrorResponse;
 };
-
-const StyledLi = styled.li`
-  margin: 0;
-  padding: 0;
-  list-style: none;
-`;
-
-const StyledUl = styled.ul`
-  margin: 60px 0 100px 0;
-  padding: 0;
-`;
 
 const AllTrashItems: FC<Props> = (props) => {
   const [result, useResult] = useState<AllTrashItemsResponse | ErrorResponse>(props.result);
@@ -28,22 +16,12 @@ const AllTrashItems: FC<Props> = (props) => {
       useResult(useSortTrashItem(props.result));
     }
   }, [props.result]);
-  return (
-    <>
-      {'code' in result && 'message' in result ? (
-        // fetchに失敗
-        <ErrorResult result={result} />
-      ) : (
-        // fetch成功
-        <StyledUl>
-          {result.trash_items.map((item: TrashItemResponse, index: number) => (
-            <StyledLi key={index}>
-              <AllTrashItemsLi item={item} />
-            </StyledLi>
-          ))}
-        </StyledUl>
-      )}
-    </>
+  return 'code' in result && 'message' in result ? (
+    // fetchに失敗
+    <ErrorResult result={result} />
+  ) : (
+    // fetch成功
+    <AllTrashItemsUl item={result} />
   );
 };
 

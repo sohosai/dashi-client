@@ -6,10 +6,12 @@ import { Loading } from '..';
 import ReactModal from 'react-modal';
 import ReplaceRentalButton from './ReplaceRentalButton';
 import ReplaceRentalResult from './ReplaceRentalResult';
+import { RentalPageFlag } from '../../utils/flag';
 
 type Props = {
   id: string;
   isHidden: boolean;
+  rentalPageFlag: RentalPageFlag;
 };
 
 ReactModal.setAppElement('#root');
@@ -26,7 +28,13 @@ const ReplaceRental: FC<Props> = (props) => {
   };
   return (
     <>
-      <ReplaceRentalButton id={props.id} setIsOpen={setIsOpen} setResult={setResult} isHidden={props.isHidden} />
+      <ReplaceRentalButton
+        id={props.id}
+        setIsOpen={setIsOpen}
+        setResult={setResult}
+        isHidden={props.isHidden}
+        rentalPageFlag={props.rentalPageFlag}
+      />
       <ReactModal
         isOpen={modalIsOpen}
         contentLabel="ReplaceRentalModal"

@@ -29,27 +29,23 @@ const SearchItemResultList: FC<Props> = (props) => {
       useResult(useSortSearchItem(props.result));
     }
   }, [props.result]);
-  return (
-    <>
-      {'code' in result && 'message' in result ? (
-        <ErrorResult result={result} />
-      ) : (
-        <StyledUl>
-          {result.search_items.map((item: SearchItemResponse, index: number) => (
-            <StyledLi key={index}>
-              {props.isRent ? (
-                <>
-                  {/* props.isRent === true のときだけフィルターする */}
-                  {item.is_rent ? <></> : <SearchItemResult item={item} />}
-                </>
-              ) : (
-                <SearchItemResult item={item} />
-              )}
-            </StyledLi>
-          ))}
-        </StyledUl>
-      )}
-    </>
+  return 'code' in result && 'message' in result ? (
+    <ErrorResult result={result} />
+  ) : (
+    <StyledUl>
+      {result.search_items.map((item: SearchItemResponse, index: number) => (
+        <StyledLi key={index}>
+          {props.isRent ? (
+            <>
+              {/* props.isRent === true のときだけフィルターする */}
+              {item.is_rent ? <></> : <SearchItemResult item={item} />}
+            </>
+          ) : (
+            <SearchItemResult item={item} />
+          )}
+        </StyledLi>
+      ))}
+    </StyledUl>
   );
 };
 

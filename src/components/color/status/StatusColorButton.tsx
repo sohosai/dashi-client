@@ -25,7 +25,12 @@ const StyledButton = styled.button`
 const StatusColorButton: FC<Props> = (props) => {
   const handleClick = async (): Promise<void> => {
     props.setResult('pending');
-    const result: OkResponse | ErrorResponse = await useFetchUpdateColor(props.id, props.hex_color_code, props.status);
+    const result: OkResponse | ErrorResponse = await useFetchUpdateColor(
+      props.id,
+      props.hex_color_code,
+      props.status,
+      'status'
+    );
     props.setResult(result);
   };
 
