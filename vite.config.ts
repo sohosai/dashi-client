@@ -29,7 +29,6 @@ export default defineConfig({
     // @vitest/coverage-v8
     coverage: {
       reporter: ['text', 'json', 'html'],
-      reportsDirectory: './coverage',
     },
     // @vitest/ui
     reporters: ['default', 'html'],

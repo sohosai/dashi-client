@@ -12,6 +12,7 @@
     "storybook:build": "storybook build",
     "test": "vitest",
     "run-vitest": "vitest run",
+    "report": "vitest --ui --coverage",
     "coverage": "vitest --coverage",
     "coverage:static": "vitest run --coverage",
     "ui": "vitest --ui",
