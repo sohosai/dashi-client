@@ -25,7 +25,7 @@ export default defineConfig({
     sourcemap: true,
   },
   test: {
-    include: ['src/**/*.test.{tsx,ts}'],
+    exclude: ['storybook-static/**/*'],
     environment: 'happy-dom',
     // @vitest/coverage-v8
     coverage: {
