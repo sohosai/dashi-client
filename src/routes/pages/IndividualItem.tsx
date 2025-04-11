@@ -48,8 +48,16 @@ const IndividualItem: FC = () => {
           <ImageItem id={id} isHidden={result.is_rent ? true : false} />
           {/*Rental*/}
           <>
-            <UpdateRental id={id} isHidden={result.id === 1 || !result.is_rent ? true : false} />
-            <ReplaceRental id={id} isHidden={result.id === 1 || !result.is_rent ? true : false} />
+            <UpdateRental
+              id={id}
+              isHidden={result.id === 1 || !result.is_rent ? true : false}
+              rentalPageFlag={'individualItem'}
+            />
+            <ReplaceRental
+              id={id}
+              isHidden={result.id === 1 || !result.is_rent ? true : false}
+              rentalPageFlag={'individualItem'}
+            />
           </>
           <RentRental id={id} isHidden={result.id === 1 || result.is_rent ? true : false} />
           <br />
