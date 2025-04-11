@@ -32,7 +32,7 @@ export default defineConfig({
       exclude: [
         '.direnv/**/*',
         '.github/**/*',
-        'storybook/**/*',
+        '.storybook/**/*',
         'assets/**/*',
         'coverage/**/*',
         'dist/**/*',
