@@ -18,6 +18,9 @@ https://sohosai.github.io/dashi-client/html/
 
 ## testの達成状況
 
+> [!WARNING]
+> main branchでのtestが失敗している場合、coverageのページは消えます。
+
 https://sohosai.github.io/dashi-client/coverage/
 
 ## 開発環境
