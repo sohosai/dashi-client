@@ -1,14 +1,24 @@
 import Logo from './assets/dashi.svg';
 
 {/* body */}
-<h1 className="title">dashi storybook</h1>
-<div className="logo-box">
-    <img
-        src={Logo}
-        width={200}
-        height={200}
-        alt={'dashi logo'}
-    />
+<div className='container'>
+  <h1 className="title">dashi storybook</h1>
+  <div className="logo-box">
+      <img
+          src={Logo}
+          width={200}
+          height={200}
+          alt={'dashi logo'}
+      />
+  </div>
+  <h2>storybookのURL</h2>
+  <a href='https://sohosai.github.io/dashi-client/'>
+    <p className='link'>https://sohosai.github.io/dashi-client/</p>
+  </a>
+  <h2>testのcoverageのURL</h2>
+  <a href='https://sohosai.github.io/dashi-client/coverage/'>
+    <p className='link'>https://sohosai.github.io/dashi-client/coverage/</p>
+  </a>
 </div>
 
 {/* css */}
@@ -19,14 +29,26 @@ import Logo from './assets/dashi.svg';
       padding: 0;
       background-color: #fffdf3;
     }
+    .container {
+      width: calc(100% - 40px);
+      max-width: 800px;
+      margin: 40px auto 0 auto;
+      padding: 0 20px 0 20px;
+    }
     .title {
       text-align: center;
-      font-size: 30px;
+      font-size: 40px;
       margin-bottom: 50px;
     }
     .logo-box {
       display: flex;
       justify-content: center;
+      margin: 0 0 50px 0;
+    }
+    .link {
+      font-size: 20px;
+      color:rgb(3, 174, 160);
+      text-decoration: underline;
     }
   `}
 </style>
