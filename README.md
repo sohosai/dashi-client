@@ -62,6 +62,52 @@ npm run dev
 npm run storybook
 ```
 
+### storybookのbuild
+
+```sh
+npm run storybook:build
+```
+
+### @vitest/coverage-v8の起動
+
+テストのcoverage状況を確認できる。
+
+```sh
+npm run coverage
+```
+
+### @vitest/coverage-v8のreport出力
+
+`coverage`ディレクトリに出力される。
+
+```sh
+npm run coverage:static
+```
+
+### @vitest/uiの起動
+
+テスト結果をWeb UIで確認できる。
+
+```sh
+npm run ui
+```
+
+### @vitest/uiのreport出力
+
+`html`ディレクトリに出力される。
+
+```sh
+npm run ui:static
+```
+
+### @vitest/uiのreportのpreview
+
+`html`ディレクトリの出力結果を3000ポートで起動する。
+
+```sh
+npm tun ui:preview
+```
+
 ## 本番環境
 
 ### 本番環境の構築
