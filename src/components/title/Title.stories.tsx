@@ -12,12 +12,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    title: 'タイトル',
-  },
-};
-
 export const AllRentalItems: Story = {
   args: {
     title: '貸し出し中物品管理',
