@@ -3,10 +3,18 @@ import { ErrorResponse } from '../models/errorResponse';
 import { OkResponse } from '../models/okResponse';
 import { Status } from '../models/status';
 import { StatusColorRequest } from '../models/statusColorRequest';
+import { UpdateColorFlag } from '../utils/flag';
 
-export const useFetchUpdateColor = async (id: number, hex_color_code: string, status: Status) => {
-  // reverse status
-  status = status === 'Active' ? 'Archive' : 'Active';
+export const useFetchUpdateColor = async (
+  id: number,
+  hex_color_code: string,
+  status: Status,
+  updateColorFlag: UpdateColorFlag
+) => {
+  if (updateColorFlag === 'status') {
+    // reverse status
+    status = status === 'Active' ? 'Archive' : 'Active';
+  }
   const requestData: StatusColorRequest = {
     id: id,
     hex_color_code: hex_color_code,
