@@ -18,6 +18,8 @@ https://sohosai.github.io/dashi-client/html/
 
 ## testの達成状況
 
+https://sohosai.github.io/dashi-client/coverage/
+
 ## 開発環境
 
 ### 開発環境の構築
