@@ -33,8 +33,5 @@ export default defineConfig({
     },
     // @vitest/ui
     reporters: ['default', 'html'],
-    // outputFile: {
-    //   html: './docs/test-report/index.html',
-    // },
   },
 });
