@@ -1,9 +1,0 @@
-import{j as d}from"./jsx-runtime-CcxW_kNO.js";import{d as a}from"./styled-components.browser.esm-Dy9tmWww.js";import"./iframe-fSXXaHv2.js";import"./index-CzPfh3_2.js";import"./index-DZXVemxA.js";try{let e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{},r=new e.Error().stack;r&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[r]="9a0bb2db-afc1-484f-bcea-dd0b90994254",e._sentryDebugIdIdentifier="sentry-dbid-9a0bb2db-afc1-484f-bcea-dd0b90994254")}catch{}const l=a.h1`
-  font-size: 3.2rem;
-  font-weight: 400;
-  text-align: center;
-`,i=e=>d.jsx(l,{children:e.title});i.__docgenInfo={description:"",methods:[],displayName:"Title",props:{title:{required:!0,tsType:{name:"string"},description:""}}};const u={title:"COMPONENTS/title/Title",component:i,parameters:{layout:"fullscreen"}},t={args:{title:"タイトル"}};var s,n,o;t.parameters={...t.parameters,docs:{...(s=t.parameters)==null?void 0:s.docs,source:{originalSource:`{
-  args: {
-    title: 'タイトル'
-  }
-}`,...(o=(n=t.parameters)==null?void 0:n.docs)==null?void 0:o.source}}};const y=["Primary"];export{t as Primary,y as __namedExportsOrder,u as default};
