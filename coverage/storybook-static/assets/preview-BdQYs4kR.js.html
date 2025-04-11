@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for storybook-static/assets/preview-BdQYs4kR.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">storybook-static/assets</a> preview-BdQYs4kR.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >try{let e=typeof window&lt;"u"?window:typeof c&lt;"u"?c:typeof globalThis&lt;"u"?globalThis:typeof self&lt;"u"?self:{},t=new e.Error().stack;t&amp;&amp;(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="f44876b4-0c45-43fa-a2f4-e2a534b8a8a6",e._sentryDebugIdIdentifier="sentry-dbid-f44876b4-0c45-43fa-a2f4-e2a534b8a8a6")}catch{}let p;const I=new Uint8Array(16);function x(){if(!p&amp;&amp;(p=typeof crypto&lt;"u"&amp;&amp;crypto.getRandomValues&amp;&amp;crypto.getRandomValues.bind(crypto),!p))throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");return p(I)}const i=[];for(let e=0;e&lt;256;++e)i.push((e+256).toString(16).slice(1));function D(e,t=0){return i[e[t+0]]+i[e[t+1]]+i[e[t+2]]+i[e[t+3]]+"-"+i[e[t+4]]+i[e[t+5]]+"-"+i[e[t+6]]+i[e[t+7]]+"-"+i[e[t+8]]+i[e[t+9]]+"-"+i[e[t+10]]+i[e[t+11]]+i[e[t+12]]+i[e[t+13]]+i[e[t+14]]+i[e[t+15]]}const S=typeof crypto&lt;"u"&amp;&amp;crypto.randomUUID&amp;&amp;crypto.randomUUID.bind(crypto),h={randomUUID:S};function A(e,t,r){if(h.randomUUID&amp;&amp;!e)return h.randomUUID();e=e||{};const n=e.random||(e.rng||x)();return n[6]=n[6]&amp;15|64,n[8]=n[8]&amp;63|128,D(n)}const{addons:w}=__STORYBOOK_MODULE_PREVIEW_API__,{ImplicitActionsDuringRendering:v}=__STORYBOOK_MODULE_CORE_EVENTS_PREVIEW_ERRORS__,{global:c}=__STORYBOOK_MODULE_GLOBAL__;var U="storybook/actions",j=`${U}/action-event`,V={depth:10,clearOnStoryChange:!0,limit:50},R=(e,t)=&gt;{let r=Object.getPrototypeOf(e);return!r||t(r)?r:R(r,t)},C=e=&gt;!!(typeof e=="object"&amp;&amp;e&amp;&amp;R(e,t=&gt;/^Synthetic(?:Base)?Event$/.test(t.constructor.name))&amp;&amp;typeof e.persist=="function"),K=e=&gt;{if(C(e)){let t=Object.create(e.constructor.prototype,Object.getOwnPropertyDescriptors(e));t.persist();let r=Object.getOwnPropertyDescriptor(t,"view"),n=r==null?void 0:r.value;return typeof n=="object"&amp;&amp;(n==null?void 0:n.constructor.name)==="Window"&amp;&amp;Object.defineProperty(t,"view",{...r,value:Object.create(n.constructor.prototype)}),t}return e},L=()=&gt;typeof crypto=="object"&amp;&amp;typeof crypto.getRandomValues=="function"?A():Date.now().toString(36)+Math.random().toString(36).substring(2);function _(e,t={}){let r={...V,...t},n=function(...s){var g,y;if(t.implicit){let O=(g="__STORYBOOK_PREVIEW__"in c?c.__STORYBOOK_PREVIEW__:void 0)==null?void 0:g.storyRenders.find(l=&gt;l.phase==="playing"||l.phase==="rendering");if(O){let l=!((y=globalThis==null?void 0:globalThis.FEATURES)!=null&amp;&amp;y.disallowImplicitActionsInRenderV8),b=new v({phase:O.phase,name:e,deprecated:l});if(l)console.warn(b);else throw b}}let o=w.getChannel(),a=L(),d=5,u=s.map(K),E=s.length&gt;1?u:u[0],T={id:a,count:0,data:{name:e,args:E},options:{...r,maxDepth:d+(r.depth||3),allowFunction:r.allowFunction||!1}};o.emit(j,T)};return n.isAction=!0,n.implicit=t.implicit,n}var m=(e,t)=&gt;typeof t[e]&gt;"u"&amp;&amp;!(e in t),B=e=&gt;{let{initialArgs:t,argTypes:r,id:n,parameters:{actions:s}}=e;if(!s||s.disable||!s.argTypesRegex||!r)return{};let o=new RegExp(s.argTypesRegex);return Object.entries(r).filter(([a])=&gt;!!o.test(a)).reduce((a,[d,u])=&gt;(m(d,t)&amp;&amp;(a[d]=_(d,{implicit:!0,id:n})),a),{})},M=e=&gt;{let{initialArgs:t,argTypes:r,parameters:{actions:n}}=e;return n!=null&amp;&amp;n.disable||!r?{}:Object.entries(r).filter(([s,o])=&gt;!!o.action).reduce((s,[o,a])=&gt;(m(o,t)&amp;&amp;(s[o]=_(typeof a.action=="string"?a.action:o)),s),{})},Y=[M,B],f=!1,P=e=&gt;{let{parameters:{actions:t}}=e;if(!(t!=null&amp;&amp;t.disable)&amp;&amp;!f&amp;&amp;"__STORYBOOK_TEST_ON_MOCK_CALL__"in c&amp;&amp;typeof c.__STORYBOOK_TEST_ON_MOCK_CALL__=="function"){let r=c.__STORYBOOK_TEST_ON_MOCK_CALL__;r((n,s)=&gt;{let o=n.getMockName();o!=="spy"&amp;&amp;(!/^next\/.*::/.test(o)||["next/router::useRouter()","next/navigation::useRouter()","next/navigation::redirect","next/cache::","next/headers::cookies().set","next/headers::cookies().delete","next/headers::headers().set","next/headers::headers(</span></span>).delete"].some(a=&gt;o.startsWith(a)))&amp;&amp;_(o)(s)}),f=!0}},N=[P];export{Y as argsEnhancers,N as loaders};</span>
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2025-04-11T10:45:38.676Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    
