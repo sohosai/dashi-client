@@ -30,4 +30,8 @@ describe('timestampを表示する形式に変換', () => {
     const result: string = timestampConverter('2025-12-31 15:08:01.123456789');
     expect(result).toBe('2026年 1月 1日 0時8分');
   });
+  test.concurrent('null', () => {
+    const result: string = timestampConverter(null);
+    expect(result).toBe('');
+  });
 });

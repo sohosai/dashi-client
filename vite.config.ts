@@ -28,7 +28,7 @@ export default defineConfig({
     environment: 'happy-dom',
     // @vitest/coverage-v8
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      reporter: ['html'],
       exclude: [
         '.direnv/**/*',
         '.github/**/*',

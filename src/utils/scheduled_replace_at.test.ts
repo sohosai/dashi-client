@@ -18,4 +18,8 @@ describe('scheduled_replace_atを表示する形式に変換', () => {
     const result: string = scheduledReplaceAtConverter('2025-10-10 00:00:00 +00:00');
     expect(result).toBe('2025年 10月 10日');
   });
+  test.concurrent('null', () => {
+    const result: string = scheduledReplaceAtConverter(null);
+    expect(result).toBe('未定');
+  });
 });
