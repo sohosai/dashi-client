@@ -1,0 +1,5 @@
+import{A as n,a as d}from"./dummyData-BO3XADFE.js";import"./iframe-CV9tUv17.js";import"./jsx-runtime-D0qD98ke.js";import"./styled-components.browser.esm-DNO95yAh.js";import"./index-VYh7P2Yd.js";import"./index-BAZwkdgT.js";try{let e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{},t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="8c0db6df-721d-426d-8576-c42e82f6b9e2",e._sentryDebugIdIdentifier="sentry-dbid-8c0db6df-721d-426d-8576-c42e82f6b9e2")}catch{}const u={title:"COMPONENTS/all_trash_items/AllTrashItemsLi",component:n,parameters:{layout:"fullscreen"}},s={args:{item:d.trash_items[0]}};var r,a,o;s.parameters={...s.parameters,docs:{...(r=s.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {
+    item: allTrashItemsResponseData.trash_items[0]
+  }
+}`,...(o=(a=s.parameters)==null?void 0:a.docs)==null?void 0:o.source}}};const b=["Primary"];export{s as Primary,b as __namedExportsOrder,u as default};
