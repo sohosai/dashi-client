@@ -7,11 +7,39 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import QrList from './qr/QrList';
 import BarcodeList from './barcode/BarcodeList';
+import styled from 'styled-components';
+import NothingList from './nothing/NothingList';
 
 type Props = {
   result: GenerateResponse | ErrorResponse;
   recordType: Record | null;
 };
+
+const StyleResultArea = styled.div`
+  width: '100%',
+  maxWidth: '1200px',
+  height: '300px',
+  margin: '0 auto 0 auto',
+  padding: '0',
+  overflowX: 'scroll',
+  overflowY: 'scroll',
+  border: '1px solid black',
+`
+const ConvertPDFArea = styled.div`
+  aspectRatio: '210 / 297',
+  width: 'auto',
+  height: '1485px',
+  margin: '0 auto',
+  backgroundColor: '#FFFFFF',
+  border: '1px solid black',
+`
+const DownloadPDFButton = styled.button`
+  width: '200px',
+  height: '50px',
+  fontSize: '18px',
+  margin: '10px auto 0 auto',
+  display: 'block',
+`
 
 const GenerateResult: FC<Props> = (props) => {
   // PDFに変換する対象のエリア
@@ -59,98 +87,46 @@ const GenerateResult: FC<Props> = (props) => {
           {props.recordType === 'Qr' ? (
             <>
               {/* Qr */}
-              <div
-                style={{
-                  width: '100%',
-                  maxWidth: '1200px',
-                  height: '300px',
-                  margin: '0 auto 0 auto',
-                  padding: '0',
-                  overflowX: 'scroll',
-                  overflowY: 'scroll',
-                  border: '1px solid black',
-                }}
-              >
+              <StyleResultArea>
                 {/* PDFに変換する対象のエリア start */}
-                <div
+                <ConvertPDFArea
                   ref={contentRef}
-                  style={{
-                    aspectRatio: '210 / 297',
-                    width: 'auto',
-                    height: '1485px',
-                    margin: '0 auto',
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid black',
-                  }}
                 >
                   <QrList visible_ids={props.result.visible_ids} />
-                </div>
+                </ConvertPDFArea>
                 {/* PDFに変換する対象のエリア end */}
-              </div>
+              </StyleResultArea>
               <div style={{ width: '100%' }}>
-                <button
+                <DownloadPDFButton
                   onClick={handleDownloadPdf}
-                  style={{
-                    width: '200px',
-                    height: '50px',
-                    fontSize: '18px',
-                    margin: '10px auto 0 auto',
-                    display: 'block',
-                  }}
                 >
                   PDFをダウンロード
-                </button>
+                </DownloadPDFButton>
               </div>
             </>
           ) : props.recordType === 'Barcode' ? (
             <>
               {/* Barcode */}
-              <div
-                style={{
-                  width: '100%',
-                  maxWidth: '1200px',
-                  height: '300px',
-                  margin: '0 auto 0 auto',
-                  padding: '0',
-                  overflowX: 'scroll',
-                  overflowY: 'scroll',
-                  border: '1px solid black',
-                }}
-              >
+              <StyleResultArea>
                 {/* PDFに変換する対象のエリア start */}
-                <div
+                <ConvertPDFArea
                   ref={contentRef}
-                  style={{
-                    aspectRatio: '210 / 297',
-                    width: 'auto',
-                    height: '1485px',
-                    margin: '0 auto',
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid black',
-                  }}
                 >
                   <BarcodeList visible_ids={props.result.visible_ids} />
-                </div>
+                </ConvertPDFArea>
                 {/* PDFに変換する対象のエリア end */}
-              </div>
+              </StyleResultArea>
               <div style={{ width: '100%' }}>
-                <button
+                <DownloadPDFButton
                   onClick={handleDownloadPdf}
-                  style={{
-                    width: '200px',
-                    height: '50px',
-                    fontSize: '18px',
-                    margin: '10px auto 0 auto',
-                    display: 'block',
-                  }}
                 >
                   PDFをダウンロード
-                </button>
+                </DownloadPDFButton>
               </div>
             </>
           ) : (
             // Nothing
-            <h2>Generate Successed!</h2>
+            <NothingList visible_ids={props.result.visible_ids} />
           )}
         </>
       )}
