@@ -9,6 +9,7 @@ import { Status } from '../../../models/status';
 import StatusConnectorResult from './StatusConnectorResult';
 import StatusConnectorButton from './StatusConnectorButton';
 import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 ReactModal.setAppElement('#root');
 
@@ -38,6 +39,21 @@ const StyledButtonWrapper = styled.div`
   justify-content: center;
   gap: 40px;
 `;
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
+
 
 const StatusConnector: FC<Props> = (props) => {
   // set modal state
@@ -94,7 +110,11 @@ const StatusConnector: FC<Props> = (props) => {
           // fetch結果
           //   <StatusConnectorResult result={registerResult} />
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <StatusConnectorResult result={registerResult} />
           </>
         )}

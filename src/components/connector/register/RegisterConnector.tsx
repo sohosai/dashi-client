@@ -28,6 +28,12 @@ const StyledCloseButtonWrapper = styled.div`
   width: 100%;
 `;
 
+const ResultMarginTop = styled.div`
+  display: block;
+  position: relative;
+  height: 25%;
+`;
+
 const RegisterConnector: FC = () => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
@@ -88,6 +94,7 @@ const RegisterConnector: FC = () => {
                 <TfiClose style={{ width: '30px', height: '30px' }} />
               </StyledCloseButton>
             </StyledCloseButtonWrapper>
+            <ResultMarginTop></ResultMarginTop>
             <RegisterConnectorResult result={registerResult} />
           </>
         )}
