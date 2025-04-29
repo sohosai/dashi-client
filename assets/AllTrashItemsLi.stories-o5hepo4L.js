@@ -1,0 +1,5 @@
+import{A as n}from"./AllTrashItemsLi-DyMcds3g.js";import{a as i}from"./dummyData-D7SG-850.js";import"./iframe-CitulrRo.js";import"./jsx-runtime-BH-yBogc.js";import"./styled-components.browser.esm-4IHA5p08.js";import"./index-BuwMMTVU.js";import"./index-sZ8m7RlU.js";try{let e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{},s=new e.Error().stack;s&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[s]="7726286e-f5ae-4b40-9fae-90236c077a93",e._sentryDebugIdIdentifier="sentry-dbid-7726286e-f5ae-4b40-9fae-90236c077a93")}catch{}const y={title:"COMPONENTS/all_trash_items/AllTrashItemsLi",component:n,parameters:{layout:"fullscreen"}},r={args:{item:i.trash_items[0]}};var t,a,o;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    item: allTrashItemsResponseData.trash_items[0]
+  }
+}`,...(o=(a=r.parameters)==null?void 0:a.docs)==null?void 0:o.source}}};const b=["Primary"];export{r as Primary,b as __namedExportsOrder,y as default};
