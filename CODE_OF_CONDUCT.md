@@ -21,6 +21,33 @@
   - fetch APIを利用しているCustom Hooksは、`useFetch`の接頭辞を付けること
   - ソートをしているHooksは、`useSort`の接頭辞を付けること
 
+## フォームの規則
+
+- `react-hook-form`を利用すること
+- バリデータに`zod`を利用すること
+  - バリデーションスキーマは、`validations`ディレクトリに格納すること
+  - スキーマ名の接尾辞に`Schema`を付けること (CamelCase)
+    - (例) `generateSchem`
+  - スキーマの型の接尾辞に`SchemaType`を付けること (UpperCase)
+    - (例) `GenerateSchemaType`
+
+バリデーションスキーマの例 (validations/generate.ts)
+
+```typescript
+import { z } from 'zod';
+import { Record } from '../models/record';
+
+const generateSchema = z.object({
+  quantity: z.coerce.number().refine((quantity) => quantity <= 49 && quantity >= 1 && Number.isInteger(quantity), {
+    message: `1個から49個までの間で生成する数を指定してください。`,
+  }),
+  record: z.custom<Record>(),
+});
+
+export { generateSchema };
+export type GenerateSchemaType = z.infer<typeof generateSchema>;
+```
+
 ## componentの規則
 
 - componentsディレクトリ配下にファイルを配置すること
