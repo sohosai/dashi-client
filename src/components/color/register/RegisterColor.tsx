@@ -28,6 +28,12 @@ const StyledCloseButtonWrapper = styled.div`
   width: 100%;
 `;
 
+const ResultMarginTop = styled.div`
+  display: block;
+  position: relative;
+  height: 30%;
+`;
+
 const RegisterColor: FC = () => {
   // set modal state
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
@@ -88,6 +94,7 @@ const RegisterColor: FC = () => {
                 <TfiClose style={{ width: '30px', height: '30px' }} />
               </StyledCloseButton>
             </StyledCloseButtonWrapper>
+            <ResultMarginTop></ResultMarginTop>
             <RegisterColorResult result={registerResult} />
           </>
         )}
