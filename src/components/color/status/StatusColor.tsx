@@ -9,6 +9,8 @@ import StatusColorButton from './StatusColorButton';
 import StatusColorModalButton from './StatusColorModalButton';
 import StatusColorResult from './StatusColorResult';
 import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
+
 
 ReactModal.setAppElement('#root');
 
@@ -38,6 +40,22 @@ const StyledButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 40px;
+`;
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%
 `;
 
 const StatusColor: FC<Props> = (props) => {
@@ -99,7 +117,11 @@ const StatusColor: FC<Props> = (props) => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <StatusColorResult result={registerResult} />
           </>
         )}

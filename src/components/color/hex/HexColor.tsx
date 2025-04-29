@@ -32,7 +32,13 @@ const StyledCloseButton = styled.button`
 const StyledCloseButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 100%;
+  width: 100%
+`;
+
+const ResultMarginTop = styled.div`
+  display: block;
+  position: relative;
+  height: 25%;
 `;
 
 const HexColor: FC<Props> = (props) => {
@@ -95,7 +101,12 @@ const HexColor: FC<Props> = (props) => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
+            <ResultMarginTop></ResultMarginTop>
             <HexColorResult result={registerResult} />
           </>
         )}
