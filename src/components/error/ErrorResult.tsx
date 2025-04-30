@@ -44,9 +44,16 @@ const StyledError = styled.p`
   padding: 0;
 `;
 
+const StyledErrorResultMarginTop = styled.div`
+  position: relative;
+  height: 3rem;
+`;
+//ここ要確認、okresultとうまく調整して同じような高さになるようにせよ。
+
 const ErrorResult: FC<Props> = (props) => {
   return (
     <StyledBox>
+      <StyledErrorResultMarginTop></StyledErrorResultMarginTop>
       <StyledIconWrapper>
         <FiAlertOctagon size={90} color={'#d01c1c'} />
       </StyledIconWrapper>
