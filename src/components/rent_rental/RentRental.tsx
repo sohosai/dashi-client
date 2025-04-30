@@ -7,6 +7,8 @@ import RentRentalModalButton from './RentRentalModalButton';
 import RentRentalResult from './RentRentalResult';
 import RentRentalForm from './RentRentalForm';
 import { Loading } from '..';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 type Props = {
   id: string;
@@ -14,6 +16,22 @@ type Props = {
 };
 
 ReactModal.setAppElement('#root');
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const RentRentalModal: FC<Props> = (props) => {
   // set modal state
@@ -47,6 +65,7 @@ const RentRentalModal: FC<Props> = (props) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
+            height: '530.833px',
             width: '90%',
             minWidth: '320px',
             maxWidth: '900px',
@@ -57,7 +76,11 @@ const RentRentalModal: FC<Props> = (props) => {
         {result === null ? (
           // 初期表示
           <>
-            <button onClick={handleClose}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleClose}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <RentRentalForm id={props.id} setResult={setResult} />
           </>
         ) : result === 'pending' ? (
@@ -66,7 +89,11 @@ const RentRentalModal: FC<Props> = (props) => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <RentRentalResult result={result} />
           </>
         )}

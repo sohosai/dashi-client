@@ -7,11 +7,30 @@ import { Pending } from '../../models/pending';
 import ImageItemForm from './ImageItemForm';
 import ImageItemResult from './ImageItemResult';
 import ImageItemModalButton from './ImageItemModalButton';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 type Props = {
   id: string;
   isHidden: boolean;
 };
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
+
 
 ReactModal.setAppElement('#root');
 
@@ -47,7 +66,9 @@ const ImageItemModal: FC<Props> = (props) => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
+            height: '70%',
             width: '90%',
+            maxHeight: '400px',
             minWidth: '320px',
             maxWidth: '900px',
             overflowY: 'scroll',
@@ -57,7 +78,11 @@ const ImageItemModal: FC<Props> = (props) => {
         {result === null ? (
           // 初期表示
           <>
-            <button onClick={handleClose}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleClose}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <ImageItemForm id={props.id} setResult={setResult} />
           </>
         ) : result === 'pending' ? (

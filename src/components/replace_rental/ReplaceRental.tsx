@@ -7,6 +7,8 @@ import ReactModal from 'react-modal';
 import ReplaceRentalButton from './ReplaceRentalButton';
 import ReplaceRentalResult from './ReplaceRentalResult';
 import { RentalPageFlag } from '../../utils/flag';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 type Props = {
   id: string;
@@ -15,6 +17,22 @@ type Props = {
 };
 
 ReactModal.setAppElement('#root');
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const ReplaceRental: FC<Props> = (props) => {
   // set modal state
@@ -63,7 +81,11 @@ const ReplaceRental: FC<Props> = (props) => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <ReplaceRentalResult result={result} />
           </>
         )}
