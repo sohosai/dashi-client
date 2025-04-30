@@ -63,6 +63,12 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
+const StyledErrorMessageWrapper = styled.div`
+  height: 0px;
+  font-size: 1.3rem;
+  font-weight: bold;
+`;
+
 const RegisterConnectorForm: FC<Props> = (props) => {
   const {
     register,
@@ -83,7 +89,9 @@ const RegisterConnectorForm: FC<Props> = (props) => {
         <StyledLabel htmlFor="name">Name</StyledLabel>
         <StyledInput id="name" type="text" {...register('name')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>
           <StyledSubmitInput type="submit" value="端子名の登録" />

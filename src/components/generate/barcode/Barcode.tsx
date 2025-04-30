@@ -11,7 +11,7 @@ const StyledBarcode = styled.div`
   margin: 58.6363636px 0 0 15px;
   padding: 15px 15px 5px 15px;
   //BUG: https://github.com/niklasvh/html2canvas/issues/2739
-  // backgroundColor: "white",
+  // backgroundColor: "white";
   height: 60px;
   width: 158px;
   border: 2px solid rgb(0, 0, 0);

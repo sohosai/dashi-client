@@ -42,6 +42,14 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
+const StyledErrorMessageWrapper = styled.div`
+  display: block;
+  text-align: center;
+  height: 0px;
+  font-size: 1.4rem;
+  font-weight: bold;
+`;
+
 const SearchItemForm: FC<Props> = (props) => {
   const navigate = useNavigate();
   // react hook form
@@ -62,8 +70,10 @@ const SearchItemForm: FC<Props> = (props) => {
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchInput id="keywords" type="text" {...register('keywords')} placeholder="キーワードで検索" />
-      <br />
+      <StyledErrorMessageWrapper>
       <ErrorMessage errors={errors} name="keywords" message={errors.keywords?.message} />
+      </StyledErrorMessageWrapper>
+      <br />
       <br />
       <StyledSubmitWrapper>
         <StyledSubmitInput type="submit" value="物品検索" />

@@ -117,6 +117,14 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
+const StyledErrorMessageWrapper = styled.div`
+  display: block;
+  height: 0px;
+  width: 265px;
+  font-size: 1.3rem;
+  font-weight: bold;
+`;
+
 const GenerateForm: FC<Props> = (props) => {
   // react hook form
   const {
@@ -144,7 +152,9 @@ const GenerateForm: FC<Props> = (props) => {
         <StyledLabel htmlFor="quantity">Quantity</StyledLabel>
         <StyledInput id="quantity" type="number" {...register('quantity')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="quantity" message={errors.quantity?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="record">Record</StyledLabel>
         <Controller
