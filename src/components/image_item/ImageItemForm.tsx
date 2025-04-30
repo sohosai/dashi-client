@@ -12,6 +12,7 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import { imageItemSchema, ImageItemSchemaType } from '../../validations/imageItem';
 import { useFetchImageItem } from '../../hooks/useFetchImageItem';
+import styled from 'styled-components';
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
@@ -19,6 +20,42 @@ type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
   id: string;
 };
+
+const StyledLabel = styled.label`
+  display: block;
+  font-size: 1.6rem;
+  margin: 0 0 5px 0;
+  padding: 0;
+`;
+
+const StyledFilePond = styled(FilePond)`
+  & .filepond--drop-label {
+    font-size: 1.6rem;
+    height: 260px;
+    border: 1px solid #b3b3b3;
+  }
+`;
+
+const StyledSubmitWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+`;
+
+const StyledSubmitInput = styled.input`
+  padding: 5px 20px;
+  background-color: #caad63;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+`;
+
+const StyledErrorMessageWrapper = styled.div`
+  height: 0px;
+  font-size: 1.4rem;
+  font-weight: bold;
+`;
 
 const ImageItemForm: FC<Props> = (props) => {
   const {
@@ -39,12 +76,12 @@ const ImageItemForm: FC<Props> = (props) => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="imgae">Image: </label>
+      <StyledLabel htmlFor="imgae">物品の画像</StyledLabel>
       <Controller
         name="image"
         control={control}
         render={({ field: { onChange, name } }) => (
-          <FilePond
+          <StyledFilePond
             name={name}
             storeAsFile={true}
             credits={false}
@@ -57,10 +94,14 @@ const ImageItemForm: FC<Props> = (props) => {
           />
         )}
       />
-      <br />
+      <StyledErrorMessageWrapper>
       <ErrorMessage errors={errors} name="image" message={errors.image?.message} />
+      </StyledErrorMessageWrapper>
       <br />
-      <input type="submit" value="更新" />
+      <br />
+      <StyledSubmitWrapper>
+      <StyledSubmitInput type="submit" value="更新" />
+      </StyledSubmitWrapper>
     </form>
   );
 };

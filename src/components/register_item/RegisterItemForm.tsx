@@ -300,6 +300,12 @@ const StyledIconWrapper = styled.div`
   width: fit-content;
 `;
 
+const StyledErrorMessageWrapper = styled.div`
+  height: 0px;
+  font-size: 1.4rem;
+  font-weight: bold;
+`;
+
 const RegisterItemForm: FC<Props> = (props) => {
   const connectors: ErrorResponse | Pending | AllSelectConnectorResponse = useSelectConnector();
   const colors: ErrorResponse | Pending | AllSelectColorResponse = useSelectColor();
@@ -334,42 +340,58 @@ const RegisterItemForm: FC<Props> = (props) => {
         <StyledLabel htmlFor="name">物品名</StyledLabel>
         <StyledInput id="name" type="text" {...register('name')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="visible_id">ラベルID</StyledLabel>
         <StyledInput id="visible_id" type="text" {...register('visible_id')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="visible_id" message={errors.visible_id?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="parent_visible_id">親物品のラベルID</StyledLabel>
         <StyledInput id="parent_visible_id" type="text" {...register('parent_visible_id')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="parent_visible_id" message={errors.parent_visible_id?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="product_number">型番</StyledLabel>
         <StyledInput id="product_number" type="text" {...register('product_number')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="product_number" message={errors.product_number?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="description">備考</StyledLabel>
         <StyledInput id="description" type="text" {...register('description')} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="description" message={errors.description?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="purchase_year">購入年度</StyledLabel>
         <StyledInput id="purchase_year" type="number" {...register('purchase_year', { valueAsNumber: true })} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="purchase_year" message={errors.purchase_year?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="purchase_price">購入金額</StyledLabel>
         <StyledInput id="purchase_price" type="number" {...register('purchase_price', { valueAsNumber: true })} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="purchase_price" message={errors.purchase_price?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="durability">耐久年数</StyledLabel>
         <StyledInput id="durability" type="number" {...register('durability', { valueAsNumber: true })} />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="durability" message={errors.durability?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="is_depreciation">減価償却対象かどうか</StyledLabel>
         <StyledToggleLabelWrapper>
@@ -378,7 +400,9 @@ const RegisterItemForm: FC<Props> = (props) => {
           </StyledToggleLabel>
         </StyledToggleLabelWrapper>
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="is_depreciation" message={errors.is_depreciation?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="connector">接続名</StyledLabel>
         {connectors === 'pending' ? (
@@ -414,7 +438,9 @@ const RegisterItemForm: FC<Props> = (props) => {
               </div>
             ))}
             <br />
+            <StyledErrorMessageWrapper>
             <ErrorMessage errors={errors} name="connector" message={errors.connector?.message} />
+            </StyledErrorMessageWrapper>
             <br />
             <StyledAddWrapper>
               <StyledAddInput
@@ -462,7 +488,9 @@ const RegisterItemForm: FC<Props> = (props) => {
               </div>
             ))}
             <br />
+            <StyledErrorMessageWrapper>
             <ErrorMessage errors={errors} name="color" message={errors.color?.message} />
+            </StyledErrorMessageWrapper>
             <br />
             <StyledIconBox>
               <StyledIconWrapper>
@@ -498,7 +526,9 @@ const RegisterItemForm: FC<Props> = (props) => {
           )}
         />
         <br />
+        <StyledErrorMessageWrapper>
         <ErrorMessage errors={errors} name="image" message={errors.image?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>
           <StyledSubmitInput type="submit" value="物品情報の登録" />
