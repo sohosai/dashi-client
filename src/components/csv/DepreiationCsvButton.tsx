@@ -11,6 +11,7 @@ import CsvResult from './CsvResult';
 import ReactModal from 'react-modal';
 import { SlCloudDownload } from 'react-icons/sl';
 import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
 
 const header = [
   { header: '物品名', key: 'name' },
@@ -37,6 +38,22 @@ const StyledBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%
 `;
 
 const DepreiationCsvButton: FC = () => {
@@ -102,7 +119,11 @@ const DepreiationCsvButton: FC = () => {
           ) : (
             // fetch結果
             <>
-              <button onClick={handleClose}>Close</button>
+              <StyledCloseButtonWrapper>
+                <StyledCloseButton onClick={handleClose}>
+                  <TfiClose style={{ width: '30px', height: '30px' }} />
+                </StyledCloseButton>
+              </StyledCloseButtonWrapper>
               <CsvResult result={result} />
             </>
           )}
