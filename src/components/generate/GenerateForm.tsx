@@ -11,7 +11,6 @@ import { Record } from '../../models/record';
 import styled from 'styled-components';
 import Select, { StylesConfig } from 'react-select';
 import { StyledInput } from '../../global';
-import { StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
   setResult: Dispatch<SetStateAction<GenerateResponse | ErrorResponse | Pending | null>>;
@@ -107,7 +106,7 @@ const StyledSubmitInput = styled.input`
 
 const StyledErrorMessageWrapperSub = styled.div`
   height: 0px;
-  font-size: 1.0rem;
+  font-size: 1rem;
   color: #d01c1c;
   font-weight: bold;
 `;
@@ -140,7 +139,7 @@ const GenerateForm: FC<Props> = (props) => {
         <StyledInput id="quantity" type="number" {...register('quantity')} />
         <br />
         <StyledErrorMessageWrapperSub>
-        <ErrorMessage errors={errors} name="quantity" message={errors.quantity?.message} />
+          <ErrorMessage errors={errors} name="quantity" message={errors.quantity?.message} />
         </StyledErrorMessageWrapperSub>
         <br />
         <StyledLabel htmlFor="record">Record</StyledLabel>
