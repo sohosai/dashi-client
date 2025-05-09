@@ -10,6 +10,8 @@ import { GenerateResponse } from '../../models/generateResponse';
 import { Record } from '../../models/record';
 import styled from 'styled-components';
 import Select, { StylesConfig } from 'react-select';
+import { StyledInput } from '../../global';
+import { StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
   setResult: Dispatch<SetStateAction<GenerateResponse | ErrorResponse | Pending | null>>;
@@ -88,20 +90,6 @@ const StyledLabel = styled.label`
   padding: 0;
 `;
 
-const StyledInput = styled.input`
-  width: 100%;
-  max-width: 369px;
-  font-size: 1.6rem;
-  height: 48px;
-  margin: 0;
-  padding: 0 14px;
-  border: 1.5px solid #6f6f6f;
-  border-radius: 0;
-  &:focus {
-    outline: 2.5px solid #c7d01c;
-  }
-`;
-
 const StyledSubmitWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -117,11 +105,10 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
-const StyledErrorMessageWrapper = styled.div`
-  display: block;
+const StyledErrorMessageWrapperSub = styled.div`
   height: 0px;
-  width: 265px;
-  font-size: 1.3rem;
+  font-size: 1.0rem;
+  color: #d01c1c;
   font-weight: bold;
 `;
 
@@ -152,9 +139,9 @@ const GenerateForm: FC<Props> = (props) => {
         <StyledLabel htmlFor="quantity">Quantity</StyledLabel>
         <StyledInput id="quantity" type="number" {...register('quantity')} />
         <br />
-        <StyledErrorMessageWrapper>
+        <StyledErrorMessageWrapperSub>
         <ErrorMessage errors={errors} name="quantity" message={errors.quantity?.message} />
-        </StyledErrorMessageWrapper>
+        </StyledErrorMessageWrapperSub>
         <br />
         <StyledLabel htmlFor="record">Record</StyledLabel>
         <Controller

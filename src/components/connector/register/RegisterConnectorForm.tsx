@@ -8,24 +8,11 @@ import { Pending } from '../../../models/pending';
 import { registerConnectorSchema, RegisterConnectorSchemaType } from '../../../validations/registerConnector';
 import { useFetchRegisterConnector } from '../../../hooks/useFetchRegisterConnector';
 import styled from 'styled-components';
+import { StyledInput } from '../../../global';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
-
-const StyledInput = styled.input`
-  width: 100%;
-  max-width: 369px;
-  font-size: 1.6rem;
-  height: 48px;
-  margin: 0;
-  padding: 0 14px;
-  border: 1.5px solid #6f6f6f;
-  border-radius: 0;
-  &:focus {
-    outline: 2.5px solid #c7d01c;
-  }
-`;
 
 const StyledLabel = styled.label`
   display: block;

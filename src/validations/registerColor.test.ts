@@ -42,4 +42,28 @@ describe('RegisterColorSchemaのバリデーション', () => {
     const result = registerColorSchema.safeParse(invalidInput);
     expect(result.success).toBe(false);
   });
+  test.concurrent('無効な入力: hex_color_codeに大文字のアルファベットが含まれている', () => {
+    const invalidInput: RegisterColorSchemaType = {
+      name: 'red',
+      hex_color_code: '#FFFFFF',
+    };
+    const result = registerColorSchema.safeParse(invalidInput);
+    expect(result.success).toBe(false);
+  });
+  test.concurrent('無効な入力: hex_color_codeの先頭の#を入力していない', () => {
+    const invalidInput: RegisterColorSchemaType = {
+      name: 'red',
+      hex_color_code: 'ffffff',
+    };
+    const result = registerColorSchema.safeParse(invalidInput);
+    expect(result.success).toBe(false);
+  });
+  test.concurrent('無効な入力: hex_color_codeの形式に合っていない文字が含まれている', () => {
+    const invalidInput: RegisterColorSchemaType = {
+      name: 'red',
+      hex_color_code: '#10!?ff',
+    };
+    const result = registerColorSchema.safeParse(invalidInput);
+    expect(result.success).toBe(false);
+  });
 });

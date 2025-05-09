@@ -12,25 +12,12 @@ import { DesktopDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { styled, createGlobalStyle } from 'styled-components';
+import { StyledInput } from '../../global';
 
 type Props = {
   individualItem: IndividualItemResponse;
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
 };
-
-const StyledInput = styled.input`
-  width: 100%;
-  max-width: 369px;
-  font-size: 1.6rem;
-  height: 48px;
-  margin: 0;
-  padding: 0 14px;
-  border: 1.5px solid #6f6f6f;
-  border-radius: 0;
-  &:focus {
-    outline: 2.5px solid #c7d01c;
-  }
-`;
 
 const StyledDesktopDatePicker = styled(DesktopDatePicker)`
   display: block;

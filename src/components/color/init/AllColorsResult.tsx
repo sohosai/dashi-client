@@ -4,10 +4,15 @@ import { ErrorResponse } from '../../../models/errorResponse';
 import { ErrorResult } from '../..';
 import { useSortAllColor } from '../../../hooks/useSortAllColor';
 import AllColorUl from '../list/AllColorUl';
+import styled from 'styled-components';
 
 type Props = {
   result: AllColorsResponse | ErrorResponse;
 };
+
+const StyledErrorResultWrapper = styled.div`
+  margin-top: 53px;
+`
 
 const AllColors: FC<Props> = (props) => {
   const [result, useResult] = useState<AllColorsResponse | ErrorResponse>(props.result);
@@ -18,7 +23,9 @@ const AllColors: FC<Props> = (props) => {
   }, [props.result]);
   return 'code' in result && 'message' in result ? (
     // fetch失敗
-    <ErrorResult result={result} />
+    <StyledErrorResultWrapper>
+      <ErrorResult result={result} />
+    </StyledErrorResultWrapper>
   ) : (
     // fetch成功
     <AllColorUl color={result} />

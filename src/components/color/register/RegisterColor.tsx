@@ -28,11 +28,13 @@ const StyledCloseButtonWrapper = styled.div`
   width: 100%;
 `;
 
-const ResultMarginTop = styled.div`
-  display: block;
-  position: relative;
-  height: 30%;
-`;
+const StyledLoadingWrapper = styled.div`
+  margin-top: 100px;
+`
+
+const StyledRegisterColorResultWrapper = styled.div`
+  margin-top: 100px;
+`
 
 const RegisterColor: FC = () => {
   // set modal state
@@ -85,7 +87,9 @@ const RegisterColor: FC = () => {
           </>
         ) : registerResult === 'pending' ? (
           // 処理中
-          <Loading />
+          <StyledLoadingWrapper>
+            <Loading />
+          </StyledLoadingWrapper>
         ) : (
           // fetch結果
           <>
@@ -94,8 +98,9 @@ const RegisterColor: FC = () => {
                 <TfiClose style={{ width: '30px', height: '30px' }} />
               </StyledCloseButton>
             </StyledCloseButtonWrapper>
-            <ResultMarginTop></ResultMarginTop>
-            <RegisterColorResult result={registerResult} />
+            <StyledRegisterColorResultWrapper>
+              <RegisterColorResult result={registerResult} />
+            </StyledRegisterColorResultWrapper>
           </>
         )}
       </ReactModal>

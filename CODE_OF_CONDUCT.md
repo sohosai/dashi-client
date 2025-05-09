@@ -7,7 +7,7 @@
 - 基本的には、`styled-components`を利用するとこ
 - `styled-components`を利用した変数名は、`Styled`の接頭辞を付けること (UpperCase)
   - (例) `StyledCloseButton`
-- `styled-components`を利用していない変数名は、`styls`の接頭辞を付けること (CamelCase)
+- `styled-components`を利用していない変数名は、`styles`の接頭辞を付けること (CamelCase)
   - (例) `styleConnectorSelect`
 - どうしても`styled-components`で難しい所は、`MUI`を利用すること
 - `font-size`は、全て`rem`で設定すること
