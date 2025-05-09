@@ -24,6 +24,7 @@ import { SelectConnectorResponse } from '../../models/connectorResponse';
 import styled from 'styled-components';
 import ConnectorIcon from '/connector.svg';
 import CableIcon from '/cable.svg';
+import { StyledErrorMessageWrapper } from '../../global';
 
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 
@@ -298,12 +299,6 @@ const StyledIconBox = styled.div`
 
 const StyledIconWrapper = styled.div`
   width: fit-content;
-`;
-
-const StyledErrorMessageWrapper = styled.div`
-  height: 0px;
-  font-size: 1.4rem;
-  font-weight: bold;
 `;
 
 const RegisterItemForm: FC<Props> = (props) => {

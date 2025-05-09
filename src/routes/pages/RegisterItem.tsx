@@ -7,6 +7,11 @@ import { AllConnectorsResponse } from '../../models/allConnectorsResponse';
 import { useFetchAllConnectors } from '../../hooks/useFetchAllConnectors';
 import { AllColorsResponse } from '../../models/allColorsResponse';
 import { useFetchAllColors } from '../../hooks/useFetchAllColors';
+import styled from 'styled-components';
+
+const StyledErrorResultWrapper = styled.div`
+  margin-top: 53px;
+`
 
 const RegisterItem: FC = () => {
   const [result, setResult] = useState<OkResponse | ErrorResponse | Pending | null>(null);
@@ -32,13 +37,17 @@ const RegisterItem: FC = () => {
                 <p>ok</p>
               ) : (
                 // fetchに失敗
-                <ErrorResult result={connectors} />
+                <StyledErrorResultWrapper>
+                  <ErrorResult result={connectors} />
+                </StyledErrorResultWrapper>
               )}
               {'all_colors' in colors ? (
                 <p>ok</p>
               ) : (
                 // fetchに失敗
-                <ErrorResult result={colors} />
+                <StyledErrorResultWrapper>
+                  <ErrorResult result={colors} />
+                </StyledErrorResultWrapper>
               )}
             </>
           )}

@@ -9,6 +9,7 @@ import RegisterConnectorForm from './RegisterConnectorForm';
 import RegisterConnectorResult from './RegisterConnectorResult';
 import styled from 'styled-components';
 import { TfiClose } from 'react-icons/tfi';
+import { StyledResultInModalWrapper } from '../../../global';
 
 ReactModal.setAppElement('#root');
 
@@ -26,12 +27,6 @@ const StyledCloseButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-`;
-
-const ResultMarginTop = styled.div`
-  display: block;
-  position: relative;
-  height: 25%;
 `;
 
 const RegisterConnector: FC = () => {
@@ -94,8 +89,9 @@ const RegisterConnector: FC = () => {
                 <TfiClose style={{ width: '30px', height: '30px' }} />
               </StyledCloseButton>
             </StyledCloseButtonWrapper>
-            <ResultMarginTop></ResultMarginTop>
-            <RegisterConnectorResult result={registerResult} />
+            <StyledResultInModalWrapper>
+              <RegisterConnectorResult result={registerResult} />
+            </StyledResultInModalWrapper>
           </>
         )}
       </ReactModal>

@@ -43,6 +43,10 @@ const StyledDownloadPDFButton = styled.button`
   display: block;
 `;
 
+const StyledErrorResultWrapper = styled.div`
+  margin-top: 53px;
+`
+
 const GenerateResult: FC<Props> = (props) => {
   // PDFに変換する対象のエリア
   const contentRef = useRef<HTMLDivElement>(null);
@@ -83,7 +87,9 @@ const GenerateResult: FC<Props> = (props) => {
   return (
     <>
       {'code' in props.result && 'message' in props.result ? (
-        <ErrorResult result={props.result} />
+        <StyledErrorResultWrapper>
+          <ErrorResult result={props.result} />
+        </StyledErrorResultWrapper>
       ) : (
         <>
           {props.recordType === 'Qr' ? (
