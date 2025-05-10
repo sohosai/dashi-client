@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/63</span>
+                <span class='fraction'>0/62</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/63</span>
+                <span class='fraction'>0/62</span>
             </div>
         
             
@@ -197,18 +197,14 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a>
-<a name='L136'></a><a href='#L136'>136</a>
-<a name='L137'></a><a href='#L137'>137</a>
-<a name='L138'></a><a href='#L138'>138</a>
-<a name='L139'></a><a href='#L139'>139</a>
-<a name='L140'></a><a href='#L140'>140</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -281,12 +277,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -353,6 +343,7 @@ import { Pending } from '../../../models/pending';
 <span class="cstat-no" title="statement not covered" >import { MuiColorInput } from 'mui-color-input';</span>
 <span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
 <span class="cstat-no" title="statement not covered" >import { StyledInput } from '../../../global';</span>
+<span class="cstat-no" title="statement not covered" >import { StyledErrorMessageWrapper } from '../../../global';</span>
 &nbsp;
 type Props = {
   setResult: Dispatch&lt;SetStateAction&lt;OkResponse | ErrorResponse | Pending | null&gt;&gt;;
@@ -425,12 +416,6 @@ type Props = {
   cursor: pointer;
 <span class="cstat-no" title="statement not covered" >`;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const StyledErrorMessageWrapper = styled.div`</span>
-  height: 0px;
-  font-size: 1.4rem;
-  font-weight: bold;
-<span class="cstat-no" title="statement not covered" >`;</span>
-&nbsp;
 <span class="cstat-no" title="statement not covered" >const RegisterColorForm: FC&lt;Props&gt; = (props) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >  const {</span>
 <span class="cstat-no" title="statement not covered" >    register,</span>
@@ -457,7 +442,7 @@ type Props = {
 <span class="cstat-no" title="statement not covered" >        &lt;StyledInput id="name" type="text" {...register('name')} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;br /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;StyledErrorMessageWrapper&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ErrorMessage errors={errors} name="name" message={errors.name?.message} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;ErrorMessage errors={errors} name="name" message={errors.name?.message} /&gt;</span>
         &lt;/StyledErrorMessageWrapper&gt;
 <span class="cstat-no" title="statement not covered" >        &lt;br /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;StyledLabel htmlFor="hex_color_code"&gt;Hex Color Code&lt;/StyledLabel&gt;</span>
@@ -468,7 +453,7 @@ type Props = {
         /&gt;
 <span class="cstat-no" title="statement not covered" >        &lt;br /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;StyledErrorMessageWrapper&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >          &lt;ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} /&gt;</span>
         &lt;/StyledErrorMessageWrapper&gt;
 <span class="cstat-no" title="statement not covered" >        &lt;br /&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;StyledSubmitWrapper&gt;</span>
@@ -487,7 +472,7 @@ type Props = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-09T12:23:50.958Z
+                at 2025-05-10T17:42:44.022Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
