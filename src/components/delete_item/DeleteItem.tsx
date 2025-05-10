@@ -6,6 +6,9 @@ import { Loading } from '..';
 import ReactModal from 'react-modal';
 import DeleteItemButton from './DeleteItemButton';
 import DeleteItemResult from './DeleteItemResult';
+import styled from 'styled-components';
+import { TfiClose } from 'react-icons/tfi';
+import { Link } from 'react-router-dom';
 
 type Props = {
   id: string;
@@ -13,6 +16,22 @@ type Props = {
 };
 
 ReactModal.setAppElement('#root');
+
+const StyledCloseButton = styled.button`
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+`;
+
+const StyledCloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+`;
 
 const DeleteItem: FC<Props> = (props) => {
   // set modal state
@@ -49,7 +68,16 @@ const DeleteItem: FC<Props> = (props) => {
           <Loading />
         ) : (
           // fetch結果
-          <DeleteItemResult result={result} />
+          <>
+            <StyledCloseButtonWrapper>
+              <Link to={'/'}>
+                <StyledCloseButton>
+                  <TfiClose style={{ width: '30px', height: '30px' }} />
+                </StyledCloseButton>
+              </Link>
+            </StyledCloseButtonWrapper>
+            <DeleteItemResult result={result} />
+          </>
         )}
       </ReactModal>
     </>

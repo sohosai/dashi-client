@@ -13,6 +13,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { styled, createGlobalStyle } from 'styled-components';
 import { StyledInput } from '../../global';
+import { StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
   individualItem: IndividualItemResponse;
@@ -161,12 +162,16 @@ const UpdateRentalForm: FC<Props> = (props) => {
         <StyledLabel htmlFor="recipient">借用者</StyledLabel>
         <StyledInput id="recipient" type="text" {...register('recipient')} />
         <br />
-        <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
+        <StyledErrorMessageWrapper>
+          <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="rental_description">貸し出しに関する備考</StyledLabel>
         <StyledInput id="rental_description" type="text" {...register('rental_description')} />
         <br />
-        <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
+        <StyledErrorMessageWrapper>
+          <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="scheduled_replace_at">返却予定日</StyledLabel>
         <GlobalDatePickerStyle />
@@ -190,7 +195,9 @@ const UpdateRentalForm: FC<Props> = (props) => {
           )}
         />
         <br />
-        <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.rental_description?.message} />
+        <StyledErrorMessageWrapper>
+          <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.rental_description?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>
           <StyledSubmitInput type="submit" value="貸し出し情報の更新" />

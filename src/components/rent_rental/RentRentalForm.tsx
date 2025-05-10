@@ -12,6 +12,7 @@ import dayjs from 'dayjs';
 import { useFetchRentRental } from '../../hooks/useFetchRentRental';
 import styled from 'styled-components';
 import { StyledInput } from '../../global';
+import { StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
   id: string;
@@ -54,12 +55,6 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
-const StyledErrorMessageWrapper = styled.div`
-  height: 0px;
-  font-size: 1.1rem;
-  font-weight: bold;
-`;
-
 const RentRentalForm: FC<Props> = (props) => {
   const [cleared, setCleared] = useState<boolean>(false);
   useEffect(() => {
@@ -94,14 +89,14 @@ const RentRentalForm: FC<Props> = (props) => {
         <StyledInput id="recipient" type="text" {...register('recipient')} />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
+          <ErrorMessage errors={errors} name="recipient" message={errors.recipient?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="rental_description">貸し出しに関する備考</StyledLabel>
         <StyledInput id="rental_description" type="text" {...register('rental_description')} />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
+          <ErrorMessage errors={errors} name="rental_description" message={errors.rental_description?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="scheduled_replace_at">返却予定日</StyledLabel>
@@ -126,7 +121,7 @@ const RentRentalForm: FC<Props> = (props) => {
         />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.scheduled_replace_at?.message} />
+          <ErrorMessage errors={errors} name="scheduled_replace_at" message={errors.scheduled_replace_at?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>

@@ -10,6 +10,7 @@ import { useFetchUpdateColor } from '../../../hooks/useFetchUpdateColor';
 import { MuiColorInput } from 'mui-color-input';
 import { ErrorMessage } from '@hookform/error-message';
 import styled from 'styled-components';
+import { StyledErrorMessageWrapper } from '../../../global';
 
 type Props = {
   id: number;
@@ -121,7 +122,9 @@ const StatusColorForm: FC<Props> = (props) => {
           render={({ field }) => <StyledMuiColorInput {...field} style={{}} format="hex" isAlphaHidden={true} />}
         />
         <br />
-        <ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} />
+        <StyledErrorMessageWrapper>
+          <ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} />
+        </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>
           <StyledSubmitInput type="submit" value="色の変更" />

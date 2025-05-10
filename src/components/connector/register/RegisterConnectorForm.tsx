@@ -9,6 +9,7 @@ import { registerConnectorSchema, RegisterConnectorSchemaType } from '../../../v
 import { useFetchRegisterConnector } from '../../../hooks/useFetchRegisterConnector';
 import styled from 'styled-components';
 import { StyledInput } from '../../../global';
+import { StyledErrorMessageWrapper } from '../../../global';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
@@ -50,12 +51,6 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
-const StyledErrorMessageWrapper = styled.div`
-  height: 0px;
-  font-size: 1.3rem;
-  font-weight: bold;
-`;
-
 const RegisterConnectorForm: FC<Props> = (props) => {
   const {
     register,
@@ -77,7 +72,7 @@ const RegisterConnectorForm: FC<Props> = (props) => {
         <StyledInput id="name" type="text" {...register('name')} />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
+          <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>
