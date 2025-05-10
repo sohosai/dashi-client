@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { ErrorResponse } from '../../models/errorResponse';
 import { FiAlertOctagon } from 'react-icons/fi';
 import styled from 'styled-components';
+import { useState } from 'react';
 
 type Props = {
   result: ErrorResponse;
@@ -24,12 +25,25 @@ const StyledMessage = styled.p`
   text-align: center;
 `;
 
-const StyledErrorBox = styled.div`
+const StyledErrorResultAccordionInput = styled.input.attrs({ type: 'checkbox' })`
+  display: none;
+`;
+
+const StyledErrorResultAccordionInputLabel = styled.label`
+  margin: auto;
+  padding: 0;
+  font-size: 1.6rem;
+  text-align: center;
+`;
+
+const StyledErrorBox = styled.div<{ isChecked: boolean }>`
   width: fit-content;
-  margin: 30px auto 0 auto;
+  margin: 7px auto 0 auto;
   padding: 5px 15px;
   background-color: #f6f6f6;
   border: 1px solid #b3b3b3;
+  display: ${({ isChecked }) => (isChecked ? 'block' : 'none')};
+  transition: all 0.3 ease;
 `;
 
 const StyledLabel = styled.p`
@@ -45,13 +59,22 @@ const StyledError = styled.p`
 `;
 
 const ErrorResult: FC<Props> = (props) => {
+  const [isChecked, setIsChecked] = useState(false);
   return (
     <StyledBox>
       <StyledIconWrapper>
         <FiAlertOctagon size={90} color={'#d01c1c'} />
       </StyledIconWrapper>
       <StyledMessage>処理の実行に失敗しました。</StyledMessage>
-      <StyledErrorBox>
+      <StyledErrorResultAccordionInput
+        id="ErrorResultAccordion"
+        checked={isChecked}
+        onChange={(e) => setIsChecked(e.target.checked)}
+      />
+      <StyledErrorResultAccordionInputLabel htmlFor="ErrorResultAccordion">
+        {isChecked ? 'エラー内容を表示しない。' : 'エラー内容を表示する。'}
+      </StyledErrorResultAccordionInputLabel>
+      <StyledErrorBox isChecked={isChecked}>
         <StyledLabel>エラーコード</StyledLabel>
         <StyledError>{props.result.code}</StyledError>
         <StyledLabel>エラーメッセージ</StyledLabel>
