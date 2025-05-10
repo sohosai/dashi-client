@@ -10,6 +10,7 @@ import { useFetchRegisterColor } from '../../../hooks/useFetchRegisterColor';
 import { MuiColorInput } from 'mui-color-input';
 import styled from 'styled-components';
 import { StyledInput } from '../../../global';
+import { StyledErrorMessageWrapper } from '../../../global';
 
 type Props = {
   setResult: Dispatch<SetStateAction<OkResponse | ErrorResponse | Pending | null>>;
@@ -82,12 +83,6 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
-const StyledErrorMessageWrapper = styled.div`
-  height: 0px;
-  font-size: 1.4rem;
-  font-weight: bold;
-`;
-
 const RegisterColorForm: FC<Props> = (props) => {
   const {
     register,
@@ -114,7 +109,7 @@ const RegisterColorForm: FC<Props> = (props) => {
         <StyledInput id="name" type="text" {...register('name')} />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
+          <ErrorMessage errors={errors} name="name" message={errors.name?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledLabel htmlFor="hex_color_code">Hex Color Code</StyledLabel>
@@ -125,7 +120,7 @@ const RegisterColorForm: FC<Props> = (props) => {
         />
         <br />
         <StyledErrorMessageWrapper>
-        <ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} />
+          <ErrorMessage errors={errors} name="hex_color_code" message={errors.hex_color_code?.message} />
         </StyledErrorMessageWrapper>
         <br />
         <StyledSubmitWrapper>

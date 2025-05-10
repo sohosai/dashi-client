@@ -5,6 +5,7 @@ import { FC } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import { searchColorSchema, SearchColorSchemaType } from '../../../validations/searchColor';
 import styled from 'styled-components';
+import { StyledErrorMessageWrapper } from '../../../global';
 
 type Props = {
   keywords: string;
@@ -42,13 +43,10 @@ const StyledSubmitInput = styled.input`
   cursor: pointer;
 `;
 
-const StyledErrorMessageWrapper = styled.div`
+const StyledCenterErrorMessageWrapper = styled(StyledErrorMessageWrapper)`
   display: block;
   text-align: center;
-  height: 0px;
-  font-size: 1.4rem;
-  font-weight: bold;
-`
+`;
 
 const SearchColorForm: FC<Props> = (props) => {
   const navigate = useNavigate();
@@ -70,9 +68,9 @@ const SearchColorForm: FC<Props> = (props) => {
   return (
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchInput id="keywords" type="text" {...register('keywords')} placeholder="Search" />
-      <StyledErrorMessageWrapper>
-      <ErrorMessage errors={errors} name="keywords" message={errors.keywords?.message} />
-      </StyledErrorMessageWrapper>
+      <StyledCenterErrorMessageWrapper>
+        <ErrorMessage errors={errors} name="keywords" message={errors.keywords?.message} />
+      </StyledCenterErrorMessageWrapper>
       <br />
       <br />
       <StyledSubmitWrapper>
