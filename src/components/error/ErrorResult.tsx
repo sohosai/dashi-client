@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ErrorResponse } from '../../models/errorResponse';
 import { FiAlertOctagon } from 'react-icons/fi';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState, useId } from 'react';
 
 type Props = {
   result: ErrorResponse;
@@ -60,6 +60,7 @@ const StyledError = styled.p`
 
 const ErrorResult: FC<Props> = (props) => {
   const [isChecked, setIsChecked] = useState(false);
+  const ErrorResultAccordionId = useId();
   return (
     <StyledBox>
       <StyledIconWrapper>
@@ -67,11 +68,11 @@ const ErrorResult: FC<Props> = (props) => {
       </StyledIconWrapper>
       <StyledMessage>処理の実行に失敗しました。</StyledMessage>
       <StyledErrorResultAccordionInput
-        id="ErrorResultAccordion"
+        id={ErrorResultAccordionId}
         checked={isChecked}
         onChange={(e) => setIsChecked(e.target.checked)}
       />
-      <StyledErrorResultAccordionInputLabel htmlFor="ErrorResultAccordion">
+      <StyledErrorResultAccordionInputLabel htmlFor={ErrorResultAccordionId}>
         {isChecked ? 'エラー内容を表示しない。' : 'エラー内容を表示する。'}
       </StyledErrorResultAccordionInputLabel>
       <StyledErrorBox isChecked={isChecked}>
