@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { imageItemSchema, ImageItemSchemaType } from './imageItem';
+// import { imageItemSchema, ImageItemSchemaType } from './imageItem';
 
 describe('imageItemSchemaのバリデーション', () => {
   test.concurrent('test', () => {
