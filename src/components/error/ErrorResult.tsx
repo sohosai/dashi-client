@@ -29,9 +29,9 @@ const StyledErrorResultAccordionInput = styled.input.attrs({ type: 'checkbox' })
   display: none;
 `;
 
-const StyledErrorResultAccordionInputLabel = styled.label`
+const StyledErrorResultAccordionInputButton = styled.button`
   margin: auto;
-  padding: 0;
+  padding: 0 5px;
   font-size: 1.6rem;
   text-align: center;
 `;
@@ -66,14 +66,10 @@ const ErrorResult: FC<Props> = (props) => {
         <FiAlertOctagon size={90} color={'#d01c1c'} />
       </StyledIconWrapper>
       <StyledMessage>処理の実行に失敗しました。</StyledMessage>
-      <StyledErrorResultAccordionInput
-        id="ErrorResultAccordion"
-        checked={isChecked}
-        onChange={(e) => setIsChecked(e.target.checked)}
-      />
-      <StyledErrorResultAccordionInputLabel htmlFor="ErrorResultAccordion">
+      <StyledErrorResultAccordionInput checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
+      <StyledErrorResultAccordionInputButton onClick={() => setIsChecked((prev) => !prev)}>
         {isChecked ? 'エラー内容を表示しない。' : 'エラー内容を表示する。'}
-      </StyledErrorResultAccordionInputLabel>
+      </StyledErrorResultAccordionInputButton>
       <StyledErrorBox isChecked={isChecked}>
         <StyledLabel>エラーコード</StyledLabel>
         <StyledError>{props.result.code}</StyledError>
