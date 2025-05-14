@@ -103,7 +103,11 @@ const UpdateRentalModal: FC<Props> = (props) => {
         ) : (
           // fetch結果
           <>
-            <button onClick={handleRedirect}>Close</button>
+            <StyledCloseButtonWrapper>
+              <StyledCloseButton onClick={handleRedirect}>
+                <TfiClose style={{ width: '30px', height: '30px' }} />
+              </StyledCloseButton>
+            </StyledCloseButtonWrapper>
             <UpdateRentalResult result={result} />
           </>
         )}
