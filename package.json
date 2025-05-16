@@ -24,6 +24,7 @@
     "@emotion/styled": "^11.14.0",
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^4.1.0",
+    "@mock-filelist/filelist": "^0.0.1",
     "@mui/material": "^7.0.0",
     "@mui/x-date-pickers": "^7.27.1",
     "@react-pdf/renderer": "^4.2.2",
