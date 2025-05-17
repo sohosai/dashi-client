@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { imageItemSchema, ImageItemSchemaType } from './imageItem';
 import { LocalFileListBuilder } from '@mock-filelist/filelist';
-import { createLargeImageFileList } from '../../test_assets/createLargeImageSample';
+import { createLargeImageFileList } from './test_utils/createLargeImageSample';
 
 describe('imageItemSchemaのバリデーション', () => {
   test.concurrent('有効な入力: 添付画像が1枚の場合', () => {

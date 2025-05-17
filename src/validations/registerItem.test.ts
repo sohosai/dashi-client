@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { registerItemSchema, RegisterItemSchemaType } from './registerItem';
 import { LocalFileListBuilder } from '@mock-filelist/filelist';
-import { createLargeImageFileList } from '../../test_assets/createLargeImageSample';
+import { createLargeImageFileList } from './test_utils/createLargeImageSample';
 
 describe('registerItem.testのバリデーション', () => {
   test.concurrent('有効な入力: 正常に物品登録ができた場合', () => {
