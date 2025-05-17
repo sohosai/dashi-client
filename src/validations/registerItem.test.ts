@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { registerItemSchema, RegisterItemSchemaType } from './registerItem';
 import { LocalFileListBuilder } from '@mock-filelist/filelist';
+import { createLargeImageFileList } from '../../test_assets/createLargeImageSample';
 
 describe('registerItem.testのバリデーション', () => {
   test.concurrent('有効な入力: 正常に物品登録ができた場合', () => {
@@ -191,10 +192,8 @@ describe('registerItem.testのバリデーション', () => {
     const result = registerItemSchema.safeParse(validInput);
     expect(result.success).toBe(false);
   });
-  test.concurrent('無効な入力: 添付画像の容量が100MBを超える場合', () => {
-    let filelist: FileList = new LocalFileListBuilder()
-      .addFile({ filePath: 'test_assets/heavy_sample.png', name: 'heavy_sample.png', mimeType: 'image/png' })
-      .build();
+  test.concurrent('無効な入力: 添付画像の容量が100MBを超える場合', async () => {
+    const LargeImageFileList = await createLargeImageFileList(120); //120MB
     const validInput: RegisterItemSchemaType = {
       name: 'テストアイテム',
       visible_id: '00BB',
@@ -207,7 +206,7 @@ describe('registerItem.testのバリデーション', () => {
       is_depreciation: true,
       connector: [{ connector: 'HDMIオス' }, { connector: 'USB-Aオス' }],
       color: [{ color: 'red' }, { color: 'black' }],
-      image: filelist,
+      image: LargeImageFileList,
     };
     const result = registerItemSchema.safeParse(validInput);
     expect(result.success).toBe(false);

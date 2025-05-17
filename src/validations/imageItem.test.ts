@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'vitest';
 import { imageItemSchema, ImageItemSchemaType } from './imageItem';
 import { LocalFileListBuilder } from '@mock-filelist/filelist';
+import { createLargeImageFileList } from '../../test_assets/createLargeImageSample';
 
 describe('imageItemSchemaのバリデーション', () => {
   test.concurrent('有効な入力: 添付画像が1枚の場合', () => {
@@ -32,13 +33,10 @@ describe('imageItemSchemaのバリデーション', () => {
     const result = imageItemSchema.safeParse(validInput);
     expect(result.success).toBe(false);
   });
-  test.concurrent('無効な入力: 添付画像の容量が100MBを超える場合', () => {
-    //準備中！！
-    let filelist: FileList = new LocalFileListBuilder()
-      .addFile({ filePath: 'test_assets/heavy_sample.png', name: 'heavy_sample.png', mimeType: 'image/png' })
-      .build();
+  test.concurrent('無効な入力: 添付画像の容量が100MBを超える場合', async () => {
+    const LargeImageFileList = await createLargeImageFileList(120); //120MB
     const validInput: ImageItemSchemaType = {
-      image: filelist,
+      image: LargeImageFileList,
     };
     const result = imageItemSchema.safeParse(validInput);
     expect(result.success).toBe(false);
