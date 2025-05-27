@@ -25,6 +25,7 @@ export const useFetchUpdateColor = async (
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color/${id}`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

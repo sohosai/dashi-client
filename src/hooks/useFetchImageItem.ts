@@ -12,6 +12,7 @@ export const useFetchImageItem = async (id: number, data: ImageItemSchemaType): 
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/image/${id}`,
     {
       method: 'PUT',
+      credentials: 'include',
       body: formData,
     }
   )

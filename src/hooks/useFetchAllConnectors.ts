@@ -13,6 +13,7 @@ export const useFetchAllConnectors = (): ErrorResponse | Pending | AllConnectors
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
         {
           method: 'GET',
+          credentials: 'include',
         }
       )
         .then((res) => {

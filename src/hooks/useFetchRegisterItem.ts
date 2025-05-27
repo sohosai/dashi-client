@@ -50,6 +50,7 @@ export const useFetchRegisterItem = async (data: RegisterItemSchemaType): Promis
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/register`,
     {
       method: 'POST',
+      credentials: 'include',
       body: formData,
     }
   )

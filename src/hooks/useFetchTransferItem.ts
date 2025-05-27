@@ -20,6 +20,7 @@ export const useFetchTransferItem = async (id: number, parent_id: number): Promi
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/transfer`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

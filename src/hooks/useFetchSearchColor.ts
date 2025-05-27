@@ -14,6 +14,7 @@ export const useFetchSearchColor = (keywords: string): SearchColorsResponse | Er
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color/search?keywords=${keywords}`,
           {
             method: 'GET',
+            credentials: 'include',
           }
         )
           .then((res) => {

@@ -8,6 +8,7 @@ export const useFetchReplaceRental = async (id: number): Promise<OkResponse | Er
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/replace/${id}`,
     {
       method: 'PATCH',
+      credentials: 'include',
     }
   )
     .then((res) => {

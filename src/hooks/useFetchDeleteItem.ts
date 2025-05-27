@@ -8,6 +8,7 @@ export const useFetchDeleteItem = async (id: number): Promise<OkResponse | Error
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/delete/${id}`,
     {
       method: 'DELETE',
+      credentials: 'include',
     }
   )
     .then((res) => {

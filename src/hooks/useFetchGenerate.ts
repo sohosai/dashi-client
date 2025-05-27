@@ -13,6 +13,7 @@ export const useFetchGenerate = async (quantity: number, record: Record): Promis
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/generate`,
     {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

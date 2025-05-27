@@ -12,6 +12,7 @@ export const useFetchSearchItemWithoutUseEffect = async (
     // send
     result = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`, {
       method: 'GET',
+      credentials: 'include',
     })
       .then((res) => {
         if (res.status === 200) {

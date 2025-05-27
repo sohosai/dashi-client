@@ -13,6 +13,7 @@ export const useFetchTrashItems = (): AllTrashItemsResponse | ErrorResponse | Pe
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/trash`,
         {
           method: 'GET',
+          credentials: 'include',
         }
       )
         .then((res) => {

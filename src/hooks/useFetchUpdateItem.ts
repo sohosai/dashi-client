@@ -31,6 +31,7 @@ export const useFetchUpdateItem = async (
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/update/${id}`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

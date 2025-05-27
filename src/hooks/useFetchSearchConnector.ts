@@ -14,6 +14,7 @@ export const useFetchSearchConnector = (keywords: string): SearchConnectorsRespo
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/search?keywords=${keywords}`,
           {
             method: 'GET',
+            credentials: 'include',
           }
         )
           .then((res) => {

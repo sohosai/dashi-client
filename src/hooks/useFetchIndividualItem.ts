@@ -14,6 +14,7 @@ export const useFetchIndividualItem = (id: string | undefined): IndividualItemRe
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/${id}`,
           {
             method: 'GET',
+            credentials: 'include',
           }
         )
           .then((res) => {

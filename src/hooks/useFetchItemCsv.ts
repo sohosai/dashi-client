@@ -8,6 +8,7 @@ export const useFetchItemCsv = async (): Promise<ItemCsvResponse | ErrorResponse
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/csv/item`,
     {
       method: 'GET',
+      credentials: 'include',
     }
   )
     .then((res) => {

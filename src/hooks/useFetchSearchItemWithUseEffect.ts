@@ -14,6 +14,7 @@ export const useFetchSearchItemWithUseEffect = (keywords: string): SearchItemsRe
           `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/item/search?keywords=${keywords}`,
           {
             method: 'GET',
+            credentials: 'include',
           }
         )
           .then((res) => {

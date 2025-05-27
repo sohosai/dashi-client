@@ -15,6 +15,7 @@ export const useFetchRegisterConnector = async (
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector`,
     {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

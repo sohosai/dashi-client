@@ -14,6 +14,7 @@ export const useFetchAllRentalItems = (): AllRentalItemsResponse | ErrorResponse
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/all`,
         {
           method: 'GET',
+          credentials: 'include',
         }
       )
         .then((res) => {

@@ -16,6 +16,7 @@ export const useFetchStatusConnector = async (id: number, status: Status) => {
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/connector/${id}`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

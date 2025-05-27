@@ -8,6 +8,7 @@ export const useFetchDepreiationCsv = async (): Promise<DepreiationCsvResponse |
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/csv/depreiation`,
     {
       method: 'GET',
+      credentials: 'include',
     }
   )
     .then((res) => {

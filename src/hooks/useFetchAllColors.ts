@@ -13,6 +13,7 @@ export const useFetchAllColors = (): AllColorsResponse | ErrorResponse | Pending
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color`,
         {
           method: 'GET',
+          credentials: 'include',
         }
       )
         .then((res) => {

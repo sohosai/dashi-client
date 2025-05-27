@@ -17,6 +17,7 @@ export const useFetchUpdateRental = async (id: number, data: RentalSchemaType): 
     `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/rental/update/${id}`,
     {
       method: 'PATCH',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
