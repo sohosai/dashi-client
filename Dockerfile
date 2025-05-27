@@ -36,7 +36,7 @@ RUN \
 
 # Production image, copy all the files and run react
 FROM nginx:alpine AS runner
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx/dashi.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
