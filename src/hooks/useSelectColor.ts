@@ -13,6 +13,7 @@ export const useSelectColor = (): AllSelectColorResponse | ErrorResponse | Pendi
         `${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color`,
         {
           method: 'GET',
+          credentials: 'include',
         }
       )
         .then((res) => {
