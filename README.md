@@ -29,7 +29,7 @@ https://sohosai.github.io/dashi-client/coverage/
 
 #### 1. `.env`と`.env.sentry-build-plugin`
 
-シークレットな情報のため、詳細はvaultwardenを参照
+シークレットな情報のため、詳細は担当に聞くこと
 
 #### 2. `npm i`
 
