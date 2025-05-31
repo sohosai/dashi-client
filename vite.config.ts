@@ -13,7 +13,7 @@ export default defineConfig({
   preview: {
     port: 3000,
     strictPort: true,
-    allowedHosts: ['localhost', 'dashi.sohosai.com'],
+    allowedHosts: ['localhost', 'dashi-api.sohosai.com'],
   },
   plugins: [
     react(),
