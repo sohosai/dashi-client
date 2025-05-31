@@ -11,7 +11,6 @@ import { Record } from '../../models/record';
 import styled from 'styled-components';
 import Select, { StylesConfig } from 'react-select';
 import { StyledInput } from '../../global';
-import { StyledForm } from '../../global';
 import { StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
@@ -86,6 +85,16 @@ const styleSelect: StylesConfig<RecordOption> = {
 StyledBoxの履歴
 */
 
+const StyledGenerateForm = styled.form`
+  max-width: 369px;
+  margin: auto;
+  //margin: 0 だと中央揃えにならなかったのでautoに変更しました。
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+`;
+
 const StyledLabel = styled.label`
   display: block;
   font-size: 1.6rem;
@@ -130,7 +139,7 @@ const GenerateForm: FC<Props> = (props) => {
     props.setResult(result);
   };
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledGenerateForm onSubmit={handleSubmit(onSubmit)}>
       <StyledLabel htmlFor="quantity">Quantity</StyledLabel>
       <StyledInput id="quantity" type="number" {...register('quantity')} />
       <StyledErrorMessageWrapper>
@@ -164,7 +173,7 @@ const GenerateForm: FC<Props> = (props) => {
       <StyledSubmitWrapper>
         <StyledSubmitInput type="submit" value="生成" />
       </StyledSubmitWrapper>
-    </StyledForm>
+    </StyledGenerateForm>
   );
 };
 

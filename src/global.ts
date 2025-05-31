@@ -15,15 +15,8 @@ export const StyledInput = styled.input`
   }
 `;
 
-export const StyledForm = styled.form`
-  max-width: 369px;
-  margin: auto;
-  //margin: 0 だと中央揃えにならなかったのでautoに変更しました。
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  //align-items: center;
-  // GlobalのStyledFormはGenerateのみで使用中
+export const StyledSearchForm = styled.form`
+  margin: 60px auto 0 auto;
 `;
 
 export const StyledResultInModalWrapper = styled.div`
