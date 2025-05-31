@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/115</span>
+                <span class='fraction'>0/116</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/115</span>
+                <span class='fraction'>0/116</span>
             </div>
         
             
@@ -234,7 +234,16 @@
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
 <a name='L171'></a><a href='#L171'>171</a>
-<a name='L172'></a><a href='#L172'>172</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -248,7 +257,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -312,6 +320,16 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -418,7 +436,6 @@ import { Record } from '../../models/record';
 <span class="cstat-no" title="statement not covered" >import styled from 'styled-components';</span>
 <span class="cstat-no" title="statement not covered" >import Select, { StylesConfig } from 'react-select';</span>
 <span class="cstat-no" title="statement not covered" >import { StyledInput } from '../../global';</span>
-<span class="cstat-no" title="statement not covered" >import { StyledForm } from '../../global';</span>
 <span class="cstat-no" title="statement not covered" >import { StyledErrorMessageWrapper } from '../../global';</span>
 &nbsp;
 type Props = {
@@ -493,6 +510,16 @@ type RecordOption = {
 StyledBoxの履歴
 <span class="cstat-no" title="statement not covered" >*/</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >const StyledGenerateForm = styled.form`</span>
+  max-width: 369px;
+  margin: auto;
+  //margin: 0 だと中央揃えにならなかったのでautoに変更しました。
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  //align-items: center;
+<span class="cstat-no" title="statement not covered" >`;</span>
+&nbsp;
 <span class="cstat-no" title="statement not covered" >const StyledLabel = styled.label`</span>
   display: block;
   font-size: 1.6rem;
@@ -537,7 +564,7 @@ StyledBoxの履歴
 <span class="cstat-no" title="statement not covered" >    props.setResult(result);</span>
 <span class="cstat-no" title="statement not covered" >  };</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;StyledForm onSubmit={handleSubmit(onSubmit)}&gt;</span>
+<span class="cstat-no" title="statement not covered" >    &lt;StyledGenerateForm onSubmit={handleSubmit(onSubmit)}&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;StyledLabel htmlFor="quantity"&gt;Quantity&lt;/StyledLabel&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;StyledInput id="quantity" type="number" {...register('quantity')} /&gt;</span>
 <span class="cstat-no" title="statement not covered" >      &lt;StyledErrorMessageWrapper&gt;</span>
@@ -571,7 +598,7 @@ StyledBoxの履歴
 <span class="cstat-no" title="statement not covered" >      &lt;StyledSubmitWrapper&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;StyledSubmitInput type="submit" value="生成" /&gt;</span>
       &lt;/StyledSubmitWrapper&gt;
-    &lt;/StyledForm&gt;
+    &lt;/StyledGenerateForm&gt;
   );
 <span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
@@ -583,7 +610,7 @@ StyledBoxの履歴
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-30T13:52:50.453Z
+                at 2025-05-31T08:40:49.419Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
