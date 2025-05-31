@@ -5,15 +5,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FC } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import styled from 'styled-components';
-import { StyledErrorMessageWrapper } from '../../global';
+import { StyledSearchForm, StyledErrorMessageWrapper } from '../../global';
 
 type Props = {
   keywords: string;
 };
-
-const StyledForm = styled.form`
-  margin: 60px auto 0 auto;
-`;
 
 const StyledSearchInput = styled.input`
   height: 40px;
@@ -66,7 +62,7 @@ const SearchItemForm: FC<Props> = (props) => {
     navigate(`?keywords=${formData.keywords}`);
   };
   return (
-    <StyledForm onSubmit={handleSubmit(onSubmit)}>
+    <StyledSearchForm onSubmit={handleSubmit(onSubmit)}>
       <StyledSearchInput id="keywords" type="text" {...register('keywords')} placeholder="キーワードで検索" />
       <StyledCenterErrorMessageWrapper>
         <ErrorMessage errors={errors} name="keywords" message={errors.keywords?.message} />
@@ -76,7 +72,7 @@ const SearchItemForm: FC<Props> = (props) => {
       <StyledSubmitWrapper>
         <StyledSubmitInput type="submit" value="物品検索" />
       </StyledSubmitWrapper>
-    </StyledForm>
+    </StyledSearchForm>
   );
 };
 
