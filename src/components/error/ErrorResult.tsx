@@ -36,13 +36,13 @@ const StyledErrorResultAccordionInputButton = styled.button`
   text-align: center;
 `;
 
-const StyledErrorBox = styled.div<{ isChecked: boolean }>`
+const StyledErrorBox = styled.div<{ $isChecked: boolean }>`
   width: fit-content;
   margin: 7px auto 0 auto;
   padding: 5px 15px;
   background-color: #f6f6f6;
   border: 1px solid #b3b3b3;
-  display: ${({ isChecked }) => (isChecked ? 'block' : 'none')};
+  display: ${({ $isChecked }) => ($isChecked ? 'block' : 'none')};
   transition: all 0.3 ease;
 `;
 
@@ -70,7 +70,7 @@ const ErrorResult: FC<Props> = (props) => {
       <StyledErrorResultAccordionInputButton onClick={() => setIsChecked((prev) => !prev)}>
         {isChecked ? 'エラー内容を表示しない。' : 'エラー内容を表示する。'}
       </StyledErrorResultAccordionInputButton>
-      <StyledErrorBox isChecked={isChecked}>
+      <StyledErrorBox $isChecked={isChecked}>
         <StyledLabel>エラーコード</StyledLabel>
         <StyledError>{props.result.code}</StyledError>
         <StyledLabel>エラーメッセージ</StyledLabel>
