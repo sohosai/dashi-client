@@ -12,6 +12,7 @@ export const useFetchRegisterColor = async (data: RegisterColorSchemaType): Prom
   // send
   const result: OkResponse | ErrorResponse = await fetch(`${import.meta.env.VITE_DASHI_SERVER_ENDPOINT}/api/color`, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },
