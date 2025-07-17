@@ -4,10 +4,6 @@
   <img src="https://github.com/sohosai/dashi-client/blob/main/assets/dashi.svg" width="300px" height="300px" />
 </div>
 
-## dashi
-
-https://dashi.sohosai.com
-
 ## storybook
 
 https://sohosai.github.io/dashi-client/
