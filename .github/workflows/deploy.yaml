@@ -35,9 +35,9 @@ jobs:
         with:
           push: true
           build-args: |
-            VITE_DASHI_SERVER_ENDPOINT=${{ vars.VITE_DASHI_SERVER_ENDPOINT }}
+            VITE_DASHI_SERVER_ENDPOINT=${{ secrets.VITE_DASHI_SERVER_ENDPOINT }}
             VITE_SENTRY_DSN=${{ secrets.VITE_SENTRY_DSN }}
-            VITE_CLOUDFLARE_R2_IMAGE_URI=${{ vars.VITE_CLOUDFLARE_R2_IMAGE_URI }}
+            VITE_CLOUDFLARE_R2_IMAGE_URI=${{ secrets.VITE_CLOUDFLARE_R2_IMAGE_URI }}
             SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
             SENTRY_ORG=${{ secrets.SENTRY_ORG }}
             SENTRY_PROJECT=${{ secrets.SENTRY_PROJECT }}
