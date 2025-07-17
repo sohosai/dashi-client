@@ -13,7 +13,9 @@ export default defineConfig({
   preview: {
     port: 3000,
     strictPort: true,
-    allowedHosts: ['localhost', 'dashi-api.sohosai.com'],
+    allowedHosts: ['localhost', process.env.DASHI_SERVER_ORIGIN, process.env.CLOUDFLARE_R2_BUCKET_ORIGIN].filter(
+      (host): host is string => typeof host === 'string'
+    ),
   },
   plugins: [
     react(),
